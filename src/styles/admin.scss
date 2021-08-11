@@ -1,0 +1,17 @@
+/**
+ * All of the CSS for your dashboard-specific functionality should be
+ * included in this file.
+ */
+@charset "UTF-8";
+
+// Abstracts
+@import "abstracts/__abstracts-dir";
+
+// Base Styles
+@import "base/admin/__base-dir";
+
+// Components
+@import 'components/admin/__components-dir';
+
+// Layouts
+@import "layouts/admin/__layouts-dir";

@@ -1,0 +1,22 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+@charset "UTF-8";
+
+// Abstracts
+@import "abstracts/__abstracts-dir";
+
+// Base Styles
+@import "base/frontend/__base-dir";
+
+// Components
+@import 'components/frontend/__components-dir';
+
+// Layouts
+@import "layouts/frontend/__layouts-dir";
+
+.cdxn-ig-container{
+	// background: #000;
+	// overflow: hidden;
+}

@@ -1,0 +1,39 @@
+/* ==========================================================================
+	Global Admin CSS
+   ========================================================================== */
+
+.field-box-shadow {
+	// @extend %field-box-shadow;
+}
+
+.field-border {
+	// @extend %field-border;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+.d-flex{
+	display: flex;
+}
+.flex-wrap{
+	flex-wrap: wrap;
+}
+.two-col {
+	@extend %d-flex;
+	align-items: center;
+}
+
+.justify-content-end{
+	justify-content: flex-end;
+}
+
+.align-items-start{
+	align-items:flex-start;
+}
+
+.justify-content-start{
+	justify-content: flex-start;
+}
+

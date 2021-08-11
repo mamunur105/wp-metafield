@@ -1,0 +1,31 @@
+/* ==========================================================================
+	Global Frontend CSS
+   ========================================================================== */
+
+
+.d-flex{
+	display: flex;
+}
+
+.flex-wrap{
+	flex-wrap: wrap;
+}
+.justify-content-center{
+	justify-content: center;
+}
+.justify-content-left{
+	justify-content: start;
+}
+.justify-content-end{
+	justify-content: flex-end;
+}
+.no-lightbox{
+	cursor: default;
+	pointer-events: none;
+}
+.cdxn-ig-lightbox{
+	cursor: pointer;
+}
+
+
+

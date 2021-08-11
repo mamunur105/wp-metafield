@@ -1,0 +1,65 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+/* This CSS will print because %message-shared is extended. */
+/* ==========================================================================
+	Global Frontend CSS
+   ========================================================================== */
+.d-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.justify-content-left {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+}
+
+.justify-content-end {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.no-lightbox {
+    cursor: default;
+    pointer-events: none;
+}
+
+.cdxn-ig-lightbox {
+    cursor: pointer;
+}
+
+/*
+This file is used to contain all component imports.
+Files inside this folder should contain all styles relating
+to a reusable component.
+*/
+/*
+This file is used to contain all layout imports.
+Files inside this folder should contain all styles relating
+to a reusable layout.
+*/
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZyb250ZW5kLnNjc3MiLCJmcm9udGVuZC5jc3MiLCJhYnN0cmFjdHMvX3BsYWNlaG9sZGVyLnNjc3MiLCJiYXNlL2Zyb250ZW5kL19nbG9iYWwuc2NzcyIsImNvbXBvbmVudHMvZnJvbnRlbmQvX19jb21wb25lbnRzLWRpci5zY3NzIiwibGF5b3V0cy9mcm9udGVuZC9fX2xheW91dHMtZGlyLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7OztFQ0dFO0FDSEYsNkRBQUE7QUNBQTs7K0VGTytFO0FFRi9FO0VBQ0Msb0JBQWE7RUFBYixxQkFBYTtFQUFiLG9CQUFhO0VBQWIsYUFBYTtBRklkOztBRURBO0VBQ0MsdUJBQWU7TUFBZixtQkFBZTtVQUFmLGVBQWU7QUZJaEI7O0FFRkE7RUFDQyx3QkFBdUI7RUFBdkIsK0JBQXVCO01BQXZCLHFCQUF1QjtVQUF2Qix1QkFBdUI7QUZLeEI7O0FFSEE7RUFDQyx1QkFBc0I7RUFBdEIsOEJBQXNCO01BQXRCLG9CQUFzQjtVQUF0QixzQkFBc0I7QUZNdkI7O0FFSkE7RUFDQyxxQkFBeUI7RUFBekIsaUNBQXlCO01BQXpCLGtCQUF5QjtVQUF6Qix5QkFBeUI7QUZPMUI7O0FFTEE7RUFDQyxlQUFlO0VBQ2Ysb0JBQW9CO0FGUXJCOztBRU5BO0VBQ0MsZUFBZTtBRlNoQjs7QUduQ0E7Ozs7Q0h5Q0M7QUl6Q0Q7Ozs7Q0o4Q0MiLCJmaWxlIjoiZnJvbnRlbmQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXHJcbiAqIEFsbCBvZiB0aGUgQ1NTIGZvciB5b3VyIHB1YmxpYy1mYWNpbmcgZnVuY3Rpb25hbGl0eSBzaG91bGQgYmVcclxuICogaW5jbHVkZWQgaW4gdGhpcyBmaWxlLlxyXG4gKi9cclxuQGNoYXJzZXQgXCJVVEYtOFwiO1xyXG5cclxuLy8gQWJzdHJhY3RzXHJcbkBpbXBvcnQgXCJhYnN0cmFjdHMvX19hYnN0cmFjdHMtZGlyXCI7XHJcblxyXG4vLyBCYXNlIFN0eWxlc1xyXG5AaW1wb3J0IFwiYmFzZS9mcm9udGVuZC9fX2Jhc2UtZGlyXCI7XHJcblxyXG4vLyBDb21wb25lbnRzXHJcbkBpbXBvcnQgJ2NvbXBvbmVudHMvZnJvbnRlbmQvX19jb21wb25lbnRzLWRpcic7XHJcblxyXG4vLyBMYXlvdXRzXHJcbkBpbXBvcnQgXCJsYXlvdXRzL2Zyb250ZW5kL19fbGF5b3V0cy1kaXJcIjtcclxuXHJcbi5jZHhuLWlnLWNvbnRhaW5lcntcclxuXHQvLyBiYWNrZ3JvdW5kOiAjMDAwO1xyXG5cdC8vIG92ZXJmbG93OiBoaWRkZW47XHJcbn0iLCIvKipcclxuICogQWxsIG9mIHRoZSBDU1MgZm9yIHlvdXIgcHVibGljLWZhY2luZyBmdW5jdGlvbmFsaXR5IHNob3VsZCBiZVxyXG4gKiBpbmNsdWRlZCBpbiB0aGlzIGZpbGUuXHJcbiAqL1xuLyogVGhpcyBDU1Mgd2lsbCBwcmludCBiZWNhdXNlICVtZXNzYWdlLXNoYXJlZCBpcyBleHRlbmRlZC4gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XHJcblx0R2xvYmFsIEZyb250ZW5kIENTU1xyXG4gICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xuLmQtZmxleCB7XG4gIGRpc3BsYXk6IGZsZXg7XG59XG5cbi5mbGV4LXdyYXAge1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG5cbi5qdXN0aWZ5LWNvbnRlbnQtY2VudGVyIHtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG5cbi5qdXN0aWZ5LWNvbnRlbnQtbGVmdCB7XG4gIGp1c3RpZnktY29udGVudDogc3RhcnQ7XG59XG5cbi5qdXN0aWZ5LWNvbnRlbnQtZW5kIHtcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcbn1cblxuLm5vLWxpZ2h0Ym94IHtcbiAgY3Vyc29yOiBkZWZhdWx0O1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuLmNkeG4taWctbGlnaHRib3gge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi8qXHJcblRoaXMgZmlsZSBpcyB1c2VkIHRvIGNvbnRhaW4gYWxsIGNvbXBvbmVudCBpbXBvcnRzLlxyXG5GaWxlcyBpbnNpZGUgdGhpcyBmb2xkZXIgc2hvdWxkIGNvbnRhaW4gYWxsIHN0eWxlcyByZWxhdGluZ1xyXG50byBhIHJldXNhYmxlIGNvbXBvbmVudC5cclxuKi9cbi8qXHJcblRoaXMgZmlsZSBpcyB1c2VkIHRvIGNvbnRhaW4gYWxsIGxheW91dCBpbXBvcnRzLlxyXG5GaWxlcyBpbnNpZGUgdGhpcyBmb2xkZXIgc2hvdWxkIGNvbnRhaW4gYWxsIHN0eWxlcyByZWxhdGluZ1xyXG50byBhIHJldXNhYmxlIGxheW91dC5cclxuKi9cbiIsIi8qIFRoaXMgQ1NTIHdpbGwgcHJpbnQgYmVjYXVzZSAlbWVzc2FnZS1zaGFyZWQgaXMgZXh0ZW5kZWQuICovXHJcbiV0cmFuc2l0aW9uIHtcclxudHJhbnNpdGlvbjogMC4zcztcclxufSIsIi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XHJcblx0R2xvYmFsIEZyb250ZW5kIENTU1xyXG4gICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xyXG5cclxuXHJcbi5kLWZsZXh7XHJcblx0ZGlzcGxheTogZmxleDtcclxufVxyXG5cclxuLmZsZXgtd3JhcHtcclxuXHRmbGV4LXdyYXA6IHdyYXA7XHJcbn1cclxuLmp1c3RpZnktY29udGVudC1jZW50ZXJ7XHJcblx0anVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuLmp1c3RpZnktY29udGVudC1sZWZ0e1xyXG5cdGp1c3RpZnktY29udGVudDogc3RhcnQ7XHJcbn1cclxuLmp1c3RpZnktY29udGVudC1lbmR7XHJcblx0anVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcclxufVxyXG4ubm8tbGlnaHRib3h7XHJcblx0Y3Vyc29yOiBkZWZhdWx0O1xyXG5cdHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG59XHJcbi5jZHhuLWlnLWxpZ2h0Ym94e1xyXG5cdGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuXHJcblxyXG4iLCIvKlxyXG5UaGlzIGZpbGUgaXMgdXNlZCB0byBjb250YWluIGFsbCBjb21wb25lbnQgaW1wb3J0cy5cclxuRmlsZXMgaW5zaWRlIHRoaXMgZm9sZGVyIHNob3VsZCBjb250YWluIGFsbCBzdHlsZXMgcmVsYXRpbmdcclxudG8gYSByZXVzYWJsZSBjb21wb25lbnQuXHJcbiovXHJcbi8vIEltcG9ydGluZyBDb21wb25lbnQgZmlsZXNcclxuLy8gQGltcG9ydCAnY3AtbW9kYWwnO1xyXG5cclxuIiwiLypcclxuVGhpcyBmaWxlIGlzIHVzZWQgdG8gY29udGFpbiBhbGwgbGF5b3V0IGltcG9ydHMuXHJcbkZpbGVzIGluc2lkZSB0aGlzIGZvbGRlciBzaG91bGQgY29udGFpbiBhbGwgc3R5bGVzIHJlbGF0aW5nXHJcbnRvIGEgcmV1c2FibGUgbGF5b3V0LlxyXG4qL1xyXG4vLyBJbXBvcnRpbmcgbGF5b3V0IGZpbGVzXHJcbi8vIEBpbXBvcnQgJ2xvLWdhbGxlcnktd3JhcHBlcic7XHJcblxyXG4iXX0= */
+
+/*# sourceMappingURL=frontend.css.map */

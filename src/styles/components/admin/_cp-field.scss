@@ -1,0 +1,36 @@
+.fields-wrapper {
+	@extend %d-flex;
+	margin: 15px 0 ;
+	.col{
+		flex: 0 0 100%;
+		max-width: 50%;
+	}
+	.field-wrapper {
+		.field{
+			width: 100%;
+			height: $field-height;
+			padding: 0 8px;
+		}
+		.textarea-field{
+			width: 100%;
+			padding: 6px 8px;
+		}
+	}
+	.checkbox-wraper {
+		width: 100%;
+	}
+	.metabox-description {
+		flex: 0 0 100%;
+	}
+	p{
+		margin-top: 3px;
+	}
+}
+
+.color-picker-wrapper span.wp-color-result-text {
+    visibility: hidden;
+}
+.selectbox-wraper{
+	width: 100%;
+
+}

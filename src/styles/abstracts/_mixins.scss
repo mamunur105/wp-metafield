@@ -1,0 +1,45 @@
+// media css 
+@mixin respond-to($media) {
+
+    @if $media == small-mobile {
+        @media only screen and (max-width: $cx-vsm-screen - 1) {
+            @content;
+        }
+    }
+
+    @else if $media == mobile {
+        @media only screen and (max-width: $cx-sm-screen - 1) {
+            @content;
+        }
+    }
+
+    @else if $media == large-mobile {
+        @media only screen and (min-width: $cx-vsm-screen) and (max-width: $cx-sm-screen - 1) {
+            @content;
+        }
+    }
+
+    @else if $media == tablet {
+        @media only screen and (min-width: $cx-sm-screen) and (max-width: $cx-md-screen - 1) {
+            @content;
+        }
+    }
+
+	@else if $media == cdxnnotebook {
+        @media only screen and (min-width: $cx-sm-screen) and (max-width: $cx-lg-screen - 1) {
+            @content;
+        }
+    }
+    @else if $media == notebook {
+        @media only screen and (min-width: $cx-md-screen) and (max-width: $cx-xlg-screen - 1) {
+            @content;
+        }
+    }
+
+    ///* not importent */
+    @else if $media == wide {
+        @media only screen and (min-width: $cx-xlg-screen) {
+            @content;
+        }
+    }
+}

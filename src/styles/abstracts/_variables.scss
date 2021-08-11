@@ -1,0 +1,44 @@
+//-------------------- Common Variables --------------------//
+$text_color  : #333;
+$color_white : #fff;
+$color_offset: #f1f1f1;
+
+//-------------------- Admin Variables --------------------//
+$admin_shortcode_bg : #f1f1f1;
+$field_select_color : #007cba;
+$field_select_color_hover: #0071a1;
+
+// Base Colors
+$shade-10: #2c3e50 !default;
+$shade-1: #d7dcdf !default;
+$shade-0: #fff !default;
+$teal: #007cba !default;
+$red:#cc1818 !default;
+$red_2nd:#710d0d !default;
+
+// Range Slider
+$range-width: 100% !default;
+
+
+$range-handle-color: $shade-10 !default;
+$range-handle-color-hover: $teal !default;
+$range-handle-size: 15px !default;
+$range-track-color: $shade-1 !default;
+$range-track-height: 10px !default;
+$range-label-color: $shade-10 !default;
+$range-label-width: 60px !default;
+$field-height : 35px;
+//-------------------- Frontend Variables --------------------//
+
+$cx-xlg-screen:					1200px !default;
+$cx-lg-screen:					1025px !default;
+$cx-md-screen: 					992px !default;
+$cx-sm-screen:					768px !default;
+$cx-vsm-screen:					576px !default;
+
+// $cx-breakpoints: (
+//     "wide":    					$cx-lg-screen,
+//     "notebook":    				$cx-md-screen,
+//     "tablet":    				$cx-sm-screen,
+//     "small-mobile": 			$cx-vsm-screen, 
+// );

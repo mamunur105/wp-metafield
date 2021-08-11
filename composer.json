@@ -1,0 +1,16 @@
+{
+    "name": "codexin/cxn-metabox",
+	"authors": [
+		{
+			"name": "Codexins",
+			"email": "info@codexin.com",
+			"homepage": "http://codexin.com/"
+		}
+    ],
+    "autoload": {
+		"psr-4": {
+			"Codexin\\MetaboxesClasses\\": "classes/"
+		},
+		"files": []
+	}
+}
