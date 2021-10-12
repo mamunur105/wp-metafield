@@ -6,9 +6,9 @@
 	"license": "GPL-2.0-or-later",
 	"main": "build/blocks/index.js",
 	"scripts": {
-		"dev": "webpack --mode development",
-		"watch": "webpack --mode development --watch",
-		"build": "webpack --mode production"
+		"dev": "webpack --mode=development",
+		"watch": "webpack --mode=development --watch",
+		"build": "webpack --mode=production"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.8",

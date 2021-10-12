@@ -1,4 +1,10 @@
 require('./index.scss');
+// require('./scripts/conditional');
+const {hello} = require('./scripts/conditional')
+// import hello from './scripts/conditional';
+
+hello();
+
 (function($) {
 	'use strict';
 

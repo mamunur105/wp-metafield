@@ -1,12 +1,12 @@
 const FileManagerPluginConfig = (production) => {
 	const Devconfig = {
 		events: {
-			onStart: {
-				delete: [
-					'./assets/scripts',
-					'./dist'
-				]
-			}
+			// onStart: {
+			// 	delete: [
+			// 		'./assets/scripts',
+			// 		'./dist'
+			// 	]
+			// }
 		}
 	}
 	const config = {

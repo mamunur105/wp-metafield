@@ -3,12 +3,14 @@ const FileManagerPlugin = require('filemanager-webpack-plugin');
 const FileManagerPluginConfig = require('./FileManagerPluginConfig');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const NodemonPlugin = require('nodemon-webpack-plugin'); // Ding
 
 
 module.exports = (env, argv) => {
 	const production = argv.mode === 'production' ;
 
 	return {
+		// watch: true,
 		entry: {
 			admin: './src/index.js'
 		},
@@ -41,6 +43,7 @@ module.exports = (env, argv) => {
 		},
 
 		plugins: [
+			// new NodemonPlugin(),
 			new MiniCssExtractPlugin(),
 			// ... Other Plugins
 			new FileManagerPlugin( FileManagerPluginConfig( production ) ),
