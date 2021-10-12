@@ -2,13 +2,13 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses\Fields;
+namespace PS\INIT\Fields;
 
-use Codexin\MetaboxesClasses\GetFields;
+use PS\INIT\GetFields;
 /**
  * Display Input.
  */
@@ -75,7 +75,7 @@ class Gallery extends GetFields {
 				</div>
 				<div class="field-wrapper flex-wrap" >
 					<div class="upload-button-wrapper">
-						<button class="upload-btn btn button-primary"><?php echo esc_html__( 'Upload', 'cxnmetabox' ); ?></button>
+						<button class="upload-btn btn button-primary"><?php echo esc_html__( 'Upload', 'psnmetabox' ); ?></button>
 					</div>
 					<ul class="preview-list d-flex flex-wrap" >
 					<?php

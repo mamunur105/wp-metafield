@@ -1,15 +1,15 @@
 {
-    "name": "codexin/cxn-metabox",
+    "name": "ps/ps-metabox",
 	"authors": [
 		{
-			"name": "Codexins",
-			"email": "info@codexin.com",
-			"homepage": "http://codexin.com/"
+			"name": "Picosoft Solutions ",
+			"email": "info@picosoft.com",
+			"homepage": "http://picosoft.com/"
 		}
     ],
     "autoload": {
 		"psr-4": {
-			"Codexin\\MetaboxesClasses\\": "classes/"
+			"PS\\INIT\\": "classes/"
 		},
 		"files": []
 	}

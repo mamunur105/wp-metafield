@@ -39,8 +39,8 @@ Uses :
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
 /**
@@ -60,28 +60,28 @@ function testing_metadata_( $meta_boxes ) {
 		'desc'
 	*/
 	$meta_boxes[] = array(
-		'id'         => 'codexin_page_header_footer',
-		'title'      => esc_html__( 'Container 1', 'codexin' ),
+		'id'         => 'picosoft_page_header_footer',
+		'title'      => esc_html__( 'Container 1', 'picosoft' ),
 		'post_types' => array( 'post' ),
 		'context'    => 'normal',
 		'priority'   => 'high',
-		'classes'    => 'codexin-metabox-wrapper',
+		'classes'    => 'picosoft-metabox-wrapper',
 		'fields'     => array(
 			// Gallery field is under construction.
 			array(
 				'id'      => 'toggleswitch_2',
-				'title'   => esc_html__( 'Switch', 'codexin' ),
+				'title'   => esc_html__( 'Switch', 'picosoft' ),
 				'type'    => 'toggleswitch',
 				'class'   => 'testname',
 				'true'    => 'TRUE',
 				'false'   => 'FALSE',
 				'default' => 'false', // true or false.
-				'desc'    => esc_html__( 'Checking toggleswitch Field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking toggleswitch Field', 'picosoft' ),
 			),
 			array(
 				'id'       => 'editor_11',
-				'title'    => esc_html__( 'Editor field', 'codexin' ),
-				'subtitle' => esc_html__( 'Editor Subtitle', 'codexin' ),
+				'title'    => esc_html__( 'Editor field', 'picosoft' ),
+				'subtitle' => esc_html__( 'Editor Subtitle', 'picosoft' ),
 				'type'     => 'editor',
 				'condition'  => array(
 					'field'   => 'toggleswitch_2',
@@ -90,12 +90,12 @@ function testing_metadata_( $meta_boxes ) {
 				),
 				'class'    => 'testname',
 				'default'  => 'Default value',
-				'desc'     => esc_html__( 'Checking textarea field', 'codexin' ),
+				'desc'     => esc_html__( 'Checking textarea field', 'picosoft' ),
 			),
 			array(
 				'id'       => 'gallery_1',
-				'title'    => esc_html__( 'Gallery', 'codexin' ),
-				'subtitle' => esc_html__( 'Subtitle Gallery', 'codexin' ),
+				'title'    => esc_html__( 'Gallery', 'picosoft' ),
+				'subtitle' => esc_html__( 'Subtitle Gallery', 'picosoft' ),
 				'type'     => 'gallery',
 				'condition'  => array(
 					'field'   => 'toggleswitch_2',
@@ -103,35 +103,35 @@ function testing_metadata_( $meta_boxes ) {
 					'compare' => '=',
 				),
 				'class'    => 'testname',
-				'desc'     => esc_html__( 'Checking gallery field', 'codexin' ),
+				'desc'     => esc_html__( 'Checking gallery field', 'picosoft' ),
 			),
 
 			array(
 				'id'    => 'image_',
-				'title' => esc_html__( 'image', 'codexin' ),
+				'title' => esc_html__( 'image', 'picosoft' ),
 				'type'  => 'image',
 				'class' => 'testname',
-				'desc'  => esc_html__( 'Checking image field', 'codexin' ),
+				'desc'  => esc_html__( 'Checking image field', 'picosoft' ),
 			),
 			array(
 				'id'    => 'sidebar_1',
-				'title' => esc_html__( 'sidebar', 'codexin' ),
+				'title' => esc_html__( 'sidebar', 'picosoft' ),
 				'type'  => 'sidebar',
 				'class' => 'testname',
-				'desc'  => esc_html__( 'Checking sidebar field', 'codexin' ),
+				'desc'  => esc_html__( 'Checking sidebar field', 'picosoft' ),
 			),
 			array(
 				'id'          => 'postsselect_22',
-				'title'       => esc_html__( 'Postsselect Box', 'codexin' ),
+				'title'       => esc_html__( 'Postsselect Box', 'picosoft' ),
 				'type'        => 'postsselect',
 				'class'       => 'testname',
 				'multiselect' => false,
 				'default'     => array( '2' ),
-				'desc'        => esc_html__( 'Checking postsselect field', 'codexin' ),
+				'desc'        => esc_html__( 'Checking postsselect field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'radioimage_1',
-				'title'   => esc_html__( 'Radioimage?', 'codexin' ),
+				'title'   => esc_html__( 'Radioimage?', 'picosoft' ),
 				'type'    => 'radioimage',
 				'class'   => 'testname',
 				'default' => 'iPhone',
@@ -145,11 +145,11 @@ function testing_metadata_( $meta_boxes ) {
 						'label' => 'Label 2',
 					),
 				),
-				'desc'    => esc_html__( 'Checking radioimage field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking radioimage field', 'picosoft' ),
 			),
 			array(
 				'id'          => 'multiselect_11',
-				'title'       => esc_html__( 'Multiselect Box', 'codexin' ),
+				'title'       => esc_html__( 'Multiselect Box', 'picosoft' ),
 				'type'        => 'select',
 				'class'       => 'testname',
 				'multiselect' => true,
@@ -160,50 +160,50 @@ function testing_metadata_( $meta_boxes ) {
 					'Macbook' => 'Macbook label text',
 					'iWatch'  => 'iWatch label text',
 				),
-				'desc'        => esc_html__( 'Checking multiselect field', 'codexin' ),
+				'desc'        => esc_html__( 'Checking multiselect field', 'picosoft' ),
 			),
 
 			array(
 				'id'      => 'toggleswitch_1',
-				'title'   => esc_html__( 'Toggleswitch', 'codexin' ),
+				'title'   => esc_html__( 'Toggleswitch', 'picosoft' ),
 				'type'    => 'toggleswitch',
 				'class'   => 'testname',
 				'true'    => 'YES',
 				'false'   => 'NO',
 				'default' => false, // true or false.
-				'desc'    => esc_html__( 'Checking toggleswitch Field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking toggleswitch Field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'rangeslider_2',
-				'title'   => esc_html__( 'Rangeslider', 'codexin' ),
+				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
 				'type'    => 'rangeslider',
 				'class'   => 'testname',
 				'min'     => 5,
 				'max'     => 1000,
 				'default' => 50,
-				'desc'    => esc_html__( 'Checking rangeslider Field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking rangeslider Field', 'picosoft' ),
 			),
 
 			array(
 				'id'      => 'rangeslider_1',
-				'title'   => esc_html__( 'Rangeslider', 'codexin' ),
+				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
 				'type'    => 'rangeslider',
 				'class'   => 'testname',
 				'default' => 500,
-				'desc'    => esc_html__( 'Checking rangeslider Field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking rangeslider Field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'colorpicker_1',
-				'title'   => esc_html__( 'Color Picker', 'codexin' ),
+				'title'   => esc_html__( 'Color Picker', 'picosoft' ),
 				'type'    => 'colorpicker',
 				'class'   => 'testname',
 				'default' => '#ff0000',
-				'desc'    => esc_html__( 'Checking colorpicker field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking colorpicker field', 'picosoft' ),
 			),
 
 			array(
 				'id'      => 'switchbtn_1',
-				'title'   => esc_html__( 'Switch?', 'codexin' ),
+				'title'   => esc_html__( 'Switch?', 'picosoft' ),
 				'type'    => 'switchbtn',
 				'class'   => 'testname',
 				'default' => 'iPhone',
@@ -223,29 +223,29 @@ function testing_metadata_( $meta_boxes ) {
 					'RadioSwitch-13' => 'RadioSwitch-13',
 					'RadioSwitch-14' => 'RadioSwitch-14',
 				),
-				'desc'    => esc_html__( 'Checking switchbtn field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking switchbtn field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'url_1',
-				'title'   => esc_html__( 'URL', 'codexin' ),
+				'title'   => esc_html__( 'URL', 'picosoft' ),
 				'type'    => 'url',
 				'class'   => 'testname',
 				'default' => 'Default value',
-				'desc'    => esc_html__( 'Checking url field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking url field', 'picosoft' ),
 			),
 
 			array(
 				'id'      => 'textarea_1',
-				'title'   => esc_html__( 'Textarea field', 'codexin' ),
+				'title'   => esc_html__( 'Textarea field', 'picosoft' ),
 				'type'    => 'textarea',
 				'class'   => 'testname',
 				'default' => 'Default value',
-				'desc'    => esc_html__( 'Checking textarea field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking textarea field', 'picosoft' ),
 			),
 
 			array(
 				'id'      => 'select_11',
-				'title'   => esc_html__( 'Select Box', 'codexin' ),
+				'title'   => esc_html__( 'Select Box', 'picosoft' ),
 				'type'    => 'select',
 				'class'   => 'testname',
 				'default' => 'iPhone',
@@ -255,11 +255,11 @@ function testing_metadata_( $meta_boxes ) {
 					'Macbook' => 'Macbook label text',
 					'iWatch'  => 'iWatch label text',
 				),
-				'desc'    => esc_html__( 'Checking select field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking select field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'checkbox_1',
-				'title'   => esc_html__( 'Checkbox?', 'codexin' ),
+				'title'   => esc_html__( 'Checkbox?', 'picosoft' ),
 				'type'    => 'checkbox',
 				'class'   => 'testname',
 				'default' => 'iPhone',
@@ -269,11 +269,11 @@ function testing_metadata_( $meta_boxes ) {
 					'Macbook' => 'Macbook label text',
 					'iWatch'  => 'iWatch label text',
 				),
-				'desc'    => esc_html__( 'Checking checkbox Field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking checkbox Field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'radio_1',
-				'title'   => esc_html__( 'Radio?', 'codexin' ),
+				'title'   => esc_html__( 'Radio?', 'picosoft' ),
 				'type'    => 'radio',
 				'class'   => 'testname',
 				'default' => 'iPhone',
@@ -283,23 +283,23 @@ function testing_metadata_( $meta_boxes ) {
 					'Macbook-3' => 'Macbook label text',
 					'iWatch-4'  => 'iWatch label text',
 				),
-				'desc'    => esc_html__( 'Checking radio field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking radio field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'text_1',
-				'title'   => esc_html__( 'Text field ', 'codexin' ),
+				'title'   => esc_html__( 'Text field ', 'picosoft' ),
 				'type'    => 'text',
 				'class'   => 'testname',
 				'default' => 'Default value',
-				'desc'    => esc_html__( 'Checking text field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking text field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'number_1',
-				'title'   => esc_html__( 'Number field', 'codexin' ),
+				'title'   => esc_html__( 'Number field', 'picosoft' ),
 				'type'    => 'number',
 				'class'   => 'testname',
 				'default' => 'Default value',
-				'desc'    => esc_html__( 'Checking number field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking number field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'date_1',
@@ -307,66 +307,66 @@ function testing_metadata_( $meta_boxes ) {
 				'type'    => 'date',
 				'class'   => 'testname',
 				'default' => '2021-01-30', // Y-m-d.
-				'desc'    => esc_html__( 'Checking date field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking date field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'email_1',
-				'title'   => esc_html__( 'Email field', 'codexin' ),
+				'title'   => esc_html__( 'Email field', 'picosoft' ),
 				'type'    => 'email',
 				'class'   => 'testname',
 				'default' => 'example@gmail.com',
-				'desc'    => esc_html__( 'Checking email field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking email field', 'picosoft' ),
 			),
 		), // End fields.
-	); // End codexin_page_header_footer.
+	); // End picosoft_page_header_footer.
 	$meta_boxes[] = array(
-		'id'         => 'codexin_page_header_footer_2',
-		'title'      => esc_html__( 'Container 2', 'codexin' ),
+		'id'         => 'picosoft_page_header_footer_2',
+		'title'      => esc_html__( 'Container 2', 'picosoft' ),
 		'post_types' => array( 'post' ),
 		'context'    => 'normal',
 		'priority'   => 'high',
-		'classes'    => 'codexin-metabox-wrapper',
+		'classes'    => 'picosoft-metabox-wrapper',
 		'fields'     => array(
 			array(
 				'id'      => 'toggleswitch_3',
-				'title'   => esc_html__( 'Toggleswitch', 'codexin' ),
+				'title'   => esc_html__( 'Toggleswitch', 'picosoft' ),
 				'type'    => 'toggleswitch',
 				'class'   => 'testname',
 				'true'    => 'TRUE',
 				'false'   => 'FALSE',
 				'default' => false, // true or false.
-				'desc'    => esc_html__( 'Checking toggleswitch field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking toggleswitch field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'toggleswitch_4',
-				'title'   => esc_html__( 'Toggleswitch', 'codexin' ),
+				'title'   => esc_html__( 'Toggleswitch', 'picosoft' ),
 				'type'    => 'toggleswitch',
 				'class'   => 'testname',
 				'true'    => 'YES',
 				'false'   => 'NO',
 				'default' => false, // true or false.
-				'desc'    => esc_html__( 'Checking toggleswitch field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking toggleswitch field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'rangeslider_3',
-				'title'   => esc_html__( 'Rangeslider', 'codexin' ),
+				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
 				'type'    => 'rangeslider',
 				'class'   => 'testname',
 				'default' => 500,
-				'desc'    => esc_html__( 'Checking rangeslider field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking rangeslider field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'colorpicker_3',
-				'title'   => esc_html__( 'Color Picker', 'codexin' ),
+				'title'   => esc_html__( 'Color Picker', 'picosoft' ),
 				'type'    => 'colorpicker',
 				'class'   => 'testname',
 				'default' => '#ff0000',
-				'desc'    => esc_html__( 'Checking colorpicker field', 'codexin' ),
+				'desc'    => esc_html__( 'Checking colorpicker field', 'picosoft' ),
 			),
 		), // End fields.
-	); // End codexin_page_header_footer.
+	); // End picosoft_page_header_footer.
 	return $meta_boxes;
 }
 
-add_filter( 'cdxn_meta_boxes', 'testing_metadata_', 99 );
+add_filter( 'pssmeta_boxes', 'testing_metadata_', 99 );
 ```

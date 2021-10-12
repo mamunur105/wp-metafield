@@ -29,7 +29,7 @@
 	 * be doing this, we should try to minimize doing that in our own work.
 	 */
 
-	// Cdxn gallery additional style
+	// ps gallery additional style
 
 
 

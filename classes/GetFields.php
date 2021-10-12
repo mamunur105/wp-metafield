@@ -2,11 +2,11 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses;
+namespace PS\INIT;
 
 /**
  * Display Metabox.

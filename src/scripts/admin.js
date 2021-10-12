@@ -28,7 +28,7 @@
 	 * for any particular page. Though other scripts in WordPress core, other plugins, and other themes may
 	 * be doing this, we should try to minimize doing that in our own work.
 	 */
-	var CODEXIN_METABOX = {};
+	var PS_Metaboxes = {};
 	var $window = $(window),
 		$document = $(document),
 		$select2 = $('.selectbox-wraper select'),
@@ -37,21 +37,21 @@
 		$colorpicker = $('.field-colorpicker'),
 		$conditional = $('.conditional-field');
 	// Check if element exists
-	let cxExists = (el) => el.length > 0;
+	let psExists = (el) => el.length > 0;
 
 	/************************************************************
         01 - colorpicker
     *************************************************************/
-	CODEXIN_METABOX.wpColorPicker = () => {
-		if (cxExists($colorpicker)) {
+	PS_Metaboxes.wpColorPicker = () => {
+		if (psExists($colorpicker)) {
 			$colorpicker.wpColorPicker();
 		}
 	};
 	/************************************************************
         02 - Select2 activation
     *************************************************************/
-	CODEXIN_METABOX.select2 = () => {
-		if (cxExists($select2)) {
+	PS_Metaboxes.select2 = () => {
+		if (psExists($select2)) {
 			$select2.each(function() {
 				let parent = $(this).parent('.selectbox-wraper');
 				let multiselect = parent.data('multiselect');
@@ -82,8 +82,8 @@
 	/************************************************************
         03 - imageUpload activation
     *************************************************************/
-	CODEXIN_METABOX.imageUpload = () => {
-		if (cxExists($image_upload)) {
+	PS_Metaboxes.imageUpload = () => {
+		if (psExists($image_upload)) {
 			// on upload button click
 			$image_upload.on('click', '.upload-btn', (e) => {
 				e.preventDefault();
@@ -145,8 +145,8 @@
 	/************************************************************
         03 - imageUpload activation
     *************************************************************/
-	CODEXIN_METABOX.galleryImage = () => {
-		if (cxExists($galleryimage)) {
+	PS_Metaboxes.galleryImage = () => {
+		if (psExists($galleryimage)) {
 			// on upload button click
 			$galleryimage.on('click', '.upload-btn', (e) => {
 				e.preventDefault();
@@ -241,9 +241,9 @@
 		}
 	};
 
-	CODEXIN_METABOX.checkBox = () => {
+	PS_Metaboxes.checkBox = () => {
 		let selector = $('.fields-wrapper').find( "[type=checkbox]" );
-		if (cxExists(selector)) {
+		if (psExists(selector)) {
 			selector.each(function(index, item){
 				// console.log($(item).attr('name'));
 				let curent_value =  $(item).val() ;
@@ -260,8 +260,8 @@
 		// let value = selector.val();
 		// console.log( value );
 	}
-	CODEXIN_METABOX.conditionalField = () => {
-		if (cxExists($conditional)) {
+	PS_Metaboxes.conditionalField = () => {
+		if (psExists($conditional)) {
 			$conditional.each(function(index, item){
 				let $this = $(item);
 				let required = $this.attr('data-required-value');
@@ -285,11 +285,11 @@
 	// $window.on('load', function() { });
 	// Document ready functions
 	$document.on('ready', () => {
-		CODEXIN_METABOX.wpColorPicker(),
-		CODEXIN_METABOX.select2(),
-		CODEXIN_METABOX.imageUpload(),
-		CODEXIN_METABOX.galleryImage(),
-		CODEXIN_METABOX.checkBox(),
-		CODEXIN_METABOX.conditionalField();
+		PS_Metaboxes.wpColorPicker(),
+		PS_Metaboxes.select2(),
+		PS_Metaboxes.imageUpload(),
+		PS_Metaboxes.galleryImage(),
+		PS_Metaboxes.checkBox(),
+		PS_Metaboxes.conditionalField();
 	});
 })(jQuery);

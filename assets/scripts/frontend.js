@@ -30,7 +30,7 @@
    * for any particular page. Though other scripts in WordPress core, other plugins, and other themes may
    * be doing this, we should try to minimize doing that in our own work.
    */
-  // Cdxn gallery additional style
+  // ps gallery additional style
   // navigator.userAgent.forEach(element => {
   // console.log( window.navigator.userAgent );
   // });

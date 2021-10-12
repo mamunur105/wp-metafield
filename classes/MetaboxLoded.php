@@ -2,11 +2,11 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses;
+namespace PS\INIT;
 
 /**
  * Display Metabox.
@@ -51,20 +51,20 @@ class MetaboxLoded {
 	 * Metaboxes.
 	 */
 	private function __construct() {
-		if ( ! defined( 'CDXN_MB_VERSION' ) ) {
-			define( 'CDXN_MB_VERSION', '1.0.0' );
+		if ( ! defined( 'PSSMB_VERSION' ) ) {
+			define( 'PSSMB_VERSION', '1.0.0' );
 		}
-		if ( ! defined( 'CDXN_MB_PLUGIN_NAME' ) ) {
-			define( 'CDXN_MB_PLUGIN_NAME', 'cdxn-metaboxes' );
+		if ( ! defined( 'PSSMB_PLUGIN_NAME' ) ) {
+			define( 'PSSMB_PLUGIN_NAME', 'pssmetaboxes' );
 		}
-		if ( ! defined( 'CDXN_MB_PATH' ) ) {
-			define( 'CDXN_MB_PATH', __DIR__ . '/../../' );
+		if ( ! defined( 'PSSMB_PATH' ) ) {
+			define( 'PSSMB_PATH', __DIR__ . '/../../' );
 		}
-		if ( ! defined( 'CDXN_MB_URL' ) ) {
-			define( 'CDXN_MB_URL', $this->get_url_info_from_file( CDXN_MB_PATH )['url'] );
+		if ( ! defined( 'PSSMB_URL' ) ) {
+			define( 'PSSMB_URL', $this->get_url_info_from_file( PSSMB_PATH )['url'] );
 		}
-		if ( ! defined( 'CDXN_MB_ASSETS' ) ) {
-			define( 'CDXN_MB_ASSETS', CDXN_MB_URL . 'assets' );
+		if ( ! defined( 'PSSMB_ASSETS' ) ) {
+			define( 'PSSMB_ASSETS', PSSMB_URL . 'assets' );
 		}
 		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
@@ -87,13 +87,13 @@ class MetaboxLoded {
 	 * @return void
 	 */
 	public function metaboxes() {
-		$configs = apply_filters( 'cdxn_meta_boxes', array(), 10, 1 );
+		$configs = apply_filters( 'pssmeta_boxes', array(), 10, 1 );
 		if ( is_array( $configs ) && count( $configs ) ) {
 			foreach ( $configs as $container ) {
 				if( isset( $container['tab'] ) ){
-					new CodexinMetaboxTab( $container );
+					new MetaboxTab( $container );
 				}else{
-					new CodexinMetabox( $container );
+					new Metabox( $container );
 				}
 			}
 		}
@@ -115,45 +115,45 @@ class MetaboxLoded {
 		 * hooks and the functions defined in this class.
 		 */
 		\wp_enqueue_style(
-			'cdxn-metabox',
-			CDXN_MB_ASSETS . '/styles/admin' . $this->suffix . '.css',
+			'pssmetabox',
+			PSSMB_ASSETS . '/styles/admin' . $this->suffix . '.css',
 			array(),
-			CDXN_MB_VERSION,
+			PSSMB_VERSION,
 			'all'
 		);
 		\wp_enqueue_style(
 			'select2',
-			CDXN_MB_ASSETS . '/vendor/select2.min.css',
+			PSSMB_ASSETS . '/vendor/select2.min.css',
 			array(),
-			CDXN_MB_VERSION,
+			PSSMB_VERSION,
 			'all'
 		);
 		\wp_register_script(
 			'select2',
-			CDXN_MB_ASSETS . '/vendor/select2.min.js',
+			PSSMB_ASSETS . '/vendor/select2.min.js',
 			array( 'jquery' ),
-			CDXN_MB_VERSION,
+			PSSMB_VERSION,
 			true
 		);
 		\wp_register_script(
 			'wp-color-picker-alpha',
-			CDXN_MB_ASSETS . '/vendor/wp-color-picker-alpha.min.js',
+			PSSMB_ASSETS . '/vendor/wp-color-picker-alpha.min.js',
 			array( 'jquery', 'wp-color-picker' ),
-			CDXN_MB_VERSION,
+			PSSMB_VERSION,
 			true
 		);
 		\wp_register_script(
 			'range-slider',
-			CDXN_MB_ASSETS . '/vendor/range-slider.js',
+			PSSMB_ASSETS . '/vendor/range-slider.js',
 			array(),
-			CDXN_MB_VERSION,
+			PSSMB_VERSION,
 			true
 		);
 		\wp_enqueue_script(
-			'cdxn-gallery-admin',
-			CDXN_MB_ASSETS . '/scripts/admin' . $this->suffix . '.js',
+			'pssgallery-admin',
+			PSSMB_ASSETS . '/scripts/admin' . $this->suffix . '.js',
 			array( 'jquery' ),
-			CDXN_MB_VERSION,
+			PSSMB_VERSION,
 			true
 		);
 

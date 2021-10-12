@@ -2,16 +2,16 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses;
+namespace PS\INIT;
 
 /**
  * Display Metabox.
  */
-class CodexinMetaboxTab extends CodexinMetabox{
+class MetaboxTab extends Metabox{
 
 
 	/**
@@ -47,7 +47,7 @@ class CodexinMetaboxTab extends CodexinMetabox{
 			'post_types' => array( 'post' ),
 			'context'    => 'normal',
 			'priority'   => 'high',
-			'classes'    => 'codexin-metabox',
+			'classes'    => 'picosoft-metabox',
 			'fields'     => array(),
 
 		);
@@ -82,11 +82,7 @@ class CodexinMetaboxTab extends CodexinMetabox{
 	public function show() {
 		if ( ! empty( $this->fields ) ) {
 			$this->before_container();
-			echo '<input type="hidden" name="codexin_metabox_nonce" value="' . esc_attr( wp_create_nonce( basename( __FILE__ ) ) ) . '" />';
-			// foreach ( $this->fields as $value ) {
-			// 	$get_the_field = CallTheField::init( $value );
-			// 	$get_the_field->get_fields();
-			// }
+			echo '<input type="hidden" name="PS_Metaboxes_nonce" value="' . esc_attr( wp_create_nonce( basename( __FILE__ ) ) ) . '" />';
 			$this->after_container();
 		}
 	}
@@ -110,8 +106,8 @@ class CodexinMetaboxTab extends CodexinMetabox{
 			return $post_id;
 		}
 		// verify nonce.
-		if ( isset( $_POST['codexin_metabox_nonce'] ) ) {
-			$nonce_check = sanitize_text_field( wp_unslash( $_POST['codexin_metabox_nonce'] ) );
+		if ( isset( $_POST['PS_Metaboxes_nonce'] ) ) {
+			$nonce_check = sanitize_text_field( wp_unslash( $_POST['PS_Metaboxes_nonce'] ) );
 			if ( ! wp_verify_nonce( $nonce_check, basename( __FILE__ ) ) ) {
 				return $post_id;
 			}
@@ -125,55 +121,6 @@ class CodexinMetaboxTab extends CodexinMetabox{
 		// loop through fields and save the data.
 		foreach ( $this->fields as $field ) {
 			$update_value = null;
-			// switch ( $field['type'] ) {
-			// 	case 'gallery':
-			// 	case 'number':
-			// 	case 'date':
-			// 	case 'radio':
-			// 	case 'switchbtn':
-			// 	case 'radioimage':
-			// 	case 'toggleswitch':
-			// 	case 'textarea':
-			// 	case 'colorpicker':
-			// 	case 'text':
-			// 		if ( isset( $_POST[ $field['id'] ] ) ) {
-			// 			$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
-			// 		}
-			// 		break;
-			// 	case 'url':
-			// 		if ( isset( $_POST[ $field['id'] ] ) ) {
-			// 			$update_value = esc_url_raw( wp_unslash( $_POST[ $field['id'] ] ) );
-			// 		}
-			// 		break;
-			// 	case 'email':
-			// 		if ( isset( $_POST[ $field['id'] ] ) ) {
-			// 			$update_value = sanitize_email( wp_unslash( $_POST[ $field['id'] ] ) );
-			// 		}
-			// 		break;
-			// 	case 'select':
-			// 	case 'postsselect':
-			// 	case 'sidebar':
-			// 	case 'checkbox':
-			// 		if ( isset( $_POST[ $field['id'] ] ) ) {
-			// 			$update_value = $this->sanitize_text_or_array_field( wp_unslash( $_POST[ $field['id'] ] ) );
-			// 			$update_value = maybe_serialize( $update_value );
-			// 		} else {
-			// 			$update_value = array();
-			// 		}
-			// 		break;
-			// 	case 'image':
-			// 	case 'rangeslider':
-			// 		if ( isset( $_POST[ $field['id'] ] ) ) {
-			// 			$update_value = intval( wp_unslash( $_POST[ $field['id'] ] ) );
-			// 		}
-			// 		break;
-			// 	case 'editor':
-			// 		if ( isset( $_POST[ $field['id'] ] ) ) {
-			// 			$update_value =  apply_filters( 'the_content', wp_unslash( $_POST[ $field['id'] ] ) );
-			// 		}
-			// 		break;
-			// 	default:
-			// }
 			update_post_meta( $post_id, $field['id'], $update_value );
 		} // end foreach
 	}
@@ -183,7 +130,7 @@ class CodexinMetaboxTab extends CodexinMetabox{
 	 * @return void
 	 */
 	public function before_container() { ?>
-		<div id="<?php echo esc_attr( $this->screen_container['id'] ); ?>" class="codexin-metabox-container <?php echo esc_attr( $this->screen_container['classes'] ); ?>">
+		<div id="<?php echo esc_attr( $this->screen_container['id'] ); ?>" class="picosoft-metabox-container <?php echo esc_attr( $this->screen_container['classes'] ); ?>">
 		<?php
 	}
 

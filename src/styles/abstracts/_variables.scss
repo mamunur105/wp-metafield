@@ -30,15 +30,15 @@ $range-label-width: 60px !default;
 $field-height : 35px;
 //-------------------- Frontend Variables --------------------//
 
-$cx-xlg-screen:					1200px !default;
-$cx-lg-screen:					1025px !default;
-$cx-md-screen: 					992px !default;
-$cx-sm-screen:					768px !default;
-$cx-vsm-screen:					576px !default;
+$ps-xlg-screen:					1200px !default;
+$ps-lg-screen:					1025px !default;
+$ps-md-screen: 					992px !default;
+$ps-sm-screen:					768px !default;
+$ps-vsm-screen:					576px !default;
 
-// $cx-breakpoints: (
-//     "wide":    					$cx-lg-screen,
-//     "notebook":    				$cx-md-screen,
-//     "tablet":    				$cx-sm-screen,
-//     "small-mobile": 			$cx-vsm-screen, 
+// $ps-breakpoints: (
+//     "wide":    					$ps-lg-screen,
+//     "notebook":    				$ps-md-screen,
+//     "tablet":    				$ps-sm-screen,
+//     "small-mobile": 			$ps-vsm-screen, 
 // );

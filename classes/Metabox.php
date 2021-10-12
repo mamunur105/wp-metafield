@@ -2,16 +2,16 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses;
+namespace PS\INIT;
 
 /**
  * Display Metabox.
  */
-class CodexinMetabox {
+class Metabox {
 
 	/**
 	 * Get instance;
@@ -46,7 +46,7 @@ class CodexinMetabox {
 			'post_types' => array( 'post' ),
 			'context'    => 'normal',
 			'priority'   => 'high',
-			'classes'    => 'codexin-metabox',
+			'classes'    => 'picosoft-metabox',
 			'tab' 		 => false,
 			'fields'     => array(),
 		);
@@ -81,7 +81,7 @@ class CodexinMetabox {
 	public function show() {
 		if ( ! empty( $this->fields ) ) {
 			$this->before_container();
-			echo '<input type="hidden" name="codexin_metabox_nonce" value="' . esc_attr( wp_create_nonce( basename( __FILE__ ) ) ) . '" />';
+			echo '<input type="hidden" name="PS_Metaboxes_nonce" value="' . esc_attr( wp_create_nonce( basename( __FILE__ ) ) ) . '" />';
 			foreach ( $this->fields as $value ) {
 				$get_the_field = CallTheField::init( $value );
 				$get_the_field->get_fields();
@@ -109,8 +109,8 @@ class CodexinMetabox {
 			return $post_id;
 		}
 		// verify nonce.
-		if ( isset( $_POST['codexin_metabox_nonce'] ) ) {
-			$nonce_check = sanitize_text_field( wp_unslash( $_POST['codexin_metabox_nonce'] ) );
+		if ( isset( $_POST['PS_Metaboxes_nonce'] ) ) {
+			$nonce_check = sanitize_text_field( wp_unslash( $_POST['PS_Metaboxes_nonce'] ) );
 			if ( ! wp_verify_nonce( $nonce_check, basename( __FILE__ ) ) ) {
 				return $post_id;
 			}
@@ -182,7 +182,7 @@ class CodexinMetabox {
 	 * @return void
 	 */
 	public function before_container() { ?>
-		<div id="<?php echo esc_attr( $this->screen_container['id'] ); ?>" class="codexin-metabox-container <?php echo esc_attr( $this->screen_container['classes'] ); ?>">
+		<div id="<?php echo esc_attr( $this->screen_container['id'] ); ?>" class="picosoft-metabox-container <?php echo esc_attr( $this->screen_container['classes'] ); ?>">
 		<?php
 	}
 

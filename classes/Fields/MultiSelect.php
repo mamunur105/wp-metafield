@@ -2,13 +2,13 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses\Fields;
+namespace PS\INIT\Fields;
 
-use Codexin\MetaboxesClasses\GetFields;
+use PS\INIT\GetFields;
 /**
  * Display Input.
  */
@@ -79,7 +79,7 @@ class MultiSelect extends GetFields {
 							<?php
 							if ( ! $multiselect ) {
 								?>
-							<option value="" > <?php esc_html_e( '--Select one--', 'cxnmetabox' ); ?> </option>
+							<option value="" > <?php esc_html_e( '--Select one--', 'psnmetabox' ); ?> </option>
 								<?php
 							}
 							foreach ( $options as $key => $option ) {

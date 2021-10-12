@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Codexin\\MetaboxesClasses\\' => array($baseDir . '/classes'),
+    'PS\\INIT\\' => array($baseDir . '/classes'),
 );

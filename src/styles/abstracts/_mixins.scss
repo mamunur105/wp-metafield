@@ -2,43 +2,43 @@
 @mixin respond-to($media) {
 
     @if $media == small-mobile {
-        @media only screen and (max-width: $cx-vsm-screen - 1) {
+        @media only screen and (max-width: $ps-vsm-screen - 1) {
             @content;
         }
     }
 
     @else if $media == mobile {
-        @media only screen and (max-width: $cx-sm-screen - 1) {
+        @media only screen and (max-width: $ps-sm-screen - 1) {
             @content;
         }
     }
 
     @else if $media == large-mobile {
-        @media only screen and (min-width: $cx-vsm-screen) and (max-width: $cx-sm-screen - 1) {
+        @media only screen and (min-width: $ps-vsm-screen) and (max-width: $ps-sm-screen - 1) {
             @content;
         }
     }
 
     @else if $media == tablet {
-        @media only screen and (min-width: $cx-sm-screen) and (max-width: $cx-md-screen - 1) {
+        @media only screen and (min-width: $ps-sm-screen) and (max-width: $ps-md-screen - 1) {
             @content;
         }
     }
 
-	@else if $media == cdxnnotebook {
-        @media only screen and (min-width: $cx-sm-screen) and (max-width: $cx-lg-screen - 1) {
+	@else if $media == psnotebook {
+        @media only screen and (min-width: $ps-sm-screen) and (max-width: $ps-lg-screen - 1) {
             @content;
         }
     }
     @else if $media == notebook {
-        @media only screen and (min-width: $cx-md-screen) and (max-width: $cx-xlg-screen - 1) {
+        @media only screen and (min-width: $ps-md-screen) and (max-width: $ps-xlg-screen - 1) {
             @content;
         }
     }
 
     ///* not importent */
     @else if $media == wide {
-        @media only screen and (min-width: $cx-xlg-screen) {
+        @media only screen and (min-width: $ps-xlg-screen) {
             @content;
         }
     }

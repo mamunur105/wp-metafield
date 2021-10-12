@@ -2,28 +2,28 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses;
+namespace PS\INIT;
 
-use Codexin\MetaboxesClasses\Fields\MissingField;
-use Codexin\MetaboxesClasses\Fields\Input;
-use Codexin\MetaboxesClasses\Fields\Checkbox;
-use Codexin\MetaboxesClasses\Fields\Radio;
-use Codexin\MetaboxesClasses\Fields\Textarea;
-use Codexin\MetaboxesClasses\Fields\SwitchBtn;
-use Codexin\MetaboxesClasses\Fields\ColorPicker;
-use Codexin\MetaboxesClasses\Fields\RangeSlider;
-use Codexin\MetaboxesClasses\Fields\ToggleSwitch;
-use Codexin\MetaboxesClasses\Fields\MultiSelect;
-use Codexin\MetaboxesClasses\Fields\RadioImage;
-use Codexin\MetaboxesClasses\Fields\PostsSelect;
-use Codexin\MetaboxesClasses\Fields\Sidebar;
-use Codexin\MetaboxesClasses\Fields\Image;
-use Codexin\MetaboxesClasses\Fields\Gallery;
-use Codexin\MetaboxesClasses\Fields\Editor;
+use PS\INIT\Fields\MissingField;
+use PS\INIT\Fields\Input;
+use PS\INIT\Fields\Checkbox;
+use PS\INIT\Fields\Radio;
+use PS\INIT\Fields\Textarea;
+use PS\INIT\Fields\SwitchBtn;
+use PS\INIT\Fields\ColorPicker;
+use PS\INIT\Fields\RangeSlider;
+use PS\INIT\Fields\ToggleSwitch;
+use PS\INIT\Fields\MultiSelect;
+use PS\INIT\Fields\RadioImage;
+use PS\INIT\Fields\PostsSelect;
+use PS\INIT\Fields\Sidebar;
+use PS\INIT\Fields\Image;
+use PS\INIT\Fields\Gallery;
+use PS\INIT\Fields\Editor;
 
 /**
  * Display Field.

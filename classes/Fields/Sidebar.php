@@ -2,13 +2,13 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses\Fields;
+namespace PS\INIT\Fields;
 
-use Codexin\MetaboxesClasses\GetFields;
+use PS\INIT\GetFields;
 /**
  * Display Input.
  */
@@ -87,7 +87,7 @@ class Sidebar extends GetFields {
 					?>
 					<div class="selectbox-wraper" data-multiselect="false">
 						<select name="<?php echo esc_attr( $id ); ?>[]" id="<?php echo esc_attr( $id ); ?>" multiple>
-						<option value="" > <?php esc_html_e( '--Select one--', 'cxnmetabox' ); ?> </option>
+						<option value="" > <?php esc_html_e( '--Select one--', 'psnmetabox' ); ?> </option>
 						<?php
 						foreach ( $options as $key => $option ) {
 							$selected = is_array( $value ) && in_array( $key, $value, false ) ? 'selected' : '';

@@ -2,13 +2,13 @@
 /**
  * Field displayed by this function.
  *
- * @package    Codexin Metabox
- * @subpackage Codexin_Metabox
+ * @package    PS Metabox
+ * @subpackage PS_Metaboxes
  */
 
-namespace Codexin\MetaboxesClasses\Fields;
+namespace PS\INIT\Fields;
 
-use Codexin\MetaboxesClasses\GetFields;
+use PS\INIT\GetFields;
 /**
  * Display Input.
  */
@@ -40,8 +40,8 @@ class MissingField extends GetFields {
 	 * @return mixed
 	 */
 	public function get_field() {
-		$message = __( 'Something went wrong here => ', 'cxnmetabox' ) . $this->field['id'];
-		$class   = 'cx-notice cx-notice-error';
+		$message = __( 'Something went wrong here => ', 'psnmetabox' ) . $this->field['id'];
+		$class   = 'ps-notice ps-notice-error';
 		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 	}
 

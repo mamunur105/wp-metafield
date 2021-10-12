@@ -7,33 +7,42 @@ namespace Composer\Autoload;
 class ComposerStaticInit398df2f650b479cdf847695faea07e3b
 {
     public static $prefixLengthsPsr4 = array (
-        'C' => 
+        'P' => 
         array (
-            'Codexin\\MetaboxesClasses\\' => 25,
+            'PS\\INIT\\' => 8,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Codexin\\MetaboxesClasses\\' => 
+        'PS\\INIT\\' => 
         array (
             0 => __DIR__ . '/../..' . '/classes',
         ),
     );
 
     public static $classMap = array (
-        'Codexin\\MetaboxesClasses\\CallTheField' => __DIR__ . '/../..' . '/classes/CallTheField.php',
-        'Codexin\\MetaboxesClasses\\CodexinMetabox' => __DIR__ . '/../..' . '/classes/CodexinMetabox.php',
-        'Codexin\\MetaboxesClasses\\Fields\\Checkbox' => __DIR__ . '/../..' . '/classes/Fields/Checkbox.php',
-        'Codexin\\MetaboxesClasses\\Fields\\ColorPicker' => __DIR__ . '/../..' . '/classes/Fields/ColorPicker.php',
-        'Codexin\\MetaboxesClasses\\Fields\\Input' => __DIR__ . '/../..' . '/classes/Fields/Input.php',
-        'Codexin\\MetaboxesClasses\\Fields\\Radio' => __DIR__ . '/../..' . '/classes/Fields/Radio.php',
-        'Codexin\\MetaboxesClasses\\Fields\\RangeSlider' => __DIR__ . '/../..' . '/classes/Fields/RangeSlider.php',
-        'Codexin\\MetaboxesClasses\\Fields\\Select' => __DIR__ . '/../..' . '/classes/Fields/Select.php',
-        'Codexin\\MetaboxesClasses\\Fields\\SwitchBtn' => __DIR__ . '/../..' . '/classes/Fields/SwitchBtn.php',
-        'Codexin\\MetaboxesClasses\\Fields\\Textarea' => __DIR__ . '/../..' . '/classes/Fields/Textarea.php',
-        'Codexin\\MetaboxesClasses\\Fields\\ToggleSwitch' => __DIR__ . '/../..' . '/classes/Fields/ToggleSwitch.php',
-        'Codexin\\MetaboxesClasses\\GetFields' => __DIR__ . '/../..' . '/classes/GetFields.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'PS\\INIT\\CallTheField' => __DIR__ . '/../..' . '/classes/CallTheField.php',
+        'PS\\INIT\\Fields\\Checkbox' => __DIR__ . '/../..' . '/classes/Fields/Checkbox.php',
+        'PS\\INIT\\Fields\\ColorPicker' => __DIR__ . '/../..' . '/classes/Fields/ColorPicker.php',
+        'PS\\INIT\\Fields\\Editor' => __DIR__ . '/../..' . '/classes/Fields/Editor.php',
+        'PS\\INIT\\Fields\\Gallery' => __DIR__ . '/../..' . '/classes/Fields/Gallery.php',
+        'PS\\INIT\\Fields\\Image' => __DIR__ . '/../..' . '/classes/Fields/Image.php',
+        'PS\\INIT\\Fields\\Input' => __DIR__ . '/../..' . '/classes/Fields/Input.php',
+        'PS\\INIT\\Fields\\MissingField' => __DIR__ . '/../..' . '/classes/Fields/MissingField.php',
+        'PS\\INIT\\Fields\\MultiSelect' => __DIR__ . '/../..' . '/classes/Fields/MultiSelect.php',
+        'PS\\INIT\\Fields\\PostsSelect' => __DIR__ . '/../..' . '/classes/Fields/PostsSelect.php',
+        'PS\\INIT\\Fields\\Radio' => __DIR__ . '/../..' . '/classes/Fields/Radio.php',
+        'PS\\INIT\\Fields\\RadioImage' => __DIR__ . '/../..' . '/classes/Fields/RadioImage.php',
+        'PS\\INIT\\Fields\\RangeSlider' => __DIR__ . '/../..' . '/classes/Fields/RangeSlider.php',
+        'PS\\INIT\\Fields\\Sidebar' => __DIR__ . '/../..' . '/classes/Fields/Sidebar.php',
+        'PS\\INIT\\Fields\\SwitchBtn' => __DIR__ . '/../..' . '/classes/Fields/SwitchBtn.php',
+        'PS\\INIT\\Fields\\Textarea' => __DIR__ . '/../..' . '/classes/Fields/Textarea.php',
+        'PS\\INIT\\Fields\\ToggleSwitch' => __DIR__ . '/../..' . '/classes/Fields/ToggleSwitch.php',
+        'PS\\INIT\\GetFields' => __DIR__ . '/../..' . '/classes/GetFields.php',
+        'PS\\INIT\\Metabox' => __DIR__ . '/../..' . '/classes/Metabox.php',
+        'PS\\INIT\\MetaboxLoded' => __DIR__ . '/../..' . '/classes/MetaboxLoded.php',
+        'PS\\INIT\\MetaboxTab' => __DIR__ . '/../..' . '/classes/MetaboxTab.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

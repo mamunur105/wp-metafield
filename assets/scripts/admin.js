@@ -36,7 +36,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
    * be doing this, we should try to minimize doing that in our own work.
    */
 
-  var CODEXIN_METABOX = {};
+  var PS_Metaboxes = {};
   var $window = $(window),
       $document = $(document),
       $select2 = $('.selectbox-wraper select'),
@@ -45,7 +45,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $colorpicker = $('.field-colorpicker'),
       $conditional = $('.conditional-field'); // Check if element exists
 
-  var cxExists = function cxExists(el) {
+  var psExists = function psExists(el) {
     return el.length > 0;
   };
   /************************************************************
@@ -53,8 +53,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      *************************************************************/
 
 
-  CODEXIN_METABOX.wpColorPicker = function () {
-    if (cxExists($colorpicker)) {
+  PS_Metaboxes.wpColorPicker = function () {
+    if (psExists($colorpicker)) {
       $colorpicker.wpColorPicker();
     }
   };
@@ -63,8 +63,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      *************************************************************/
 
 
-  CODEXIN_METABOX.select2 = function () {
-    if (cxExists($select2)) {
+  PS_Metaboxes.select2 = function () {
+    if (psExists($select2)) {
       $select2.each(function () {
         var parent = $(this).parent('.selectbox-wraper');
         var multiselect = parent.data('multiselect');
@@ -100,8 +100,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      *************************************************************/
 
 
-  CODEXIN_METABOX.imageUpload = function () {
-    if (cxExists($image_upload)) {
+  PS_Metaboxes.imageUpload = function () {
+    if (psExists($image_upload)) {
       // on upload button click
       $image_upload.on('click', '.upload-btn', function (e) {
         e.preventDefault();
@@ -166,8 +166,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      *************************************************************/
 
 
-  CODEXIN_METABOX.galleryImage = function () {
-    if (cxExists($galleryimage)) {
+  PS_Metaboxes.galleryImage = function () {
+    if (psExists($galleryimage)) {
       // on upload button click
       $galleryimage.on('click', '.upload-btn', function (e) {
         e.preventDefault();
@@ -257,10 +257,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   };
 
-  CODEXIN_METABOX.checkBox = function () {
+  PS_Metaboxes.checkBox = function () {
     var selector = $('.fields-wrapper').find("[type=checkbox]");
 
-    if (cxExists(selector)) {
+    if (psExists(selector)) {
       selector.each(function (index, item) {
         // console.log($(item).attr('name'));
         var curent_value = $(item).val();
@@ -279,8 +279,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   };
 
-  CODEXIN_METABOX.conditionalField = function () {
-    if (cxExists($conditional)) {
+  PS_Metaboxes.conditionalField = function () {
+    if (psExists($conditional)) {
       $conditional.each(function (index, item) {
         var $this = $(item);
         var required = $this.attr('data-required-value');
@@ -304,6 +304,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
   $document.on('ready', function () {
-    CODEXIN_METABOX.wpColorPicker(), CODEXIN_METABOX.select2(), CODEXIN_METABOX.imageUpload(), CODEXIN_METABOX.galleryImage(), CODEXIN_METABOX.checkBox(), CODEXIN_METABOX.conditionalField();
+    PS_Metaboxes.wpColorPicker(), PS_Metaboxes.select2(), PS_Metaboxes.imageUpload(), PS_Metaboxes.galleryImage(), PS_Metaboxes.checkBox(), PS_Metaboxes.conditionalField();
   });
 })(jQuery);
