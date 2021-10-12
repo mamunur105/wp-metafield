@@ -32,9 +32,10 @@ dwsync.xml
 
 # Package management
 node_modules/
-./vendor
+
 
 # Folders to ignore
+dist
 .hg
 .svn
 .CVS

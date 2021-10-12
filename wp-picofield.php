@@ -8,7 +8,7 @@
  */
 
 /*
- * Plugin Name: PS Metabox
+ * Plugin Name: Picofield
  * Plugin URI: http://wordpress.org/
  * Description: test.
  * Author: Picosoft

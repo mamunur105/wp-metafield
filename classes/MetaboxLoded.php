@@ -116,7 +116,7 @@ class MetaboxLoded {
 		 */
 		\wp_enqueue_style(
 			'pssmetabox',
-			PSSMB_ASSETS . '/styles/admin' . $this->suffix . '.css',
+			PSSMB_ASSETS . '/scripts/admin.css',
 			array(),
 			PSSMB_VERSION,
 			'all'
@@ -151,7 +151,7 @@ class MetaboxLoded {
 		);
 		\wp_enqueue_script(
 			'pssgallery-admin',
-			PSSMB_ASSETS . '/scripts/admin' . $this->suffix . '.js',
+			PSSMB_ASSETS . '/scripts/admin.js',
 			array( 'jquery' ),
 			PSSMB_VERSION,
 			true

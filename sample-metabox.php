@@ -282,52 +282,6 @@ function testing_metadata_( $meta_boxes ) {
 			),
 		), // End fields.
 	); // End picosoft_page_header_footer.
-	$meta_boxes[] = array(
-		'id'         => 'picosoft_post_header_footer_2',
-		'title'      => esc_html__( 'Container 2', 'picosoft' ),
-		'post_types' => array( 'post' ),
-		'context'    => 'normal',
-		'priority'   => 'high',
-		'classes'    => 'picosoft-metabox-wrapper',
-		'fields'     => array(
-			array(
-				'id'      => 'toggleswitch_3',
-				'title'   => esc_html__( 'Toggleswitch', 'picosoft' ),
-				'type'    => 'toggleswitch',
-				'class'   => 'testname',
-				'true'    => 'TRUE',
-				'false'   => 'FALSE',
-				'default' => false, // true or false.
-				'desc'    => esc_html__( 'Checking toggleswitch field', 'picosoft' ),
-			),
-			array(
-				'id'      => 'toggleswitch_4',
-				'title'   => esc_html__( 'Toggleswitch', 'picosoft' ),
-				'type'    => 'toggleswitch',
-				'class'   => 'testname',
-				'true'    => 'YES',
-				'false'   => 'NO',
-				'default' => false, // true or false.
-				'desc'    => esc_html__( 'Checking toggleswitch field', 'picosoft' ),
-			),
-			array(
-				'id'      => 'rangeslider_3',
-				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
-				'type'    => 'rangeslider',
-				'class'   => 'testname',
-				'default' => 500,
-				'desc'    => esc_html__( 'Checking rangeslider field', 'picosoft' ),
-			),
-			array(
-				'id'      => 'colorpicker_3',
-				'title'   => esc_html__( 'Color Picker', 'picosoft' ),
-				'type'    => 'colorpicker',
-				'class'   => 'testname',
-				'default' => '#ff0000',
-				'desc'    => esc_html__( 'Checking colorpicker field', 'picosoft' ),
-			),
-		), // End fields.
-	); // End picosoft_page_header_footer.
 	return $meta_boxes;
 }
 
