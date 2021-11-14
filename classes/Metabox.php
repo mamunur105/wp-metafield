@@ -40,14 +40,20 @@ class Metabox {
 	 * @param array $metaboxes is a array.
 	 */
 	public function __construct( $metaboxes ) {
-		$container_default = array(
+		$container_default      = array(
 			'id'         => wp_generate_uuid4(),
 			'title'      => 'Title',
 			'post_types' => array( 'post' ),
 			'context'    => 'normal',
 			'priority'   => 'high',
 			'classes'    => 'picosoft-metabox',
-			'tab' 		 => false,
+			'tabs'		=> true,
+			// 'tabs'       => array(
+			// 	'tabs_one' => array(
+			// 		'label' => 'Tab one',
+			// 		'default_active' => true
+			// 	),
+			// ),
 			'fields'     => array(),
 		);
 		$metaboxes              = wp_parse_args( $metaboxes, $container_default );
@@ -123,6 +129,7 @@ class Metabox {
 		}
 		// loop through fields and save the data.
 		foreach ( $this->fields as $field ) {
+			
 			$update_value = null;
 			switch ( $field['type'] ) {
 				case 'gallery':
@@ -168,7 +175,7 @@ class Metabox {
 					break;
 				case 'editor':
 					if ( isset( $_POST[ $field['id'] ] ) ) {
-						$update_value =  apply_filters( 'the_content', wp_unslash( $_POST[ $field['id'] ] ) );
+						$update_value = apply_filters( 'the_content', wp_unslash( $_POST[ $field['id'] ] ) );
 					}
 					break;
 				default:
@@ -183,6 +190,19 @@ class Metabox {
 	 */
 	public function before_container() { ?>
 		<div id="<?php echo esc_attr( $this->screen_container['id'] ); ?>" class="picosoft-metabox-container <?php echo esc_attr( $this->screen_container['classes'] ); ?>">
+		<?php if ( is_array( $this->screen_container['tabs'] ) && count( $this->screen_container['tabs'] ) ) { 
+			$tabs = $this->screen_container['tabs']
+			?>
+			<div class="picotab">
+				<?php foreach($tabs as $key => $tab ){
+					$active = isset( $tab['default_active'] ) && $tab['default_active'] ? 'active' : '' ;
+					?>
+					<button class="tablinks <?php echo esc_attr( $active ); ?>" data-tab="<?php echo esc_attr( $key );?>">
+						<?php echo isset( $tab['label'] ) ? esc_html( $tab['label'] ) : '' ?>
+					</button>
+				<?php }	?>
+			</div>
+		<?php } ?>
 		<?php
 	}
 
@@ -202,22 +222,11 @@ class Metabox {
 	 * @since  0.1
 	 * @return mixed
 	 */
-	public function sanitize_text_or_array_field( $array_or_string ) {
-		if ( empty( $array_or_string ) ) {
-			$array_or_string = '';
-		} elseif ( is_string( $array_or_string ) ) {
-			$array_or_string = sanitize_text_field( $array_or_string );
-		} elseif ( is_array( $array_or_string ) ) {
-			foreach ( $array_or_string as $key => &$value ) {
-				if ( is_array( $value ) ) {
-					$value = $this->sanitize_text_or_array_field( $value );
-				} else {
-					$value = sanitize_text_field( $value );
-				}
-			}
-		}
-		return $array_or_string;
+	public function sanitize_text_or_array_field( $input ) {
+		$input = maybe_unserialize( $input );
+		return ! empty( $input ) ? array_map( 'sanitize_text_field', array_filter( $input ) ) : array();
 	}
+
 
 
 }

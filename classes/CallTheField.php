@@ -99,6 +99,9 @@ class CallTheField {
 			&& isset( $this->field['title'] )
 			&& ! empty( $this->field['title'] )
 		) {
+			if( isset( $this->field['tab'] ) ){
+				$this->field['class'] = isset( $this->field['class'] ) ? $this->field['class'].' '.$this->field['tab'] : $this->field['tab'];
+			}
 			switch ( $field_type ) {
 				case 'number':
 				case 'date':

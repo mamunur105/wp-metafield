@@ -37,6 +37,10 @@
   justify-content: flex-start;
 }
 
+.picosoft-metabox-container {
+  margin: -6px -15px 10px;
+}
+
 .fields-wrapper, .two-col {
   display: flex;
 }
@@ -477,6 +481,29 @@ input::-moz-focus-outer {
 .image-gallery ul.preview-list li.preview-wrap {
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.picotab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  /* Style the buttons inside the tab */
+}
+.picotab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+.picotab button:hover {
+  background-color: #ddd;
+}
+.picotab button.active {
+  background-color: #ccc;
 }
 
 /*

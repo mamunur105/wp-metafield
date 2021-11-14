@@ -90,11 +90,7 @@ class MetaboxLoded {
 		$configs = apply_filters( 'pssmeta_boxes', array(), 10, 1 );
 		if ( is_array( $configs ) && count( $configs ) ) {
 			foreach ( $configs as $container ) {
-				if( isset( $container['tab'] ) ){
-					new MetaboxTab( $container );
-				}else{
-					new Metabox( $container );
-				}
+				new Metabox( $container );
 			}
 		}
 	}

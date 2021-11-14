@@ -1,9 +1,4 @@
 require('./index.scss');
-// require('./scripts/conditional');
-const {hello} = require('./scripts/conditional')
-// import hello from './scripts/conditional';
-
-hello();
 
 (function($) {
 	'use strict';
@@ -162,17 +157,7 @@ hello();
 					// var lib = custom_uploader.state().get('library');
 					var ids_value = input_field.value.split(',');
 					var selection = custom_uploader.state().get('selection');
-					// lib.comparator = function( a, b ) {
-					// 	var aInQuery = !! this.mirroring.get( a.cid ),
-					// 		bInQuery = !! this.mirroring.get( b.cid );
-					// 	if ( ! aInQuery && bInQuery ) {
-					// 		return -1;
-					// 	} else if ( aInQuery && ! bInQuery ) {
-					// 		return 1;
-					// 	} else {
-					// 		return 0;
-					// 	}
-					// };
+				
 					ids_value.forEach(function(id) {
 						var attachment = wp.media.attachment(id);
 						attachment.fetch();
@@ -252,39 +237,14 @@ hello();
 				});
 			});
 		}
-		// let value = selector.val();
-		// console.log( value );
-	}
-	PS_Metaboxes.conditionalField = () => {
-		if (psExists($conditional)) {
-			$conditional.each(function(index, item){
-				let $this = $(item);
-				let required = $this.attr('data-required-value');
-				let selector = '#' + $this.attr('data-required-field');
-					selector = selector.replace('field-', "");
-				$(selector).on('change',function(){
-					let curent_value =  $(selector).val() ;
-					if( required == curent_value  ){
-						console.log( '====' );
-						console.log('required');
-					}else{
-						console.log( '====' );
-						console.log('not required');
-					}
-				});
-			});
 
-		}
-	};
-	// Window load functions
-	// $window.on('load', function() { });
-	// Document ready functions
+	}
+
 	$document.on('ready', () => {
 		PS_Metaboxes.wpColorPicker(),
 		PS_Metaboxes.select2(),
 		PS_Metaboxes.imageUpload(),
 		PS_Metaboxes.galleryImage(),
-		PS_Metaboxes.checkBox(),
-		PS_Metaboxes.conditionalField();
+		PS_Metaboxes.checkBox();
 	});
 })(jQuery);
