@@ -1,9 +1,19 @@
 .fields-wrapper {
 	@extend %d-flex;
-	margin: 15px 0 ;
+	padding: 15px 10px;
+    border: 1px solid #ccc;
+    margin-top: -1px;
+	label {
+		cursor: pointer;
+		font-weight: 700;
+		font-size: 16px;
+	}
 	.col{
 		flex: 0 0 100%;
-		max-width: 50%;
+		max-width: 70%;
+		&.label {
+			max-width: 30%;
+		}
 	}
 	.field-wrapper {
 		.field{

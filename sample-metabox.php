@@ -37,6 +37,9 @@ function testing_metadata_( $meta_boxes ) {
 			'tabs_two' => array(
 				'label' => 'Tab Two',
 			),
+			'tabs_three' => array(
+				'label' => 'Tab Three',
+			),
 		),
 		'fields'     => array(
 			// Gallery field is under construction.

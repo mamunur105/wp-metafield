@@ -64,13 +64,13 @@ class CallTheField {
 	 */
 	public static function init( $field ) {
 		$defaults = array(
-			'id'       => '',
-			'title'    => '',
-			'subtitle' => '',
-			'type'     => 'text',
-			'class'    => 'd-flex',
-			'desc'     => '',
-			'condition'  => array(
+			'id'        => '',
+			'title'     => '',
+			'subtitle'  => '',
+			'type'      => 'text',
+			'class'     => 'd-flex',
+			'desc'      => '',
+			'condition' => array(
 				'field'   => '',
 				'value'   => '',
 				'compare' => '',
@@ -99,8 +99,8 @@ class CallTheField {
 			&& isset( $this->field['title'] )
 			&& ! empty( $this->field['title'] )
 		) {
-			if( isset( $this->field['tab'] ) ){
-				$this->field['class'] = isset( $this->field['class'] ) ? $this->field['class'].' '.$this->field['tab'] : $this->field['tab'];
+			if ( isset( $this->field['tab'] ) ) {
+				$this->field['class'] = isset( $this->field['class'] ) ? $this->field['class'] . ' tab-contents ' . $this->field['tab'] : $this->field['tab'];
 			}
 			switch ( $field_type ) {
 				case 'number':

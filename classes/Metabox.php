@@ -47,13 +47,7 @@ class Metabox {
 			'context'    => 'normal',
 			'priority'   => 'high',
 			'classes'    => 'picosoft-metabox',
-			'tabs'		=> true,
-			// 'tabs'       => array(
-			// 	'tabs_one' => array(
-			// 		'label' => 'Tab one',
-			// 		'default_active' => true
-			// 	),
-			// ),
+			'tabs'       => true,
 			'fields'     => array(),
 		);
 		$metaboxes              = wp_parse_args( $metaboxes, $container_default );
@@ -129,7 +123,7 @@ class Metabox {
 		}
 		// loop through fields and save the data.
 		foreach ( $this->fields as $field ) {
-			
+
 			$update_value = null;
 			switch ( $field['type'] ) {
 				case 'gallery':
@@ -190,17 +184,19 @@ class Metabox {
 	 */
 	public function before_container() { ?>
 		<div id="<?php echo esc_attr( $this->screen_container['id'] ); ?>" class="picosoft-metabox-container <?php echo esc_attr( $this->screen_container['classes'] ); ?>">
-		<?php if ( is_array( $this->screen_container['tabs'] ) && count( $this->screen_container['tabs'] ) ) { 
+		<?php
+		if ( is_array( $this->screen_container['tabs'] ) && count( $this->screen_container['tabs'] ) ) {
 			$tabs = $this->screen_container['tabs']
 			?>
 			<div class="picotab">
-				<?php foreach($tabs as $key => $tab ){
-					$active = isset( $tab['default_active'] ) && $tab['default_active'] ? 'active' : '' ;
+				<?php
+				foreach ( $tabs as $key => $tab ) {
+					$active = isset( $tab['default_active'] ) && $tab['default_active'] ? 'active' : '';
 					?>
-					<button class="tablinks <?php echo esc_attr( $active ); ?>" data-tab="<?php echo esc_attr( $key );?>">
-						<?php echo isset( $tab['label'] ) ? esc_html( $tab['label'] ) : '' ?>
+					<button class="tablinks <?php echo esc_attr( $active ); ?>" data-tab="<?php echo esc_attr( $key ); ?>">
+						<?php echo isset( $tab['label'] ) ? esc_html( $tab['label'] ) : ''; ?>
 					</button>
-				<?php }	?>
+				<?php } ?>
 			</div>
 		<?php } ?>
 		<?php
@@ -218,7 +214,7 @@ class Metabox {
 	/**
 	 * Recursive sanitation for text or array
 	 *
-	 * @param array|string $array_or_string srray or string value.
+	 * @param array|string $input srray or string value.
 	 * @since  0.1
 	 * @return mixed
 	 */

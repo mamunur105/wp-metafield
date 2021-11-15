@@ -1,4 +1,5 @@
 require('./index.scss');
+const { Tabs } = require('./scripts/tabs');
 
 (function($) {
 	'use strict';
@@ -220,7 +221,9 @@ require('./index.scss');
 			});
 		}
 	};
-
+	/************************************************************
+        04 - Checkbox
+    *************************************************************/
 	PS_Metaboxes.checkBox = () => {
 		let selector = $('.fields-wrapper').find( "[type=checkbox]" );
 		if (psExists(selector)) {
@@ -240,11 +243,17 @@ require('./index.scss');
 
 	}
 
+	/************************************************************
+        05 - colorpicker
+    *************************************************************/
+	PS_Metaboxes.Tabs = () => Tabs() ;
+
 	$document.on('ready', () => {
 		PS_Metaboxes.wpColorPicker(),
 		PS_Metaboxes.select2(),
 		PS_Metaboxes.imageUpload(),
 		PS_Metaboxes.galleryImage(),
 		PS_Metaboxes.checkBox();
+		PS_Metaboxes.Tabs();
 	});
 })(jQuery);
