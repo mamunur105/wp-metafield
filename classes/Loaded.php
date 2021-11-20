@@ -11,7 +11,7 @@ namespace PS\INIT;
 /**
  * Display Metabox.
  */
-class MetaboxLoded {
+class Loaded {
 
 	/**
 	 * Get instance;
