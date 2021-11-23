@@ -14,26 +14,12 @@ namespace PS\INIT\Abstracts;
 abstract class GetFields {
 
 	/**
-	 * Get instance;
-	 *
-	 * @var obaject
-	 */
-	protected static $instance;
-
-	/**
 	 * Field.
 	 *
 	 * @var array
 	 */
 	protected $field = null;
 
-	/**
-	 * Create instance
-	 *
-	 * @param array $field is an array value.
-	 * @return object
-	 */
-	abstract public static function init( $field );
 	/**
 	 * Return input field.
 	 *

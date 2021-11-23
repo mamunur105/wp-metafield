@@ -14,27 +14,7 @@ use PS\INIT\Traits\Singleton;
  * Display Input.
  */
 class SwitchBtn extends GetFields {
-	/**
-	 * Get instance;
-	 *
-	 * @var obaject
-	 */
-	protected static $instance;
-
-	/**
-	 * Create instance
-	 *
-	 * @param array $field is an array value.
-	 * @return object
-	 */
-	public static function init( $field ) {
-		if ( ! self::$instance ) {
-			self::$instance = new self();
-		}
-		self::$instance->field = $field;
-		return self::$instance;
-	}
-
+	use Singleton;
 	/**
 	 * Return input field.
 	 *

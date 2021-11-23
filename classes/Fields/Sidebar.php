@@ -14,13 +14,7 @@ use PS\INIT\Traits\Singleton;
  * Display Input.
  */
 class Sidebar extends GetFields {
-	/**
-	 * Get instance;
-	 *
-	 * @var obaject
-	 */
-	protected static $instance;
-
+	use Singleton;
 	/**
 	 * Create instance
 	 *

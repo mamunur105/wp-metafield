@@ -123,7 +123,6 @@ class Metabox {
 		}
 		// loop through fields and save the data.
 		foreach ( $this->fields as $field ) {
-
 			$update_value = null;
 			switch ( $field['type'] ) {
 				case 'gallery':
@@ -132,14 +131,20 @@ class Metabox {
 				case 'radio':
 				case 'switchbtn':
 				case 'radioimage':
-				case 'toggleswitch':
 				case 'textarea':
 				case 'colorpicker':
+				case 'toggleswitch':
 				case 'text':
 					if ( isset( $_POST[ $field['id'] ] ) ) {
 						$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
 					}
 					break;
+				// case 'toggleswitch':
+				// 	if ( isset( $_POST[ $field['id'] ] ) ) {
+				// 		$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
+				// 	}
+				// 	error_log(print_r( $field['id'] .' = '. $_POST[ $field['id'] ] . ', '  ,true),3,__DIR__."/log.txt");
+				// 	break;
 				case 'url':
 					if ( isset( $_POST[ $field['id'] ] ) ) {
 						$update_value = esc_url_raw( wp_unslash( $_POST[ $field['id'] ] ) );
