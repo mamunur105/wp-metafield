@@ -35,18 +35,13 @@ abstract class GetFields {
 	 * @return mixed
 	 */
 	public function sanitize_text_or_array_field( $array_or_string ) {
+		$array_or_string = maybe_unserialize( $array_or_string );
 		if ( empty( $array_or_string ) ) {
 			$array_or_string = '';
 		} elseif ( is_string( $array_or_string ) ) {
 			$array_or_string = sanitize_text_field( $array_or_string );
 		} elseif ( is_array( $array_or_string ) ) {
-			foreach ( $array_or_string as $key => &$value ) {
-				if ( is_array( $value ) ) {
-					$value = $this->sanitize_text_or_array_field( $value );
-				} else {
-					$value = sanitize_text_field( $value );
-				}
-			}
+			$array_or_string = ! empty( $array_or_string ) ? array_map( 'sanitize_text_field', array_filter( $array_or_string ) ) : array();
 		}
 		return $array_or_string;
 	}
