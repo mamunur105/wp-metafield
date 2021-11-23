@@ -14,9 +14,7 @@ use PS\INIT\Traits\Singleton;
  * Display Input.
  */
 class Editor  extends GetFields {
-
 	use Singleton;
-
 	/**
 	 * Return input field.
 	 *

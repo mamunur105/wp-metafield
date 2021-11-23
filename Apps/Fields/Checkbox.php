@@ -15,9 +15,7 @@ use PS\INIT\Traits\Singleton;
  * Display Input.
  */
 class Checkbox extends GetFields {
-
 	use Singleton;
-
 	/**
 	 * Return input field.
 	 *
