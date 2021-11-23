@@ -8,7 +8,7 @@
 
 namespace PS\INIT\Fields;
 
-use PS\INIT\GetFields;
+use PS\INIT\Abs\GetFields;
 /**
  * Display Input.
  */

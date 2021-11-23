@@ -8,7 +8,10 @@
 
 namespace PS\INIT;
 
-class MySettingsPage {
+/**
+ * Display Metabox.
+ */
+class Options {
 
 	/**
 	 * Holds the values to be used in the fields callbacks
@@ -136,8 +139,4 @@ class MySettingsPage {
 			isset( $this->options['title'] ) ? esc_attr( $this->options['title'] ) : ''
 		);
 	}
-}
-
-if ( is_admin() ) {
-	$my_settings_page = new MySettingsPage();
 }

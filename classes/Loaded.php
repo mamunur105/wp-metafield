@@ -87,10 +87,25 @@ class Loaded {
 	 * @return void
 	 */
 	public function metaboxes() {
-		$configs = apply_filters( 'pssmeta_boxes', array(), 10, 1 );
+		$configs = apply_filters( 'pico_meta_boxes', array(), 10, 1 );
 		if ( is_array( $configs ) && count( $configs ) ) {
 			foreach ( $configs as $container ) {
 				new Metabox( $container );
+			}
+		}
+	}
+
+
+	/**
+	 * Metaboxes.
+	 *
+	 * @return void
+	 */
+	public function options() {
+		$configs = apply_filters( 'pico_setting', array(), 10, 1 );
+		if ( is_array( $configs ) && count( $configs ) ) {
+			foreach ( $configs as $container ) {
+				new Options( $container );
 			}
 		}
 	}

@@ -301,7 +301,7 @@ function testing_metadata_( $meta_boxes ) {
 	return $meta_boxes;
 }
 
-add_filter( 'pssmeta_boxes', 'testing_metadata_', 99 );
+add_filter( 'pico_meta_boxes', 'testing_metadata_', 99 );
 
 
 /**
@@ -599,5 +599,5 @@ function testing_settings( $meta_boxes ) {
 	return $meta_boxes;
 }
 
-add_filter( 'psssetting_boxes', 'testing_settings', 99 );
+add_filter( 'pico_setting', 'testing_settings', 99 );
 
