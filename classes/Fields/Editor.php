@@ -8,7 +8,8 @@
 
 namespace PS\INIT\Fields;
 
-use PS\INIT\Abs\GetFields;
+use PS\INIT\Abstracts\GetFields;
+use PS\INIT\Traits\Singleton;
 /**
  * Display Input.
  */
@@ -82,8 +83,8 @@ class Editor  extends GetFields {
 							'textarea_name' => $id, // set the textarea name to something different, square brackets [] can be used here
 							'textarea_rows' => get_option( 'default_post_edit_rows', 10 ), // rows="..."
 							'tabindex'      => '',
-							'editor_css'    => '', // extra styles for both visual and HTML editors buttons,
-							'editor_class'  => '', // add extra class(es) to the editor textarea
+							'editor_css'    => '', // extra styles for both visual and HTML editors buttons,.
+							'editor_class'  => '', // add extra class(es) to the editor textarea.
 							'teeny'         => true, // output the minimal editor config used in Press This
 							'dfw'           => false, // replace the default fullscreen with DFW (supported on the front-end in WordPress 3.4)
 							'tinymce'       => array(

@@ -6,7 +6,7 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT\Abs;
+namespace PS\INIT\Abstracts;
 
 /**
  * Display Metabox.

@@ -8,7 +8,8 @@
 
 namespace PS\INIT\Fields;
 
-use PS\INIT\Abs\GetFields;
+use PS\INIT\Abstracts\GetFields;
+use PS\INIT\Traits\Singleton;
 /**
  * Display Input.
  */
