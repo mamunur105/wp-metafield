@@ -8,7 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'PS\\INIT\\Abstracts\\GetFields' => $baseDir . '/Apps/Abstracts/GetFields.php',
-    'PS\\INIT\\CallTheField' => $baseDir . '/Apps/CallTheField.php',
+    'PS\\INIT\\Controller\\CallTheField' => $baseDir . '/Apps/Controller/CallTheField.php',
+    'PS\\INIT\\Controller\\Metabox' => $baseDir . '/Apps/Controller/Metabox.php',
+    'PS\\INIT\\Controller\\Options' => $baseDir . '/Apps/Controller/Options.php',
     'PS\\INIT\\Fields\\Checkbox' => $baseDir . '/Apps/Fields/Checkbox.php',
     'PS\\INIT\\Fields\\ColorPicker' => $baseDir . '/Apps/Fields/ColorPicker.php',
     'PS\\INIT\\Fields\\Editor' => $baseDir . '/Apps/Fields/Editor.php',
@@ -26,7 +28,5 @@ return array(
     'PS\\INIT\\Fields\\Textarea' => $baseDir . '/Apps/Fields/Textarea.php',
     'PS\\INIT\\Fields\\ToggleSwitch' => $baseDir . '/Apps/Fields/ToggleSwitch.php',
     'PS\\INIT\\Loaded' => $baseDir . '/Apps/Loaded.php',
-    'PS\\INIT\\Metabox' => $baseDir . '/Apps/Metabox.php',
-    'PS\\INIT\\Options' => $baseDir . '/Apps/Options.php',
     'PS\\INIT\\Traits\\Singleton' => $baseDir . '/Apps/Traits/Singleton.php',
 );

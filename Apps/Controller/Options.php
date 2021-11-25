@@ -6,52 +6,75 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT;
+namespace PS\INIT\Controller;
 
 /**
  * Display Metabox.
  */
 class Options {
-
 	/**
-	 * Holds the values to be used in the fields callbacks
+	 * Undocumented variable.
+	 *
+	 * @var array
 	 */
 	private $options;
 
 	/**
-	 * Start up
+	 * Undocumented variable.
+	 *
+	 * @var array
 	 */
-	public function __construct() {
+	private $settings = array();
+
+	/**
+	 * Undocumented function.
+	 *
+	 * @param array $settings field and settings.
+	 */
+	public function __construct( $settings = array() ) {
+		$this->settings = $settings;
 		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'page_init' ) );
+
 	}
 
 	/**
 	 * Add options page
 	 */
 	public function add_plugin_page() {
-		 // This page will be under "Settings"
-		add_options_page(
-			'Settings Admin',
-			'My Settings',
-			'manage_options',
-			'my-setting-admin',
-			array( $this, 'create_admin_page' )
-		);
+		if( is_array( $this->settings ) ){
+			add_menu_page(
+				__( 'Custom Menu', 'picosoft' ),
+				__( 'Custom Menu', 'picosoft' ),
+				'manage_options',
+				'custompage',
+				array( $this, 'create_admin_page' ),
+				'',
+				6
+			);
+			add_submenu_page(
+				'custompage',
+				__( 'Shortcode', 'textdomain' ),
+				__( 'Shortcode', 'textdomain' ),
+				'manage_options',
+				'books-shortcode',
+				array( $this, 'create_admin_page' ),
+			);
+		}
 	}
 
 	/**
 	 * Options page callback
 	 */
 	public function create_admin_page() {
-		// Set class property
+		// Set class property.
 		$this->options = get_option( 'my_option_name' );
 		?>
 		<div class="wrap">
 			<h1>My Settings</h1>
 			<form method="post" action="options.php">
 			<?php
-				// This prints out all hidden setting fields
+				// This prints out all hidden setting fields.
 				settings_fields( 'my_option_group' );
 				do_settings_sections( 'my-setting-admin' );
 				submit_button();
@@ -66,24 +89,24 @@ class Options {
 	 */
 	public function page_init() {
 		register_setting(
-			'my_option_group', // Option group
-			'my_option_name', // Option name
-			array( $this, 'sanitize' ) // Sanitize
+			'my_option_group', // Option group.
+			'my_option_name', // Option name.
+			array( $this, 'sanitize' ) // Sanitize.
 		);
 
 		add_settings_section(
-			'setting_section_id', // ID
-			'My Custom Settings', // Title
-			array( $this, 'print_section_info' ), // Callback
-			'my-setting-admin' // Page
+			'setting_section_id', // ID.
+			'My Custom Settings', // Title.
+			array( $this, 'print_section_info' ), // Callback.
+			'my-setting-admin' // Page.
 		);
 
 		add_settings_field(
-			'id_number', // ID
-			'ID Number', // Title
-			array( $this, 'id_number_callback' ), // Callback
-			'my-setting-admin', // Page
-			'setting_section_id' // Section
+			'id_number', // ID.
+			'ID Number', // Title.
+			array( $this, 'id_number_callback' ), // Callback.
+			'my-setting-admin', // Page.
+			'setting_section_id' // Section.
 		);
 
 		add_settings_field(

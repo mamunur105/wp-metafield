@@ -22,7 +22,7 @@ trait Singleton {
 	 * @param array $field is an array value.
 	 * @return object
 	 */
-	public static function init( $field ) {
+	public static function init( $field = array() ) {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}

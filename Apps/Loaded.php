@@ -8,45 +8,15 @@
 
 namespace PS\INIT;
 
+use PS\INIT\Traits\Singleton;
+use PS\INIT\Controller\Metabox;
+use PS\INIT\Controller\Options;
+
 /**
  * Display Metabox.
  */
 class Loaded {
-
-	/**
-	 * Get instance;
-	 *
-	 * @var obaject
-	 */
-	public static $instance;
-
-	/**
-	 * Metabox container array
-	 *
-	 * @var array
-	 */
-	private $meta_boxes;
-
-	/**
-	 * Metabox assets suffix.
-	 *
-	 * @var array
-	 */
-	private $suffix;
-
-	/**
-	 * An array inside container.
-	 *
-	 * @var array
-	 */
-	private $fields;
-	/**
-	 * Metabox screen
-	 *
-	 * @var array
-	 */
-	private $screen_container;
-
+	use Singleton;
 	/**
 	 * Metaboxes.
 	 */
@@ -59,19 +29,10 @@ class Loaded {
 		}
 		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+		$this->metaboxes();
+		$this->options();
 	}
 
-	/**
-	 * Create instance
-	 *
-	 * @return object
-	 */
-	public static function init() {
-		if ( ! self::$instance ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
 	/**
 	 * Metaboxes.
 	 *
@@ -116,14 +77,15 @@ class Loaded {
 		 * The Loader will then create the relationship between the defined
 		 * hooks and the functions defined in this class.
 		 */
-		\wp_enqueue_style(
+
+		\wp_register_style(
 			'pssmetabox',
 			PSSMB_ASSETS . '/scripts/admin.css',
 			array(),
 			PSSMB_VERSION,
 			'all'
 		);
-		\wp_enqueue_style(
+		\wp_register_style(
 			'select2',
 			PSSMB_ASSETS . '/vendor/select2.min.css',
 			array(),
@@ -159,15 +121,11 @@ class Loaded {
 			true
 		);
 
+		wp_enqueue_style( 'pssmetabox' );
 	}
 
 	/**
-	 * Converts a system file path to a URL.
-	 * Returns URL and the detected location of the file.
-	 *
-	 * Based on get_url_from_dir() via CMB2
-	 *
-	 * @link https://github.com/CMB2/CMB2
+	 * File location to url.
 	 *
 	 * @param  string $file file path to convert.
 	 * @return string Converted URL.

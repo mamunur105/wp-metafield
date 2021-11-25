@@ -53,8 +53,7 @@ if ( ! function_exists( 'pssmetabox_setup_them' ) ) {
 			dirname( __FILE__ ) . '/languages'
 		);
 		if ( class_exists( 'PS\INIT\Loaded' ) ) {
-			$metabox = PS\INIT\Loaded::init();
-			$metabox->metaboxes();
+			PS\INIT\Loaded::init();
 		}
 	}
 }

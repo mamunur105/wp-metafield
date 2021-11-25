@@ -6,7 +6,7 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT;
+namespace PS\INIT\Controller;
 
 use PS\INIT\Fields\MissingField;
 use PS\INIT\Fields\Input;
