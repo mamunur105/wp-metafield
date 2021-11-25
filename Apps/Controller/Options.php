@@ -42,7 +42,7 @@ class Options {
 	 * Add options page
 	 */
 	public function add_plugin_page() {
-		if( is_array( $this->settings ) ){
+		if ( is_array( $this->settings ) ) {
 			add_menu_page(
 				__( 'Custom Menu', 'picosoft' ),
 				__( 'Custom Menu', 'picosoft' ),
@@ -116,24 +116,6 @@ class Options {
 			'my-setting-admin',
 			'setting_section_id'
 		);
-	}
-
-	/**
-	 * Sanitize each setting field as needed
-	 *
-	 * @param array $input Contains all settings fields as array keys
-	 */
-	public function sanitize( $input ) {
-		$new_input = array();
-		if ( isset( $input['id_number'] ) ) {
-			$new_input['id_number'] = absint( $input['id_number'] );
-		}
-
-		if ( isset( $input['title'] ) ) {
-			$new_input['title'] = sanitize_text_field( $input['title'] );
-		}
-
-		return $new_input;
 	}
 
 	/**

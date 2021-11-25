@@ -21,6 +21,12 @@ class Loaded {
 	 * Metaboxes.
 	 */
 	private function __construct() {
+		if ( ! defined( 'PSSMB_VERSION' ) ) {
+			define( 'PSSMB_VERSION', '1.0.0' );
+		}
+		if ( ! defined( 'PSSMB_PLUGIN_NAME' ) ) {
+			define( 'PSSMB_PLUGIN_NAME', 'pssmetaboxes' );
+		}
 		if ( ! defined( 'PSSMB_URL' ) ) {
 			define( 'PSSMB_URL', $this->get_url_info_from_file( PSSMB_PLUGIN_DIR . '/Apps' )['url'] );
 		}

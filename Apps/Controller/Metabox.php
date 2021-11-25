@@ -14,13 +14,6 @@ namespace PS\INIT\Controller;
 class Metabox {
 
 	/**
-	 * Get instance;
-	 *
-	 * @var obaject
-	 */
-	public static $instance;
-
-	/**
 	 * An array inside container.
 	 *
 	 * @var array
