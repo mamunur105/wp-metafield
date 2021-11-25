@@ -28,6 +28,9 @@ if ( ! function_exists( 'pssmetabox_plugin' ) ) {
 	 * @return void
 	 */
 	function pssmetabox_plugin() {
+		define( 'PSSMB_VERSION', '1.0.0' );
+		define( 'PSSMB_PLUGIN_NAME', 'pssmetaboxes' );
+		define( 'PSSMB_PLUGIN_DIR', __DIR__ );
 		if ( ! class_exists( 'PS\INIT\MetaboxLoded' ) ) {
 			if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 				require_once dirname( __FILE__ ) . '/vendor/autoload.php';

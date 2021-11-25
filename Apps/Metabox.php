@@ -139,12 +139,6 @@ class Metabox {
 						$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
 					}
 					break;
-				// case 'toggleswitch':
-				// 	if ( isset( $_POST[ $field['id'] ] ) ) {
-				// 		$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
-				// 	}
-				// 	error_log(print_r( $field['id'] .' = '. $_POST[ $field['id'] ] . ', '  ,true),3,__DIR__."/log.txt");
-				// 	break;
 				case 'url':
 					if ( isset( $_POST[ $field['id'] ] ) ) {
 						$update_value = esc_url_raw( wp_unslash( $_POST[ $field['id'] ] ) );
