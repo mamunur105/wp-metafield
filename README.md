@@ -33,7 +33,7 @@ Next:
 
 
 
-Uses : 
+Uses :
 ```
 <?php
 function testing_metadata_( $meta_boxes ) {
