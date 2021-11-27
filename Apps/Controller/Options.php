@@ -25,17 +25,60 @@ class Options {
 	 * @var array
 	 */
 	private $settings = array();
-
+	/**
+	 * Undocumented variable.
+	 *
+	 * @var array
+	 */
+	private $section_settings = '';
+	/**
+	 * Undocumented variable.
+	 *
+	 * @var array
+	 */
+	private $option_group = 'pico_option_group';
+	/**
+	 * Undocumented variable.
+	 *
+	 * @var array
+	 */
+	private $setting_section_id = 'setting_section_id';
 	/**
 	 * Undocumented function.
 	 *
 	 * @param array $settings field and settings.
 	 */
 	public function __construct( $settings = array() ) {
-		$this->settings = $settings;
+		$this->settings = $this->default_dettings( $settings );
+		// $option_page              = $this->settings['id'];
+		// $this->options            = get_option( $option_page );
+		// $this->section_settings   = $option_page . '-setting-admin';
+		// $this->setting_section_id = $option_page . '-section-id';
+		// $this->option_group       = $option_page . '-setting-admin';
 		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
-		add_action( 'admin_init', array( $this, 'page_init' ) );
-
+	}
+	/**
+	 * Undocumented function
+	 *
+	 * @param [array] $settings settings field.
+	 * @return array
+	 */
+	private function default_dettings( $settings ) {
+		return array_merge(
+			array(
+				'menu_title'  => esc_html__( 'Option Title', 'picosoft' ),
+				'page_title'  => esc_html__( 'Page Title', 'picosoft' ),
+				'classes'     => 'picosoft-option-wrapper',
+				'id'          => 'pico-option',
+				'position'    => 6,
+				'capability'  => 'manage_options',
+				'menu_icon'   => '',
+				'parent_slug' => '',
+				'tabs'        => array(),
+				'fields'      => array(),
+			),
+			$settings
+		);
 	}
 
 	/**
@@ -43,23 +86,26 @@ class Options {
 	 */
 	public function add_plugin_page() {
 		if ( is_array( $this->settings ) ) {
-			add_menu_page(
-				__( 'Custom Menu', 'picosoft' ),
-				__( 'Custom Menu', 'picosoft' ),
-				'manage_options',
-				'custompage',
-				array( $this, 'create_admin_page' ),
-				'',
-				6
-			);
-			add_submenu_page(
-				'custompage',
-				__( 'Shortcode', 'textdomain' ),
-				__( 'Shortcode', 'textdomain' ),
-				'manage_options',
-				'books-shortcode',
-				array( $this, 'create_admin_page' ),
-			);
+			if ( ! empty( $this->settings['parent_slug'] ) ) {
+				add_submenu_page(
+					$this->settings['parent_slug'],
+					$this->settings['menu_title'],
+					$this->settings['menu_title'],
+					$this->settings['capability'],
+					$this->settings['id'],
+					array( $this, 'create_admin_page' ),
+				);
+			} else {
+				add_menu_page(
+					$this->settings['menu_title'],
+					$this->settings['menu_title'],
+					$this->settings['capability'],
+					$this->settings['id'],
+					array( $this, 'create_admin_page' ),
+					$this->settings['menu_icon'],
+					$this->settings['position'],
+				);
+			}
 		}
 	}
 
@@ -68,80 +114,20 @@ class Options {
 	 */
 	public function create_admin_page() {
 		// Set class property.
-		$this->options = get_option( 'my_option_name' );
 		?>
 		<div class="wrap">
-			<h1>My Settings</h1>
+			<?php if ( $this->settings['page_title'] ) { ?>
+				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
+			<?php } ?>
 			<form method="post" action="options.php">
-			<?php
-				// This prints out all hidden setting fields.
-				settings_fields( 'my_option_group' );
-				do_settings_sections( 'my-setting-admin' );
-				submit_button();
-			?>
+
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero minima illum laboriosam quam labore odit expedita eligendi eius a, adipisci similique deserunt, asperiores iusto sequi nostrum in reiciendis. Corrupti!
+				
 			</form>
 		</div>
 		<?php
 	}
 
-	/**
-	 * Register and add settings
-	 */
-	public function page_init() {
-		register_setting(
-			'my_option_group', // Option group.
-			'my_option_name', // Option name.
-			array( $this, 'sanitize' ) // Sanitize.
-		);
 
-		add_settings_section(
-			'setting_section_id', // ID.
-			'My Custom Settings', // Title.
-			array( $this, 'print_section_info' ), // Callback.
-			'my-setting-admin' // Page.
-		);
 
-		add_settings_field(
-			'id_number', // ID.
-			'ID Number', // Title.
-			array( $this, 'id_number_callback' ), // Callback.
-			'my-setting-admin', // Page.
-			'setting_section_id' // Section.
-		);
-
-		add_settings_field(
-			'title',
-			'Title',
-			array( $this, 'title_callback' ),
-			'my-setting-admin',
-			'setting_section_id'
-		);
-	}
-
-	/**
-	 * Print the Section text
-	 */
-	public function print_section_info() {
-		print 'Enter your settings below:';
-	}
-
-	/**
-	 * Get the settings option array and print one of its values
-	 */
-	public function id_number_callback() {
-		printf(
-			'<input type="text" id="id_number" name="my_option_name[id_number]" value="%s" />',
-			isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number'] ) : ''
-		);
-	}
-
-	/**
-	 * Get the settings option array and print one of its values
-	 */
-	public function title_callback() {
-		printf(
-			'<input type="text" id="title" name="my_option_name[title]" value="%s" />',
-			isset( $this->options['title'] ) ? esc_attr( $this->options['title'] ) : ''
-		);
-	}
 }
