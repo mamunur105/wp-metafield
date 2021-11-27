@@ -58,13 +58,13 @@ class RadioImage extends GetFields {
 			// }
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper radio-image flex-wrap <?php echo esc_attr( $class ); ?>" data-col="<?php esc_attr( $column ); ?>">
-				<div class="label">
+				<div class="label col">
 					<label><?php echo esc_html( $title ); ?> </label>
 					<?php if ( ! empty( $subtitle ) ) { ?>
 						<p> <?php echo esc_html( $subtitle ); ?></p>
 					<?php } ?>
 				</div>
-				<div class="field-wrapper d-flex flex-wrap">
+				<div class="field-wrapper col d-flex flex-wrap">
 						<?php
 						if ( ! empty( $options ) ) {
 							$width = 100 / $column;

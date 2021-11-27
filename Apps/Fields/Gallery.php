@@ -47,13 +47,13 @@ class Gallery extends GetFields {
 			}
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper flex-wrap image-gallery <?php echo esc_attr( $class ); ?>" <?php echo $data_attr; ?>>
-				<div class="label">
+				<div class="label col">
 					<label for="<?php echo esc_attr( $id ); ?>"> <?php echo esc_html( $title ); ?> </label>
 					<?php if ( ! empty( $subtitle ) ) { ?>
 						<p> <?php echo esc_html( $subtitle ); ?></p>
 					<?php } ?>
 				</div>
-				<div class="field-wrapper flex-wrap" >
+				<div class="field-wrapper col flex-wrap" >
 					<div class="upload-button-wrapper">
 						<button class="upload-btn btn button-primary"><?php echo esc_html__( 'Upload', 'psnmetabox' ); ?></button>
 					</div>

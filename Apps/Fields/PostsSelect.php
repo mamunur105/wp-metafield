@@ -27,7 +27,7 @@ class PostsSelect extends GetFields {
 		}
 		$defaults              = array(
 			'multiselect' => false,
-			'post_types'  => array( 'page' ),
+			'post_types'  => array( 'post' ),
 		);
 		$field                 = wp_parse_args( $field, $defaults );
 		self::$instance->field = $field;

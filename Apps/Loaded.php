@@ -35,8 +35,7 @@ class Loaded {
 		}
 		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-		$this->metaboxes();
-		$this->options();
+		$this->settings();
 	}
 
 	/**
@@ -44,29 +43,21 @@ class Loaded {
 	 *
 	 * @return void
 	 */
-	public function metaboxes() {
-		$configs = apply_filters( 'pico_meta_boxes', array(), 10, 1 );
-		if ( is_array( $configs ) && count( $configs ) ) {
-			foreach ( $configs as $container ) {
-				new Metabox( $container );
+	public function settings() {
+		$meta_boxes = apply_filters( 'pico_meta_boxes', array(), 10, 1 );
+		if ( is_array( $meta_boxes ) && count( $meta_boxes ) ) {
+			foreach ( $meta_boxes as $meta_box ) {
+				new Metabox( $meta_box );
+			}
+		}
+		$pico_setting = apply_filters( 'pico_setting', array(), 10, 1 );
+		if ( is_array( $pico_setting ) && count( $pico_setting ) ) {
+			foreach ( $pico_setting as $setting ) {
+				new Options( $setting );
 			}
 		}
 	}
 
-
-	/**
-	 * Metaboxes.
-	 *
-	 * @return void
-	 */
-	public function options() {
-		$configs = apply_filters( 'pico_setting', array(), 10, 1 );
-		if ( is_array( $configs ) && count( $configs ) ) {
-			foreach ( $configs as $container ) {
-				new Options( $container );
-			}
-		}
-	}
 	/**
 	 * Scripts.
 	 *

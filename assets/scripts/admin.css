@@ -326,7 +326,6 @@ input::-moz-focus-outer {
   margin-bottom: 20px;
   display: block;
   width: 100%;
-  text-align: center;
 }
 .fields-wrapper.radio-image .switchbtn-wraper {
   min-width: initial;
@@ -411,9 +410,6 @@ input::-moz-focus-outer {
   color: #fff;
 }
 
-.image-gallery .field-wrapper {
-  width: 100%;
-}
 .image-gallery .upload-button-wrapper {
   margin-bottom: 10px;
 }
