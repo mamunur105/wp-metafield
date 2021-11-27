@@ -30,11 +30,11 @@ function testing_metadata_( $meta_boxes ) {
 		'priority'   => 'high',
 		'classes'    => 'picosoft-metabox-wrapper',
 		'tabs'       => array(
-			'tabs_one' => array(
-				'label' => 'Tab One',
-				'default_active' => true
+			'tabs_one'   => array(
+				'label'          => 'Tab One',
+				'default_active' => true,
 			),
-			'tabs_two' => array(
+			'tabs_two'   => array(
 				'label' => 'Tab Two',
 			),
 			'tabs_three' => array(
@@ -50,7 +50,7 @@ function testing_metadata_( $meta_boxes ) {
 				'class'   => 'testname',
 				'true'    => 'TRUE',
 				'false'   => 'FALSE',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'     => 'tabs_one',
 				'default' => 'false', // true or false.
 				'desc'    => esc_html__( 'Checking toggleswitch Field', 'picosoft' ),
 			),
@@ -60,7 +60,7 @@ function testing_metadata_( $meta_boxes ) {
 				'title'       => esc_html__( 'Multiselect Box', 'picosoft' ),
 				'type'        => 'select',
 				'class'       => 'testname',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'         => 'tabs_one',
 				'multiselect' => true,
 				'default'     => array( '' ),
 				'options'     => array(
@@ -77,7 +77,7 @@ function testing_metadata_( $meta_boxes ) {
 				'title'       => esc_html__( 'Multiselect Box', 'picosoft' ),
 				'type'        => 'select',
 				'class'       => 'testname',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'         => 'tabs_one',
 				'multiselect' => true,
 				'default'     => array( '' ),
 				'options'     => array(
@@ -93,7 +93,7 @@ function testing_metadata_( $meta_boxes ) {
 				'id'      => 'toggleswitch_1',
 				'title'   => esc_html__( 'Toggleswitch', 'picosoft' ),
 				'type'    => 'toggleswitch',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'true'    => 'YES',
 				'false'   => 'NO',
@@ -104,7 +104,7 @@ function testing_metadata_( $meta_boxes ) {
 				'id'      => 'rangeslider_2',
 				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
 				'type'    => 'rangeslider',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'min'     => 5,
 				'max'     => 1000,
@@ -115,19 +115,19 @@ function testing_metadata_( $meta_boxes ) {
 				'id'      => 'rangeslider_3',
 				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
 				'type'    => 'rangeslider',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'min'     => 5,
 				'max'     => 1000,
 				'default' => 50,
 				'desc'    => esc_html__( 'Checking rangeslider Field', 'picosoft' ),
 			),
-			
+
 			array(
 				'id'      => 'colorpicker_1',
 				'title'   => esc_html__( 'Color Picker', 'picosoft' ),
 				'type'    => 'colorpicker',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'default' => '#ff0000',
 				'desc'    => esc_html__( 'Checking colorpicker field', 'picosoft' ),
@@ -137,7 +137,7 @@ function testing_metadata_( $meta_boxes ) {
 				'id'      => 'switchbtn_1',
 				'title'   => esc_html__( 'Switch?', 'picosoft' ),
 				'type'    => 'switchbtn',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'default' => 'iPhone',
 				'options' => array(
@@ -163,37 +163,36 @@ function testing_metadata_( $meta_boxes ) {
 				'title'   => esc_html__( 'URL', 'picosoft' ),
 				'type'    => 'url',
 				'class'   => 'testname',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => 'Default value',
 				'desc'    => esc_html__( 'Checking url field', 'picosoft' ),
 			),
 
-						
 			array(
-				'id'        => 'editor_11',
-				'title'     => esc_html__( 'Editor field', 'picosoft' ),
-				'subtitle'  => esc_html__( 'Editor Subtitle', 'picosoft' ),
-				'type'      => 'editor',
-				'tab'	 	=> 'tabs_two' ,
-				'class'     => 'testname',
-				'default'   => 'Default value',
-				'desc'      => esc_html__( 'Checking textarea field', 'picosoft' ),
+				'id'       => 'editor_11',
+				'title'    => esc_html__( 'Editor field', 'picosoft' ),
+				'subtitle' => esc_html__( 'Editor Subtitle', 'picosoft' ),
+				'type'     => 'editor',
+				'tab'      => 'tabs_two',
+				'class'    => 'testname',
+				'default'  => 'Default value',
+				'desc'     => esc_html__( 'Checking textarea field', 'picosoft' ),
 			),
 			array(
-				'id'        => 'gallery_1',
-				'title'     => esc_html__( 'Gallery', 'picosoft' ),
-				'subtitle'  => esc_html__( 'Subtitle Gallery', 'picosoft' ),
-				'type'      => 'gallery',
-				'tab'	 	=> 'tabs_two' ,
-				'class'     => 'testname',
-				'desc'      => esc_html__( 'Checking gallery field', 'picosoft' ),
+				'id'       => 'gallery_1',
+				'title'    => esc_html__( 'Gallery', 'picosoft' ),
+				'subtitle' => esc_html__( 'Subtitle Gallery', 'picosoft' ),
+				'type'     => 'gallery',
+				'tab'      => 'tabs_two',
+				'class'    => 'testname',
+				'desc'     => esc_html__( 'Checking gallery field', 'picosoft' ),
 			),
 
 			array(
 				'id'    => 'image_',
 				'title' => esc_html__( 'image', 'picosoft' ),
 				'type'  => 'image',
-				'tab'	 	=> 'tabs_two',
+				'tab'   => 'tabs_two',
 				'class' => 'testname',
 				'desc'  => esc_html__( 'Checking image field', 'picosoft' ),
 			),
@@ -201,7 +200,7 @@ function testing_metadata_( $meta_boxes ) {
 				'id'    => 'sidebar_1',
 				'title' => esc_html__( 'sidebar', 'picosoft' ),
 				'type'  => 'sidebar',
-				'tab'	 	=> 'tabs_two',
+				'tab'   => 'tabs_two',
 				'class' => 'testname',
 				'desc'  => esc_html__( 'Checking sidebar field', 'picosoft' ),
 			),
@@ -210,7 +209,7 @@ function testing_metadata_( $meta_boxes ) {
 				'title'       => esc_html__( 'Postsselect Box', 'picosoft' ),
 				'type'        => 'postsselect',
 				'class'       => 'testname',
-				'tab'	 	=> 'tabs_two',
+				'tab'         => 'tabs_two',
 				'multiselect' => false,
 				'default'     => array( '2' ),
 				'desc'        => esc_html__( 'Checking postsselect field', 'picosoft' ),
@@ -220,7 +219,7 @@ function testing_metadata_( $meta_boxes ) {
 				'title'   => esc_html__( 'Radioimage?', 'picosoft' ),
 				'type'    => 'radioimage',
 				'class'   => 'testname',
-				'tab'	 	=> 'tabs_two',
+				'tab'     => 'tabs_two',
 				'default' => 'iPhone',
 				'options' => array(
 					'radioimage_1' => array(
@@ -344,15 +343,15 @@ function testing_settings( $meta_boxes ) {
 	*/
 	$meta_boxes[] = array(
 		'id'         => 'picosoft_header',
-		'menu_title'      => esc_html__( 'Options', 'picosoft' ),
+		'menu_title' => esc_html__( 'Options', 'picosoft' ),
 		'classes'    => 'picosoft-metabox-wrapper',
-		'position'	=> 6 ,
+		'position'   => 6,
 		'tabs'       => array(
-			'tabs_one' => array(
-				'label' => 'Tab One',
-				'default_active' => true
+			'tabs_one'   => array(
+				'label'          => 'Tab One',
+				'default_active' => true,
 			),
-			'tabs_two' => array(
+			'tabs_two'   => array(
 				'label' => 'Tab Two',
 			),
 			'tabs_three' => array(
@@ -368,36 +367,36 @@ function testing_settings( $meta_boxes ) {
 				'class'   => 'testname',
 				'true'    => 'TRUE',
 				'false'   => 'FALSE',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'     => 'tabs_one',
 				'default' => 'false', // true or false.
 				'desc'    => esc_html__( 'Checking toggleswitch Field', 'picosoft' ),
 			),
 
 			array(
-				'id'        => 'editor_11',
-				'title'     => esc_html__( 'Editor field', 'picosoft' ),
-				'subtitle'  => esc_html__( 'Editor Subtitle', 'picosoft' ),
-				'type'      => 'editor',
-				'tab'	 	=> 'tabs_two' ,
-				'class'     => 'testname',
-				'default'   => 'Default value',
-				'desc'      => esc_html__( 'Checking textarea field', 'picosoft' ),
+				'id'       => 'editor_11',
+				'title'    => esc_html__( 'Editor field', 'picosoft' ),
+				'subtitle' => esc_html__( 'Editor Subtitle', 'picosoft' ),
+				'type'     => 'editor',
+				'tab'      => 'tabs_two',
+				'class'    => 'testname',
+				'default'  => 'Default value',
+				'desc'     => esc_html__( 'Checking textarea field', 'picosoft' ),
 			),
 			array(
-				'id'        => 'gallery_1',
-				'title'     => esc_html__( 'Gallery', 'picosoft' ),
-				'subtitle'  => esc_html__( 'Subtitle Gallery', 'picosoft' ),
-				'type'      => 'gallery',
-				'tab'	 	=> 'tabs_two' ,
-				'class'     => 'testname',
-				'desc'      => esc_html__( 'Checking gallery field', 'picosoft' ),
+				'id'       => 'gallery_1',
+				'title'    => esc_html__( 'Gallery', 'picosoft' ),
+				'subtitle' => esc_html__( 'Subtitle Gallery', 'picosoft' ),
+				'type'     => 'gallery',
+				'tab'      => 'tabs_two',
+				'class'    => 'testname',
+				'desc'     => esc_html__( 'Checking gallery field', 'picosoft' ),
 			),
 
 			array(
 				'id'    => 'image_',
 				'title' => esc_html__( 'image', 'picosoft' ),
 				'type'  => 'image',
-				'tab'	 	=> 'tabs_two',
+				'tab'   => 'tabs_two',
 				'class' => 'testname',
 				'desc'  => esc_html__( 'Checking image field', 'picosoft' ),
 			),
@@ -405,7 +404,7 @@ function testing_settings( $meta_boxes ) {
 				'id'    => 'sidebar_1',
 				'title' => esc_html__( 'sidebar', 'picosoft' ),
 				'type'  => 'sidebar',
-				'tab'	 	=> 'tabs_two',
+				'tab'   => 'tabs_two',
 				'class' => 'testname',
 				'desc'  => esc_html__( 'Checking sidebar field', 'picosoft' ),
 			),
@@ -414,7 +413,7 @@ function testing_settings( $meta_boxes ) {
 				'title'       => esc_html__( 'Postsselect Box', 'picosoft' ),
 				'type'        => 'postsselect',
 				'class'       => 'testname',
-				'tab'	 	=> 'tabs_two',
+				'tab'         => 'tabs_two',
 				'multiselect' => false,
 				'default'     => array( '2' ),
 				'desc'        => esc_html__( 'Checking postsselect field', 'picosoft' ),
@@ -424,7 +423,7 @@ function testing_settings( $meta_boxes ) {
 				'title'   => esc_html__( 'Radioimage?', 'picosoft' ),
 				'type'    => 'radioimage',
 				'class'   => 'testname',
-				'tab'	 	=> 'tabs_two',
+				'tab'     => 'tabs_two',
 				'default' => 'iPhone',
 				'options' => array(
 					'radioimage_1' => array(
@@ -443,7 +442,7 @@ function testing_settings( $meta_boxes ) {
 				'title'       => esc_html__( 'Multiselect Box', 'picosoft' ),
 				'type'        => 'select',
 				'class'       => 'testname',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'         => 'tabs_one',
 				'multiselect' => true,
 				'default'     => array( '' ),
 				'options'     => array(
@@ -459,7 +458,7 @@ function testing_settings( $meta_boxes ) {
 				'id'      => 'toggleswitch_1',
 				'title'   => esc_html__( 'Toggleswitch', 'picosoft' ),
 				'type'    => 'toggleswitch',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'true'    => 'YES',
 				'false'   => 'NO',
@@ -470,7 +469,7 @@ function testing_settings( $meta_boxes ) {
 				'id'      => 'rangeslider_2',
 				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
 				'type'    => 'rangeslider',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'min'     => 5,
 				'max'     => 1000,
@@ -481,7 +480,7 @@ function testing_settings( $meta_boxes ) {
 			array(
 				'id'      => 'rangeslider_1',
 				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'type'    => 'rangeslider',
 				'class'   => 'testname',
 				'default' => 500,
@@ -491,7 +490,7 @@ function testing_settings( $meta_boxes ) {
 				'id'      => 'colorpicker_1',
 				'title'   => esc_html__( 'Color Picker', 'picosoft' ),
 				'type'    => 'colorpicker',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'default' => '#ff0000',
 				'desc'    => esc_html__( 'Checking colorpicker field', 'picosoft' ),
@@ -501,7 +500,7 @@ function testing_settings( $meta_boxes ) {
 				'id'      => 'switchbtn_1',
 				'title'   => esc_html__( 'Switch?', 'picosoft' ),
 				'type'    => 'switchbtn',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'default' => 'iPhone',
 				'options' => array(
@@ -527,7 +526,7 @@ function testing_settings( $meta_boxes ) {
 				'title'   => esc_html__( 'URL', 'picosoft' ),
 				'type'    => 'url',
 				'class'   => 'testname',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => 'Default value',
 				'desc'    => esc_html__( 'Checking url field', 'picosoft' ),
 			),
@@ -618,24 +617,24 @@ function testing_settings( $meta_boxes ) {
 		), // End fields.
 	); // End picosoft_page_header_footer.
 	$meta_boxes[] = array(
-		'id'         => 'picosoft_footer',
-		'menu_title'      => esc_html__( 'Options Footer', 'picosoft' ),
-		'classes'    => 'picosoft-metabox-wrapper',
+		'id'          => 'picosoft_footer',
+		'menu_title'  => esc_html__( 'Options Footer', 'picosoft' ),
+		'classes'     => 'picosoft-metabox-wrapper',
 		'parent_slug' => 'picosoft_header',
-		'position'	=> 6 ,
-		'tabs'       => array(
-			'tabs_one' => array(
-				'label' => 'Tab One',
-				'default_active' => true
+		'position'    => 6,
+		'tabs'        => array(
+			'tabs_one'   => array(
+				'label'          => 'Tab One',
+				'default_active' => true,
 			),
-			'tabs_two' => array(
+			'tabs_two'   => array(
 				'label' => 'Tab Two',
 			),
 			'tabs_three' => array(
 				'label' => 'Tab Three',
 			),
 		),
-		'fields'     => array(
+		'fields'      => array(
 			// Gallery field is under construction.
 			array(
 				'id'      => 'toggleswitch_2',
@@ -644,36 +643,36 @@ function testing_settings( $meta_boxes ) {
 				'class'   => 'testname',
 				'true'    => 'TRUE',
 				'false'   => 'FALSE',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'     => 'tabs_one',
 				'default' => 'false', // true or false.
 				'desc'    => esc_html__( 'Checking toggleswitch Field', 'picosoft' ),
 			),
 
 			array(
-				'id'        => 'editor_11',
-				'title'     => esc_html__( 'Editor field', 'picosoft' ),
-				'subtitle'  => esc_html__( 'Editor Subtitle', 'picosoft' ),
-				'type'      => 'editor',
-				'tab'	 	=> 'tabs_two' ,
-				'class'     => 'testname',
-				'default'   => 'Default value',
-				'desc'      => esc_html__( 'Checking textarea field', 'picosoft' ),
+				'id'       => 'editor_11',
+				'title'    => esc_html__( 'Editor field', 'picosoft' ),
+				'subtitle' => esc_html__( 'Editor Subtitle', 'picosoft' ),
+				'type'     => 'editor',
+				'tab'      => 'tabs_two',
+				'class'    => 'testname',
+				'default'  => 'Default value',
+				'desc'     => esc_html__( 'Checking textarea field', 'picosoft' ),
 			),
 			array(
-				'id'        => 'gallery_1',
-				'title'     => esc_html__( 'Gallery', 'picosoft' ),
-				'subtitle'  => esc_html__( 'Subtitle Gallery', 'picosoft' ),
-				'type'      => 'gallery',
-				'tab'	 	=> 'tabs_two' ,
-				'class'     => 'testname',
-				'desc'      => esc_html__( 'Checking gallery field', 'picosoft' ),
+				'id'       => 'gallery_1',
+				'title'    => esc_html__( 'Gallery', 'picosoft' ),
+				'subtitle' => esc_html__( 'Subtitle Gallery', 'picosoft' ),
+				'type'     => 'gallery',
+				'tab'      => 'tabs_two',
+				'class'    => 'testname',
+				'desc'     => esc_html__( 'Checking gallery field', 'picosoft' ),
 			),
 
 			array(
 				'id'    => 'image_',
 				'title' => esc_html__( 'image', 'picosoft' ),
 				'type'  => 'image',
-				'tab'	 	=> 'tabs_two',
+				'tab'   => 'tabs_two',
 				'class' => 'testname',
 				'desc'  => esc_html__( 'Checking image field', 'picosoft' ),
 			),
@@ -681,7 +680,7 @@ function testing_settings( $meta_boxes ) {
 				'id'    => 'sidebar_1',
 				'title' => esc_html__( 'sidebar', 'picosoft' ),
 				'type'  => 'sidebar',
-				'tab'	 	=> 'tabs_two',
+				'tab'   => 'tabs_two',
 				'class' => 'testname',
 				'desc'  => esc_html__( 'Checking sidebar field', 'picosoft' ),
 			),
@@ -690,7 +689,7 @@ function testing_settings( $meta_boxes ) {
 				'title'       => esc_html__( 'Postsselect Box', 'picosoft' ),
 				'type'        => 'postsselect',
 				'class'       => 'testname',
-				'tab'	 	=> 'tabs_two',
+				'tab'         => 'tabs_two',
 				'multiselect' => false,
 				'default'     => array( '2' ),
 				'desc'        => esc_html__( 'Checking postsselect field', 'picosoft' ),
@@ -700,7 +699,7 @@ function testing_settings( $meta_boxes ) {
 				'title'   => esc_html__( 'Radioimage?', 'picosoft' ),
 				'type'    => 'radioimage',
 				'class'   => 'testname',
-				'tab'	 	=> 'tabs_two',
+				'tab'     => 'tabs_two',
 				'default' => 'iPhone',
 				'options' => array(
 					'radioimage_1' => array(
@@ -719,7 +718,7 @@ function testing_settings( $meta_boxes ) {
 				'title'       => esc_html__( 'Multiselect Box', 'picosoft' ),
 				'type'        => 'select',
 				'class'       => 'testname',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'         => 'tabs_one',
 				'multiselect' => true,
 				'default'     => array( '' ),
 				'options'     => array(
@@ -735,7 +734,7 @@ function testing_settings( $meta_boxes ) {
 				'id'      => 'toggleswitch_1',
 				'title'   => esc_html__( 'Toggleswitch', 'picosoft' ),
 				'type'    => 'toggleswitch',
-				'tab'	 	=> 'tabs_one' ,
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'true'    => 'YES',
 				'false'   => 'NO',
@@ -746,7 +745,7 @@ function testing_settings( $meta_boxes ) {
 				'id'      => 'rangeslider_2',
 				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
 				'type'    => 'rangeslider',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'min'     => 5,
 				'max'     => 1000,
@@ -757,7 +756,7 @@ function testing_settings( $meta_boxes ) {
 			array(
 				'id'      => 'rangeslider_1',
 				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'type'    => 'rangeslider',
 				'class'   => 'testname',
 				'default' => 500,
@@ -767,7 +766,7 @@ function testing_settings( $meta_boxes ) {
 				'id'      => 'colorpicker_1',
 				'title'   => esc_html__( 'Color Picker', 'picosoft' ),
 				'type'    => 'colorpicker',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'default' => '#ff0000',
 				'desc'    => esc_html__( 'Checking colorpicker field', 'picosoft' ),
@@ -777,7 +776,7 @@ function testing_settings( $meta_boxes ) {
 				'id'      => 'switchbtn_1',
 				'title'   => esc_html__( 'Switch?', 'picosoft' ),
 				'type'    => 'switchbtn',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'class'   => 'testname',
 				'default' => 'iPhone',
 				'options' => array(
@@ -803,7 +802,7 @@ function testing_settings( $meta_boxes ) {
 				'title'   => esc_html__( 'URL', 'picosoft' ),
 				'type'    => 'url',
 				'class'   => 'testname',
-				'tab'	 	=> 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => 'Default value',
 				'desc'    => esc_html__( 'Checking url field', 'picosoft' ),
 			),

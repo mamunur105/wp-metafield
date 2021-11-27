@@ -8,54 +8,22 @@
 
 namespace PS\INIT\Controller;
 
+use PS\INIT\Abstracts\AbsController;
+
 /**
  * Display Metabox.
  */
-class Options {
-	/**
-	 * Undocumented variable.
-	 *
-	 * @var array
-	 */
-	private $options;
+class Options extends AbsController {
 
-	/**
-	 * Undocumented variable.
-	 *
-	 * @var array
-	 */
-	private $settings = array();
-	/**
-	 * Undocumented variable.
-	 *
-	 * @var array
-	 */
-	private $section_settings = '';
-	/**
-	 * Undocumented variable.
-	 *
-	 * @var array
-	 */
-	private $option_group = 'pico_option_group';
-	/**
-	 * Undocumented variable.
-	 *
-	 * @var array
-	 */
-	private $setting_section_id = 'setting_section_id';
 	/**
 	 * Undocumented function.
 	 *
 	 * @param array $settings field and settings.
 	 */
 	public function __construct( $settings = array() ) {
-		$this->settings = $this->default_dettings( $settings );
-		// $option_page              = $this->settings['id'];
-		// $this->options            = get_option( $option_page );
-		// $this->section_settings   = $option_page . '-setting-admin';
-		// $this->setting_section_id = $option_page . '-section-id';
-		// $this->option_group       = $option_page . '-setting-admin';
-		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
+		$this->settings = $this->set_settings( $settings );
+		$this->fields   = $this->settings['fields'];
+		add_action( 'admin_menu', array( $this, 'add_settings' ) );
 	}
 	/**
 	 * Undocumented function
@@ -63,8 +31,8 @@ class Options {
 	 * @param [array] $settings settings field.
 	 * @return array
 	 */
-	private function default_dettings( $settings ) {
-		return array_merge(
+	private function set_settings( $settings ) {
+		$new_settings = array_merge(
 			array(
 				'menu_title'  => esc_html__( 'Option Title', 'picosoft' ),
 				'page_title'  => esc_html__( 'Page Title', 'picosoft' ),
@@ -79,32 +47,28 @@ class Options {
 			),
 			$settings
 		);
+		if ( isset( $new_settings['post_types'] ) ) {
+			unset( $new_settings['post_types'] );
+		}
+		return $new_settings;
 	}
 
 	/**
 	 * Add options page
 	 */
-	public function add_plugin_page() {
+	public function add_settings() {
 		if ( is_array( $this->settings ) ) {
-			if ( ! empty( $this->settings['parent_slug'] ) ) {
-				add_submenu_page(
-					$this->settings['parent_slug'],
-					$this->settings['menu_title'],
-					$this->settings['menu_title'],
-					$this->settings['capability'],
-					$this->settings['id'],
-					array( $this, 'create_admin_page' ),
-				);
+			$parent_slug   = sanitize_text_field( $this->settings['parent_slug'] );
+			$menu_title    = sanitize_text_field( $this->settings['menu_title'] );
+			$capability    = sanitize_text_field( $this->settings['capability'] );
+			$id            = sanitize_text_field( $this->settings['id'] );
+			$menu_icon     = sanitize_text_field( $this->settings['menu_icon'] );
+			$position      = absint( $this->settings['position'] );
+			$this_function = array( $this, 'create_page_section' );
+			if ( ! empty( $parent_slug ) ) {
+				add_submenu_page( $parent_slug, $menu_title, $menu_title, $capability, $id, $this_function );
 			} else {
-				add_menu_page(
-					$this->settings['menu_title'],
-					$this->settings['menu_title'],
-					$this->settings['capability'],
-					$this->settings['id'],
-					array( $this, 'create_admin_page' ),
-					$this->settings['menu_icon'],
-					$this->settings['position'],
-				);
+				add_menu_page( $menu_title, $menu_title, $capability, $id, $this_function, $menu_icon, $position );
 			}
 		}
 	}
@@ -112,7 +76,7 @@ class Options {
 	/**
 	 * Options page callback
 	 */
-	public function create_admin_page() {
+	public function create_page_section() {
 		// Set class property.
 		?>
 		<div class="wrap">
@@ -120,13 +84,49 @@ class Options {
 				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
 			<?php } ?>
 			<form method="post" action="options.php">
-
+				<?php parent::create_page_section(); ?>
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero minima illum laboriosam quam labore odit expedita eligendi eius a, adipisci similique deserunt, asperiores iusto sequi nostrum in reiciendis. Corrupti!
-				
+
 			</form>
 		</div>
 		<?php
 	}
+
+	/**
+	 * Save function
+	 *
+	 * @param [type] $post_id post id.
+	 * @param [type] $post post object.
+	 * @param [type] $update update true.
+	 * @return mixed
+	 */
+	// public function save_settings( $post_id, $post, $autoload ) {
+	// if ( ! in_array( $post->post_type, $this->settings['post_types'], true ) ) {
+	// return $post_id;
+	// }
+	// if ( ! current_user_can( 'edit_page', $post_id ) ) {
+	// return $post_id;
+	// }
+	// if ( ! current_user_can( 'edit_post', $post_id ) ) {
+	// return $post_id;
+	// }
+	// verify nonce.
+	// if ( isset( $_POST['PS_Metaboxes_nonce'] ) ) {
+	// $nonce_check = sanitize_text_field( wp_unslash( $_POST['PS_Metaboxes_nonce'] ) );
+	// if ( ! wp_verify_nonce( $nonce_check, basename( __FILE__ ) ) ) {
+	// return $post_id;
+	// }
+	// } else {
+	// return $post_id;
+	// }
+	// check autosave.
+	// if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+	// return $post_id;
+	// }
+	// parent::save_settings( $post_id, $post, $autoload );
+	// }
+
+
 
 
 

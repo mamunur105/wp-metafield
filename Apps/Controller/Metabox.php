@@ -8,24 +8,12 @@
 
 namespace PS\INIT\Controller;
 
+use PS\INIT\Abstracts\AbsController;
+use PS\INIT\Model\CallTheField;
 /**
  * Display Metabox.
  */
-class Metabox {
-
-	/**
-	 * An array inside container.
-	 *
-	 * @var array
-	 */
-	private $fields;
-
-	/**
-	 * Metabox screen
-	 *
-	 * @var array
-	 */
-	private $screen_container;
+class Metabox extends AbsController {
 
 	/**
 	 * Metaboxes.
@@ -33,7 +21,20 @@ class Metabox {
 	 * @param array $metaboxes is a array.
 	 */
 	public function __construct( $metaboxes ) {
-		$container_default      = array(
+		$this->settings = $this->set_settings( $metaboxes );
+		$this->fields   = $this->settings['fields'];
+		add_action( 'add_meta_boxes', array( $this, 'add_settings' ) );
+		add_action( 'save_post', array( $this, 'save_settings' ), 10, 3 );
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param [array] $settings settings field.
+	 * @return array
+	 */
+	private function set_settings( $settings ) {
+		$default = array(
 			'id'         => wp_generate_uuid4(),
 			'title'      => 'Title',
 			'post_types' => array( 'post' ),
@@ -43,11 +44,10 @@ class Metabox {
 			'tabs'       => true,
 			'fields'     => array(),
 		);
-		$metaboxes              = wp_parse_args( $metaboxes, $container_default );
-		$this->screen_container = $metaboxes;
-		$this->fields           = $metaboxes['fields'];
-		add_action( 'add_meta_boxes', array( $this, 'metaboxes' ) );
-		add_action( 'save_post', array( $this, 'save_metadata' ), 10, 3 );
+		if ( isset( $settings['post_types'] ) && empty( $settings['post_types'] ) ) {
+			unset( $settings['post_types'] );
+		}
+		return array_merge( $default, $settings );
 	}
 
 	/**
@@ -55,13 +55,13 @@ class Metabox {
 	 *
 	 * @return void
 	 */
-	public function metaboxes() {
-		if ( ! empty( $this->screen_container ) && is_array( $this->screen_container ) ) {
+	public function add_settings() {
+		if ( ! empty( $this->settings ) && is_array( $this->settings ) ) {
 			add_meta_box(
-				$this->screen_container['id'],
-				$this->screen_container['title'],
-				array( $this, 'show' ),
-				$this->screen_container['post_types']
+				$this->settings['id'],
+				$this->settings['title'],
+				array( $this, 'from_field' ),
+				$this->settings['post_types']
 			);
 		}
 	}
@@ -71,10 +71,10 @@ class Metabox {
 	 *
 	 * @return void
 	 */
-	public function show() {
+	public function from_field() {
 		if ( ! empty( $this->fields ) ) {
 			$this->before_container();
-			echo '<input type="hidden" name="PS_Metaboxes_nonce" value="' . esc_attr( wp_create_nonce( basename( __FILE__ ) ) ) . '" />';
+			parent::from_field();
 			foreach ( $this->fields as $value ) {
 				$get_the_field = CallTheField::init( $value );
 				$get_the_field->get_fields();
@@ -91,8 +91,8 @@ class Metabox {
 	 * @param [type] $update update true.
 	 * @return mixed
 	 */
-	public function save_metadata( $post_id, $post, $update ) {
-		if ( ! in_array( $post->post_type, $this->screen_container['post_types'], true ) ) {
+	public function save_settings( $post_id, $post, $updated ) {
+		if ( ! in_array( $post->post_type, $this->settings['post_types'], true ) ) {
 			return $post_id;
 		}
 		if ( ! current_user_can( 'edit_page', $post_id ) ) {
@@ -101,120 +101,12 @@ class Metabox {
 		if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return $post_id;
 		}
-		// verify nonce.
-		if ( isset( $_POST['PS_Metaboxes_nonce'] ) ) {
-			$nonce_check = sanitize_text_field( wp_unslash( $_POST['PS_Metaboxes_nonce'] ) );
-			if ( ! wp_verify_nonce( $nonce_check, basename( __FILE__ ) ) ) {
-				return $post_id;
-			}
-		} else {
-			return $post_id;
-		}
 		// check autosave.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
 		}
-		// loop through fields and save the data.
-		foreach ( $this->fields as $field ) {
-			$update_value = null;
-			switch ( $field['type'] ) {
-				case 'gallery':
-				case 'number':
-				case 'date':
-				case 'radio':
-				case 'switchbtn':
-				case 'radioimage':
-				case 'textarea':
-				case 'colorpicker':
-				case 'toggleswitch':
-				case 'text':
-					if ( isset( $_POST[ $field['id'] ] ) ) {
-						$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
-					}
-					break;
-				case 'url':
-					if ( isset( $_POST[ $field['id'] ] ) ) {
-						$update_value = esc_url_raw( wp_unslash( $_POST[ $field['id'] ] ) );
-					}
-					break;
-				case 'email':
-					if ( isset( $_POST[ $field['id'] ] ) ) {
-						$update_value = sanitize_email( wp_unslash( $_POST[ $field['id'] ] ) );
-					}
-					break;
-				case 'select':
-				case 'postsselect':
-				case 'sidebar':
-				case 'checkbox':
-					if ( isset( $_POST[ $field['id'] ] ) ) {
-						$update_value = $this->sanitize_text_or_array_field( wp_unslash( $_POST[ $field['id'] ] ) );
-						$update_value = maybe_serialize( $update_value );
-					} else {
-						$update_value = array();
-					}
-					break;
-				case 'image':
-				case 'rangeslider':
-					if ( isset( $_POST[ $field['id'] ] ) ) {
-						$update_value = intval( wp_unslash( $_POST[ $field['id'] ] ) );
-					}
-					break;
-				case 'editor':
-					if ( isset( $_POST[ $field['id'] ] ) ) {
-						$update_value = apply_filters( 'the_content', wp_unslash( $_POST[ $field['id'] ] ) );
-					}
-					break;
-				default:
-			}
-			update_post_meta( $post_id, $field['id'], $update_value );
-		} // end foreach
+		parent::save_settings( $post_id, $post, $updated );
 	}
-	/**
-	 * Before container.
-	 *
-	 * @return void
-	 */
-	public function before_container() { ?>
-		<div id="<?php echo esc_attr( $this->screen_container['id'] ); ?>" class="picosoft-metabox-container <?php echo esc_attr( $this->screen_container['classes'] ); ?>">
-		<?php
-		if ( is_array( $this->screen_container['tabs'] ) && count( $this->screen_container['tabs'] ) ) {
-			$tabs = $this->screen_container['tabs']
-			?>
-			<div class="picotab">
-				<?php
-				foreach ( $tabs as $key => $tab ) {
-					$active = isset( $tab['default_active'] ) && $tab['default_active'] ? 'active' : '';
-					?>
-					<button class="tablinks <?php echo esc_attr( $active ); ?>" data-tab="<?php echo esc_attr( $key ); ?>">
-						<?php echo isset( $tab['label'] ) ? esc_html( $tab['label'] ) : ''; ?>
-					</button>
-				<?php } ?>
-			</div>
-		<?php } ?>
-		<?php
-	}
-
-	/**
-	 * After container.
-	 *
-	 * @return void
-	 */
-	public function after_container() {
-		echo '</div>';
-	}
-
-	/**
-	 * Recursive sanitation for text or array
-	 *
-	 * @param array|string $input srray or string value.
-	 * @since  0.1
-	 * @return mixed
-	 */
-	public function sanitize_text_or_array_field( $input ) {
-		$input = maybe_unserialize( $input );
-		return ! empty( $input ) ? array_map( 'sanitize_text_field', array_filter( $input ) ) : array();
-	}
-
 
 
 }
