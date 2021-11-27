@@ -9,24 +9,20 @@
 namespace PS\INIT\Abstracts;
 
 use PS\INIT\Traits\SanitizeTextOrArray;
+use PS\INIT\Traits\Nonce;
 
 /**
  * Display Metabox.
  */
 abstract class AbsController {
 	use SanitizeTextOrArray;
+	use Nonce;
 	/**
 	 * An array inside container.
 	 *
 	 * @var array
 	 */
 	protected $fields;
-	/**
-	 * An array inside container.
-	 *
-	 * @var array
-	 */
-	protected $nonce = 'pico_nonce';
 	/**
 	 * Undocumented variable.
 	 *
@@ -46,7 +42,7 @@ abstract class AbsController {
 	 * @return mixed
 	 */
 	public function from_field() {
-		echo '<input type="hidden" name="' . esc_html( $this->nonce ) . '" value="' . esc_attr( wp_create_nonce( basename( __FILE__ ) ) ) . '" />';
+		$this->create_nonce();
 	}
 
 	/**
@@ -86,16 +82,15 @@ abstract class AbsController {
 	/**
 	 * Save settings data.
 	 *
-	 * @param [type] $a first value.
-	 * @param [type] $b secound value.
-	 * @param [type] $c third value.
+	 * @param [type] $a first value $post_id for metameta .
+	 * @param [type] $b secound value post Object.
+	 * @param [type] $update_value third meta_value.
 	 * @return mixed
 	 */
 	protected function save_settings( $a, $b, $update_value ) {
 		// loop through fields and save the data.
 		if ( $this->varify_nonce() ) {
 			foreach ( $this->fields as $field ) {
-				$update_value = null;
 				switch ( $field['type'] ) {
 					case 'gallery':
 					case 'number':
@@ -145,23 +140,14 @@ abstract class AbsController {
 						break;
 					default:
 				}
-				update_post_meta( $a, $field['id'], $update_value );
+				if ( isset( $this->settings['post_types'] ) && ! empty( $this->settings['post_types'] ) ) {
+					update_post_meta( $a, $field['id'], $update_value );
+				}
+				if ( ! isset( $this->settings['post_types'] ) ) {
+					update_option( $this->settings['id'], $update_value );
+				}
 			} // end foreach
 		}
 	}
 
-	/**
-	 * Undocumented function
-	 *
-	 * @return bool
-	 */
-	private function varify_nonce() {
-		if ( isset( $_POST[ $this->nonce ] ) ) {
-			$nonce_check = sanitize_text_field( wp_unslash( $_POST[ $this->nonce ] ) );
-			if ( wp_verify_nonce( $nonce_check, basename( __FILE__ ) ) ) {
-				return true;
-			}
-		}
-		return false;
-	}
 }

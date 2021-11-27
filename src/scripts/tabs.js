@@ -19,6 +19,7 @@ exports.Tabs = () => {
   const el = picotab.querySelectorAll(".tablinks");
   for (let i = 0; i < el.length; i++) {
       el[i].addEventListener("click", ( event ) => {
+          event.preventDefault();
           let active = picotab.querySelectorAll('.active');
           for (let j = 0; j < active.length; j++) {
             active[ j ].classList.remove("active");

@@ -64,7 +64,7 @@ class Options extends AbsController {
 			$id            = sanitize_text_field( $this->settings['id'] );
 			$menu_icon     = sanitize_text_field( $this->settings['menu_icon'] );
 			$position      = absint( $this->settings['position'] );
-			$this_function = array( $this, 'create_page_section' );
+			$this_function = array( $this, 'from_field' );
 			if ( ! empty( $parent_slug ) ) {
 				add_submenu_page( $parent_slug, $menu_title, $menu_title, $capability, $id, $this_function );
 			} else {
@@ -76,7 +76,7 @@ class Options extends AbsController {
 	/**
 	 * Options page callback
 	 */
-	public function create_page_section() {
+	public function from_field() {
 		// Set class property.
 		?>
 		<div class="wrap">
@@ -84,9 +84,13 @@ class Options extends AbsController {
 				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
 			<?php } ?>
 			<form method="post" action="options.php">
-				<?php parent::create_page_section(); ?>
+				<?php
+					$this->before_container();
+					parent::from_field();
+				?>
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero minima illum laboriosam quam labore odit expedita eligendi eius a, adipisci similique deserunt, asperiores iusto sequi nostrum in reiciendis. Corrupti!
 
+				<?php $this->after_container(); ?>
 			</form>
 		</div>
 		<?php
