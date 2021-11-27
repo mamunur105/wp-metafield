@@ -42,17 +42,18 @@ class ToggleSwitch extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			global $post;
+			// global $post;
 			$id       = sanitize_text_field( $this->field['id'] );
 			$type     = sanitize_text_field( $this->field['type'] );
 			$class    = sanitize_text_field( $this->field['class'] );
 			$title    = sanitize_text_field( $this->field['title'] );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			$value    = boolval( get_post_meta( $post->ID, $id, true ) );
-			if ( ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-				$value = boolval( $this->field['default'] );
-			}
+			$value    = $this->get_settings_value();
+			// if ( ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
+			// 	$value = boolval( $this->field['default'] );
+			// }
+			// error_log(print_r($value,true),3,__DIR__."/log.txt");
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper flex-wrap <?php echo esc_attr( $class ); ?>">
 				<div class="label col">

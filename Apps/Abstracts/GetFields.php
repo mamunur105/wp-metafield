@@ -29,4 +29,26 @@ abstract class GetFields {
 	 */
 	abstract public function get_field();
 
+	/**
+	 * Undocumented function
+	 *
+	 * @return Mixed
+	 */
+	public function get_settings_value() {
+		$value = '';
+		if ( 'metabox_settings' === $this->field['settings_type'] ) {
+			global $post;
+			$value = get_post_meta( $post->ID, $this->field['id'], true );
+			if ( ! $value && ! metadata_exists( $post->post_type, $post->ID, $this->field['id'] ) ) {
+				$value = $this->field['default'];
+			}
+			// error_log(print_r($value,true),3,__DIR__."/log.txt");
+
+		}
+		if ( 'options_settings' === $this->field['settings_type'] ) {
+			$value = get_option( $this->field['id'] );
+		}
+		return $value;
+	}
+
 }

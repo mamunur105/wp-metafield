@@ -46,12 +46,12 @@ class Radio extends GetFields {
 			$class    = sanitize_text_field( $this->field['class'] );
 			$title    = sanitize_text_field( $this->field['title'] );
 			$options  = array_map( 'esc_attr', $this->field['options'] );
-			$value    = get_post_meta( $post->ID, $id, true );
+			$value    = $this->get_settings_value();
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-				$value = sanitize_text_field( $this->field['default'] );
-			}
+			// if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
+			// 	$value = sanitize_text_field( $this->field['default'] );
+			// }
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>">
 				<div class="label col">

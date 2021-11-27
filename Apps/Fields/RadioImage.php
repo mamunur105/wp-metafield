@@ -52,10 +52,10 @@ class RadioImage extends GetFields {
 			$column   = intval( $this->field['column'] );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			$value    = get_post_meta( $post->ID, $id, true );
-			if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-				$value = sanitize_text_field( $this->field['default'] );
-			}
+			$value    = $this->get_settings_value();
+			// if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
+			// 	$value = sanitize_text_field( $this->field['default'] );
+			// }
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper radio-image flex-wrap <?php echo esc_attr( $class ); ?>" data-col="<?php esc_attr( $column ); ?>">
 				<div class="label">

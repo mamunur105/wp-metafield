@@ -30,7 +30,7 @@ class Gallery extends GetFields {
 			$desc      = sanitize_text_field( $this->field['desc'] );
 			$subtitle  = sanitize_text_field( $this->field['subtitle'] );
 			$require   = $this->field['condition'];
-			$image_ids = get_post_meta( $post->ID, $id, true );
+			$image_ids = $this->get_settings_value();
 			$image_ids = explode( ',', $image_ids );
 			$valid_ids = '';
 			$data_attr = '';

@@ -30,10 +30,10 @@ class Editor  extends GetFields {
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$require  = $this->field['condition'];
-			$value    = get_post_meta( $post->ID, $id, true );
-			if ( ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-				$value = sanitize_text_field( $this->field['default'] );
-			}
+			$value    = $this->get_settings_value();
+			// if ( ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
+			// 	$value = sanitize_text_field( $this->field['default'] );
+			// }
 			$data_attr = '';
 
 			if ( ! empty( $require['field'] ) && ! empty( $require['value'] ) && ! empty( $require['compare'] ) ) {

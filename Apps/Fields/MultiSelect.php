@@ -50,10 +50,10 @@ class MultiSelect extends GetFields {
 			$multiselect = boolval( $this->field['multiselect'] );
 			$desc        = sanitize_text_field( $this->field['desc'] );
 			$subtitle    = sanitize_text_field( $this->field['subtitle'] );
-			$value       = get_post_meta( $post->ID, $id, true );
-			if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-				$value = $this->field['default'];
-			}
+			$value       = $this->get_settings_value();
+			// if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
+			// 	$value = $this->field['default'];
+			// }
 			$value = maybe_unserialize( $value );
 			wp_enqueue_style( 'select2' );
 			wp_enqueue_script( 'select2' );

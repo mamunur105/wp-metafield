@@ -45,7 +45,7 @@ class Metabox extends AbsController {
 			'fields'     => array(),
 		);
 		if ( isset( $settings['post_types'] ) && empty( $settings['post_types'] ) ) {
-			unset( $settings['post_types'] );
+			$settings['post_types'] = array( 'post' );
 		}
 		return array_merge( $default, $settings );
 	}
@@ -75,8 +75,9 @@ class Metabox extends AbsController {
 		if ( ! empty( $this->fields ) ) {
 			$this->before_container();
 			parent::from_field();
-			foreach ( $this->fields as $value ) {
-				$get_the_field = CallTheField::init( $value );
+			foreach ( $this->fields as $field ) {
+				$field['settings_type'] = 'metabox_settings';
+				$get_the_field          = CallTheField::init( $field );
 				$get_the_field->get_fields();
 			}
 			$this->after_container();
@@ -105,6 +106,7 @@ class Metabox extends AbsController {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
 		}
+		error_log(print_r('Ok',true),3,__DIR__."/log.txt");
 		parent::save_settings( $post_id, $post, $updated );
 	}
 

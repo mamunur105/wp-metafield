@@ -9,7 +9,7 @@
 namespace PS\INIT\Controller;
 
 use PS\INIT\Abstracts\AbsController;
-
+use PS\INIT\Model\CallTheField;
 /**
  * Display Metabox.
  */
@@ -85,12 +85,17 @@ class Options extends AbsController {
 			<?php } ?>
 			<form method="post" action="options.php">
 				<?php
-					$this->before_container();
-					parent::from_field();
+				$this->before_container();
+				parent::from_field();
+				foreach ( $this->fields as $field ) {
+					$field['settings_type'] = 'options_settings';
+					// $field['settings_key'] = 'options_settings';
+					$get_the_field          = CallTheField::init( $field );
+					$get_the_field->get_fields();
+				}
+				$this->after_container();
+				submit_button();
 				?>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero minima illum laboriosam quam labore odit expedita eligendi eius a, adipisci similique deserunt, asperiores iusto sequi nostrum in reiciendis. Corrupti!
-
-				<?php $this->after_container(); ?>
 			</form>
 		</div>
 		<?php
