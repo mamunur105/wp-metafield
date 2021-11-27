@@ -43,32 +43,32 @@ function testing_metadata_( $meta_boxes ) {
 		),
 		'fields'     => array(
 			// Gallery field is under construction.
-			array(
-				'id'      => 'toggleswitch_2',
-				'title'   => esc_html__( 'Switch', 'picosoft' ),
-				'type'    => 'toggleswitch',
-				'class'   => 'testname',
-				'true'    => 'TRUE',
-				'false'   => 'FALSE',
-				'tab'     => 'tabs_one',
-				'default' => 'false', // true or false.
-				'desc'    => esc_html__( 'Checking toggleswitch Field', 'picosoft' ),
-			),
 			// array(
-			// 	'id'      => 'checkbox_1',
-			// 	'title'   => esc_html__( 'Checkbox?', 'picosoft' ),
-			// 	'type'    => 'checkbox',
+			// 	'id'      => 'toggleswitch_2',
+			// 	'title'   => esc_html__( 'Switch', 'picosoft' ),
+			// 	'type'    => 'toggleswitch',
 			// 	'class'   => 'testname',
+			// 	'true'    => 'TRUE',
+			// 	'false'   => 'FALSE',
 			// 	'tab'     => 'tabs_one',
-			// 	'default' => 'iPhone',
-			// 	'options' => array(
-			// 		'iPhone'  => 'iPhone label text',
-			// 		'iPad'    => 'iPad label text',
-			// 		'Macbook' => 'Macbook label text',
-			// 		'iWatch'  => 'iWatch label text',
-			// 	),
-			// 	'desc'    => esc_html__( 'Checking checkbox Field', 'picosoft' ),
-			// )
+			// 	'default' => 'false', // true or false.
+			// 	'desc'    => esc_html__( 'Checking toggleswitch Field', 'picosoft' ),
+			// ),
+			array(
+				'id'      => 'checkbox_1',
+				'title'   => esc_html__( 'Checkbox?', 'picosoft' ),
+				'type'    => 'checkbox',
+				'class'   => 'testname',
+				'tab'     => 'tabs_one',
+				'default' => 'iPhone',
+				'options' => array(
+					'iPhone'  => 'iPhone label text',
+					'iPad'    => 'iPad label text',
+					'Macbook' => 'Macbook label text',
+					'iWatch'  => 'iWatch label text',
+				),
+				'desc'    => esc_html__( 'Checking checkbox Field', 'picosoft' ),
+			)
 			// array(
 			// 	'id'          => 'multiselect_11',
 			// 	'title'       => esc_html__( 'Multiselect Box', 'picosoft' ),

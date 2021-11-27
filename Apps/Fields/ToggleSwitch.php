@@ -50,10 +50,9 @@ class ToggleSwitch extends GetFields {
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$value    = $this->get_settings_value();
-			// if ( ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-			// 	$value = boolval( $this->field['default'] );
-			// }
-			// error_log(print_r($value,true),3,__DIR__."/log.txt");
+			if ( 'yes' !== $value ) {
+				$value = false;
+			}
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper flex-wrap <?php echo esc_attr( $class ); ?>">
 				<div class="label col">

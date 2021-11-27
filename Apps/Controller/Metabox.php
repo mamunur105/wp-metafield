@@ -89,7 +89,7 @@ class Metabox extends AbsController {
 	 *
 	 * @param [type] $post_id post id.
 	 * @param [type] $post post object.
-	 * @param [type] $update update true.
+	 * @param [type] $updated update true.
 	 * @return mixed
 	 */
 	public function save_settings( $post_id, $post, $updated ) {
@@ -106,7 +106,6 @@ class Metabox extends AbsController {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
 		}
-		error_log(print_r('Ok',true),3,__DIR__."/log.txt");
 		parent::save_settings( $post_id, $post, $updated );
 	}
 

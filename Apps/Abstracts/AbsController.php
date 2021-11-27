@@ -100,10 +100,16 @@ abstract class AbsController {
 					case 'radioimage':
 					case 'textarea':
 					case 'colorpicker':
-					case 'toggleswitch':
 					case 'text':
 						if ( isset( $_POST[ $field['id'] ] ) ) {
 							$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
+						}
+						break;
+					case 'toggleswitch':
+						if ( isset( $_POST[ $field['id'] ] ) ) {
+							$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
+						} else {
+							$update_value = '';
 						}
 						break;
 					case 'url':

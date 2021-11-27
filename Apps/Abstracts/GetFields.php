@@ -42,8 +42,6 @@ abstract class GetFields {
 			if ( ! $value && ! metadata_exists( $post->post_type, $post->ID, $this->field['id'] ) ) {
 				$value = $this->field['default'];
 			}
-			// error_log(print_r($value,true),3,__DIR__."/log.txt");
-
 		}
 		if ( 'options_settings' === $this->field['settings_type'] ) {
 			$value = get_option( $this->field['id'] );
