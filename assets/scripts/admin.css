@@ -9,6 +9,25 @@
 /* ==========================================================================
 	Global Admin CSS
    ========================================================================== */
+.inside .picosoft-settings-container {
+  margin: 0 -14px;
+  margin-top: -15px;
+}
+
+.top-gap {
+  display: none;
+}
+
+.wrap.ps-option {
+  padding: 0 10px;
+}
+.wrap.ps-option > h1 {
+  margin-bottom: 10px;
+}
+.wrap.ps-option .picosoft-metabox-container {
+  margin: 0;
+}
+
 [hidden] {
   display: none !important;
 }
@@ -40,6 +59,15 @@
 .picosoft-metabox-container {
   margin: -7px -15px 10px;
   min-height: 400px;
+}
+
+.wrapper-settings {
+  min-height: 300px;
+  border: 1px solid #ccc;
+  flex: 1;
+  margin-top: -1px;
+  border-left: 0;
+  border-right: 0;
 }
 
 .fields-wrapper, .two-col {
@@ -79,6 +107,7 @@ to a reusable component.
 }
 .fields-wrapper .checkbox-wraper {
   width: 100%;
+  line-height: 1.6;
 }
 .fields-wrapper .metabox-description {
   flex: 0 0 100%;
@@ -490,6 +519,47 @@ input::-moz-focus-outer {
   padding-right: 5px;
 }
 
+.vertical-tab {
+  display: flex;
+}
+.vertical-tab .top-gap {
+  display: flex;
+  min-height: 50px;
+  background-color: #1d2327;
+  color: #fff;
+  padding: 16px;
+  box-sizing: border-box;
+  line-height: 1;
+  font-weight: 700;
+  font-size: 17px;
+  border-bottom: 1px solid #838383;
+}
+.vertical-tab .picotab {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-width: 230px;
+  border-right: 0;
+  background-color: #1d2327;
+}
+.vertical-tab .picotab button {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid #838383;
+  border-right: 0;
+  position: relative;
+  color: #fff;
+}
+.vertical-tab .fields-wrapper {
+  border-left: 0;
+  margin-top: 0;
+  margin-bottom: -1px;
+}
+.vertical-tab .wrapper-settings {
+  min-height: 100VH;
+  margin-top: 0;
+}
+
 .picotab {
   overflow: hidden;
   border: 1px solid #ccc;
@@ -502,16 +572,32 @@ input::-moz-focus-outer {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 13px 30px;
   transition: 0.3s;
-  font-size: 17px;
+  font-size: 14px;
   border-right: 1px solid #ccc;
+  font-weight: 600;
+  text-transform: uppercase;
 }
-.picotab button:hover {
-  background-color: #ddd;
+.picotab button:hover, .picotab button.active {
+  background-color: #fff;
+  color: #333;
 }
-.picotab button.active {
-  background-color: #ccc;
+
+.wrap.ps-option .button-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: auto;
+  background: #1d2327;
+  margin: auto;
+  top: auto;
+  right: 0;
+  padding: 15px;
+  z-index: 99;
+}
+.wrap.ps-option .button-wrapper p {
+  margin: 0;
+  padding: 0;
 }
 
 /*

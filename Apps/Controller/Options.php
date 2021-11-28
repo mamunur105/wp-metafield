@@ -44,6 +44,7 @@ class Options extends AbsController {
 				'menu_icon'   => '',
 				'parent_slug' => '',
 				'tabs'        => array(),
+				'tabs_type'   => 'horizontal-tab', // vertical-tab.
 				'fields'      => array(),
 			),
 			$settings
@@ -80,7 +81,7 @@ class Options extends AbsController {
 	public function from_field() {
 		// Set class property.
 		?>
-		<div class="wrap">
+		<div class="wrap ps-option" style="background-color: #fff;">
 			<?php if ( $this->settings['page_title'] ) { ?>
 				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
 			<?php } ?>
@@ -95,7 +96,9 @@ class Options extends AbsController {
 					$get_the_field->get_fields();
 				}
 				$this->after_container();
-				submit_button();
+				echo '<div class="button-wrapper">';
+					submit_button();
+				echo '</div>';
 				?>
 			</form>
 		</div>

@@ -1,3 +1,58 @@
+.vertical-tab{
+	display: flex;
+	.top-gap {
+		display: flex;
+		min-height: 50px;
+		background-color: #1d2327;
+		color: #fff;
+		padding: 16px;
+		box-sizing: border-box;
+		line-height: 1;
+		font-weight: 700;
+		font-size: 17px;
+		border-bottom: 1px solid #838383;
+	}
+	.picotab{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		min-width: 230px;
+		border-right: 0;
+		background-color: #1d2327;
+		button {
+			text-align: left;
+			padding: 14px 16px;
+			border-bottom: 1px solid #838383;
+			border-right: 0;
+			position: relative;
+			color: #fff;
+			&:hover,
+			&.active {
+				&::after{
+					// content: "";
+					// position: absolute;
+					// right: -28px;
+					// width: 42px;
+					// height: 48px;
+					// background: #fff;
+					// top: 0;
+					// transform: rotate(45deg);
+					// bottom: 0;
+					// margin: auto;
+				}
+			}
+		}
+	}
+	.fields-wrapper {
+		border-left: 0;
+		margin-top: 0;
+		margin-bottom: -1px;
+	}
+	.wrapper-settings {
+		min-height: 100VH;
+		margin-top: 0;
+	}
+}
 .picotab{
 	overflow: hidden;
 	border: 1px solid #ccc;
@@ -9,28 +64,38 @@
 		border: none;
 		outline: none;
 		cursor: pointer;
-		padding: 14px 16px;
+		padding: 13px 30px;
 		transition: 0.3s;
-		font-size: 17px;
+		font-size: 14px;
 		border-right: 1px solid #ccc;
-		&:hover {
-			background-color: #ddd;
-		}
+		font-weight: 600;
+		text-transform: uppercase;
+		&:hover,
 		&.active {
-			background-color: #ccc;
+			// background-color: #2271b1;
+			// color: #fff;
+			background-color: #fff;
+    		color: #333;
 		}
 	}
-	// .tabcontent {
-	// 	display: none;
-	// 	padding: 6px 12px;
-	// 	border: 1px solid #ccc;
-	// 	border-top: none;
-	// }
-
 }
 
 
-
+.wrap.ps-option  .button-wrapper {
+position: fixed;
+    bottom: 0;
+    left: auto;
+    background: #1d2327;
+    margin: auto;
+    top: auto;
+    right: 0;
+    padding: 15px;
+    z-index: 99;
+	p{
+		margin: 0;
+		padding: 0;
+	}
+}
 
 
 

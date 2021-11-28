@@ -41,7 +41,8 @@ class Metabox extends AbsController {
 			'context'    => 'normal',
 			'priority'   => 'high',
 			'classes'    => 'picosoft-metabox',
-			'tabs'       => true,
+			'tabs'       => array(),
+			'tabs_type'  => 'horizontal-tab', // vertical-tab.
 			'fields'     => array(),
 		);
 		if ( isset( $settings['post_types'] ) && empty( $settings['post_types'] ) ) {

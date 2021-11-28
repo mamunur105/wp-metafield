@@ -50,13 +50,16 @@ abstract class AbsController {
 	 *
 	 * @return void
 	 */
-	public function before_container() { ?>
-		<div id="<?php echo esc_attr( $this->settings['id'] ); ?>" class="picosoft-metabox-container <?php echo esc_attr( $this->settings['classes'] ); ?>">
+	public function before_container() { 
+		$this->settings['classes'] = $this->settings['classes'] . ' ' . $this->settings['tabs_type'] ;
+		?>
+		<div id="<?php echo esc_attr( $this->settings['id'] ); ?>" class="picosoft-settings-container <?php echo esc_attr( $this->settings['classes'] ); ?>">
 		<?php
 		if ( is_array( $this->settings['tabs'] ) && count( $this->settings['tabs'] ) ) {
 			$tabs = $this->settings['tabs']
 			?>
 			<div class="picotab">
+				<div class="top-gap"> MENU </div>
 				<?php
 				foreach ( $tabs as $key => $tab ) {
 					$active = isset( $tab['default_active'] ) && $tab['default_active'] ? 'active' : '';
@@ -67,7 +70,14 @@ abstract class AbsController {
 				<?php } ?>
 			</div>
 		<?php } ?>
+		<div class="wrapper-settings">
+			<?php
+			if ( is_array( $this->settings['tabs'] ) && count( $this->settings['tabs'] ) ) {
+				$tabs = $this->settings['tabs']
+				?>
+				<div class="top-gap"></div>
 		<?php
+			}
 	}
 
 	/**
@@ -76,7 +86,7 @@ abstract class AbsController {
 	 * @return void
 	 */
 	public function after_container() {
-		echo '</div>';
+		echo '</div></div>';
 	}
 
 	/**
