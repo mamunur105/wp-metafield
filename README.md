@@ -1,39 +1,36 @@
 # metabox ( Under construction  )
 Field type:
-1. number
-2. date
-3. text
-4. email
-5. checkbox
-6. radio
-7. select
-8. textarea
-9. url
+01. number
+02. date
+03. email
+04. url
+05. text
+06. textarea
+07. checkbox
+08. radio
+09. select
 10. switchbtn
-11. colorpicker
-12. rangeslider
-13. toggleswitch
-14. multiselect
-15. radioimage ( image select )
-16. postsselect ( Postypes post list )
-17. sidebar
-18. image
-19. Image Gallery
-Next:
+11. toggleswitch
+12. colorpicker
+13. rangeslider
+14. radioimage
+15. postsselect
+16. sidebar
+17. image
+18. gallery
+19. editor
+20. Tab
 
+
+
+Next Upcoming Field and option:
 => Conditional
-=> Tab
 => Group And Repeatable
-
 => file
-=> Editor
 => Link
 
 
-
-
-
-Uses :
+Uses As metabox:
 ```
 <?php
 function testing_metadata_( $meta_boxes ) {
@@ -68,8 +65,8 @@ function testing_metadata_( $meta_boxes ) {
 		'fields'     => array(
 			// Gallery field is under construction.
 			array(
-				'id'      => 'toggleswitch_2',
-				'title'   => esc_html__( 'Switch', 'picosoft' ),
+				'id'      => 'toggleswitch_1',
+				'title'   => esc_html__( 'Toggle Switch', 'picosoft' ),
 				'type'    => 'toggleswitch',
 				'class'   => 'testname',
 				'true'    => 'TRUE',
@@ -80,7 +77,7 @@ function testing_metadata_( $meta_boxes ) {
 			),
 			array(
 				'id'      => 'checkbox_1',
-				'title'   => esc_html__( 'Checkbox?', 'picosoft' ),
+				'title'   => esc_html__( 'Checkbox', 'picosoft' ),
 				'type'    => 'checkbox',
 				'class'   => 'testname',
 				'tab'     => 'tabs_one',
@@ -136,7 +133,7 @@ function testing_metadata_( $meta_boxes ) {
 				'title'   => esc_html__( 'Number field', 'picosoft' ),
 				'type'    => 'number',
 				'class'   => 'testname',
-				'tab'   => 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => 'Default value',
 				'desc'    => esc_html__( 'Checking number field', 'picosoft' ),
 			),
@@ -145,7 +142,7 @@ function testing_metadata_( $meta_boxes ) {
 				'title'   => esc_html__( 'Date field', 'picosoft' ),
 				'type'    => 'date',
 				'class'   => 'testname',
-				'tab'   => 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => 'Default value',
 				'desc'    => esc_html__( 'Checking date field', 'picosoft' ),
 			),
@@ -154,16 +151,16 @@ function testing_metadata_( $meta_boxes ) {
 				'title'   => esc_html__( 'Email field', 'picosoft' ),
 				'type'    => 'email',
 				'class'   => 'testname',
-				'tab'   => 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => '',
 				'desc'    => esc_html__( 'Checking email field', 'picosoft' ),
 			),
 			array(
 				'id'      => 'url_4',
-				'title'   => esc_html__( 'Email field', 'picosoft' ),
+				'title'   => esc_html__( 'URl field', 'picosoft' ),
 				'type'    => 'url',
 				'class'   => 'testname',
-				'tab'   => 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => '',
 				'desc'    => esc_html__( 'Checking url field', 'picosoft' ),
 			),
@@ -172,16 +169,7 @@ function testing_metadata_( $meta_boxes ) {
 				'title'   => esc_html__( 'Text field', 'picosoft' ),
 				'type'    => 'text',
 				'class'   => 'testname',
-				'tab'   => 'tabs_one',
-				'default' => '',
-				'desc'    => esc_html__( 'Checking text field', 'picosoft' ),
-			),
-			array(
-				'id'      => 'text_5',
-				'title'   => esc_html__( 'Text field', 'picosoft' ),
-				'type'    => 'textss',
-				'class'   => 'testname',
-				'tab'   => 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => '',
 				'desc'    => esc_html__( 'Checking text field', 'picosoft' ),
 			),
@@ -203,12 +191,29 @@ function testing_metadata_( $meta_boxes ) {
 			),
 
 			array(
+				'id'          => 'multiselect_20',
+				'title'       => esc_html__( 'Multiselect Disable', 'picosoft' ),
+				'type'        => 'select',
+				'class'       => 'testname',
+				'tab'         => 'tabs_one',
+				'multiselect' => false,
+				'default'     => array( '' ),
+				'options'     => array(
+					'iPhone'  => 'iPhone label text',
+					'iPad'    => 'iPad label text',
+					'Macbook' => 'Macbook label text',
+					'iWatch'  => 'iWatch label text',
+				),
+				'desc'        => esc_html__( 'Checking multiselect field', 'picosoft' ),
+			),
+
+			array(
 				'id'          => 'postsselect_22',
 				'title'       => esc_html__( 'Postsselect Box', 'picosoft' ),
 				'type'        => 'postsselect',
 				'class'       => 'testname',
 				'tab'         => 'tabs_one',
-				'post_types' => array( 'post', 'page' ),
+				'post_types'  => array( 'post', 'page' ),
 				'multiselect' => false,
 				'default'     => array( '2' ),
 				'desc'        => esc_html__( 'Checking postsselect field', 'picosoft' ),
@@ -219,7 +224,7 @@ function testing_metadata_( $meta_boxes ) {
 				'type'    => 'radio',
 				'class'   => 'testname',
 				'default' => 'iPhone',
-				'tab'         => 'tabs_one',
+				'tab'     => 'tabs_one',
 				'options' => array(
 					'iPhone-1'  => 'iPhone label text',
 					'iPa-2'     => 'iPad label text',
@@ -230,10 +235,10 @@ function testing_metadata_( $meta_boxes ) {
 			),
 			array(
 				'id'      => 'radioimage_2',
-				'title'   => esc_html__( 'Radioimage?', 'picosoft' ),
+				'title'   => esc_html__( 'Radio Image', 'picosoft' ),
 				'type'    => 'radioimage',
 				'class'   => 'testname',
-				'tab'         => 'tabs_one',
+				'tab'     => 'tabs_one',
 				'default' => 'iPhone',
 				'options' => array(
 					'radioimage_1' => array(
@@ -249,7 +254,7 @@ function testing_metadata_( $meta_boxes ) {
 			),
 			array(
 				'id'      => 'rangeslider_2',
-				'title'   => esc_html__( 'Rangeslider', 'picosoft' ),
+				'title'   => esc_html__( 'Range Slider', 'picosoft' ),
 				'type'    => 'rangeslider',
 				'tab'     => 'tabs_one',
 				'class'   => 'testname',
@@ -260,28 +265,13 @@ function testing_metadata_( $meta_boxes ) {
 			),
 			array(
 				'id'    => 'sidebar_1',
-				'title' => esc_html__( 'sidebar', 'picosoft' ),
+				'title' => esc_html__( 'Sidebar', 'picosoft' ),
 				'type'  => 'sidebar',
 				'tab'   => 'tabs_one',
 				'class' => 'testname',
 				'desc'  => esc_html__( 'Checking sidebar field', 'picosoft' ),
 			),
-			array(
-				'id'          => 'multiselect_20',
-				'title'       => esc_html__( 'Multiselect Box', 'picosoft' ),
-				'type'        => 'select',
-				'class'       => 'testname',
-				'tab'         => 'tabs_one',
-				'multiselect' => false,
-				'default'     => array( '' ),
-				'options'     => array(
-					'iPhone'  => 'iPhone label text',
-					'iPad'    => 'iPad label text',
-					'Macbook' => 'Macbook label text',
-					'iWatch'  => 'iWatch label text',
-				),
-				'desc'        => esc_html__( 'Checking multiselect field', 'picosoft' ),
-			),
+			
 			array(
 				'id'      => 'switchbtn_1',
 				'title'   => esc_html__( 'Switch?', 'picosoft' ),
@@ -316,7 +306,7 @@ function testing_metadata_( $meta_boxes ) {
 				'default' => 'Default value',
 				'desc'    => esc_html__( 'Checking textarea field', 'picosoft' ),
 			),
-		) // End fields.
+		), // End fields.
 	); // End picosoft_page_header_footer.
 	return $meta_boxes;
 }
