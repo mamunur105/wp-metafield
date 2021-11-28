@@ -113,10 +113,12 @@ class Options extends AbsController {
 	 */
 	public function save_settings_data() {
 		if ( isset( $_POST['pico_option_settings'] ) ) {
-			$varify = sanitize_text_field( wp_unslash( $_POST['pico_option_settings'] ) );
-			if ( 'pico_option_settings' === $varify ) {
-				parent::save_settings( null, null, null );
-			}
+			// if ( $this->varify_nonce() ) {
+				$varify = sanitize_text_field( wp_unslash( $_POST['pico_option_settings'] ) );
+				if ( 'pico_option_settings' === $varify ) {
+					parent::save_settings( null, null, null );
+				}
+			// }
 		}
 	}
 

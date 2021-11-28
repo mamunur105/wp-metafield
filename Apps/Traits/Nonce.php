@@ -30,7 +30,7 @@ trait Nonce {
 	 *
 	 * @return bool
 	 */
-	private function varify_nonce() {
+	public function varify_nonce() {
 		if ( isset( $_POST[ $this->nonce ] ) ) {
 			$nonce_check = sanitize_text_field( wp_unslash( $_POST[ $this->nonce ] ) );
 			if ( wp_verify_nonce( $nonce_check, basename( __FILE__ ) ) ) {
