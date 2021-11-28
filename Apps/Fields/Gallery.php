@@ -22,9 +22,7 @@ class Gallery extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			global $post;
 			$id        = sanitize_text_field( $this->field['id'] );
-			$type      = sanitize_text_field( $this->field['type'] );
 			$class     = sanitize_text_field( $this->field['class'] );
 			$title     = sanitize_text_field( $this->field['title'] );
 			$desc      = sanitize_text_field( $this->field['desc'] );

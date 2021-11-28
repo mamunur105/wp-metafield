@@ -22,18 +22,13 @@ class Editor  extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			global $post;
 			$id       = sanitize_text_field( $this->field['id'] );
-			$type     = sanitize_text_field( $this->field['type'] );
 			$class    = sanitize_text_field( $this->field['class'] );
 			$title    = sanitize_text_field( $this->field['title'] );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$require  = $this->field['condition'];
 			$value    = $this->get_settings_value();
-			// if ( ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-			// 	$value = sanitize_text_field( $this->field['default'] );
-			// }
 			$data_attr = '';
 
 			if ( ! empty( $require['field'] ) && ! empty( $require['value'] ) && ! empty( $require['compare'] ) ) {

@@ -95,17 +95,6 @@ const { Tabs } = require('./scripts/tabs');
 					// var lib = custom_uploader.state().get('library');
 					var ids_value = input_field.value.split(',');
 					var selection = custom_uploader.state().get('selection');
-					// lib.comparator = function( a, b ) {
-					// 	var aInQuery = !! this.mirroring.get( a.cid ),
-					// 		bInQuery = !! this.mirroring.get( b.cid );
-					// 	if ( ! aInQuery && bInQuery ) {
-					// 		return -1;
-					// 	} else if ( aInQuery && ! bInQuery ) {
-					// 		return 1;
-					// 	} else {
-					// 		return 0;
-					// 	}
-					// };
 					ids_value.forEach(function(id) {
 						var attachment = wp.media.attachment(id);
 						attachment.fetch();
@@ -118,6 +107,7 @@ const { Tabs } = require('./scripts/tabs');
 					var attachment = custom_uploader.state().get('selection').first().toJSON();
 					preview.style.backgroundImage = 'url(' + attachment.url + ')';
 					input_field.value = attachment.id;
+					button_parent.querySelector('.metabox-image-edit').href = admin_script.adminurl + '/post.php?post=' + attachment.id + '&action=edit';
 					button_parent.querySelector('.preview-wrap').classList.remove('button-hide');
 				});
 				custom_uploader.open();
@@ -158,7 +148,6 @@ const { Tabs } = require('./scripts/tabs');
 					// var lib = custom_uploader.state().get('library');
 					var ids_value = input_field.value.split(',');
 					var selection = custom_uploader.state().get('selection');
-				
 					ids_value.forEach(function(id) {
 						var attachment = wp.media.attachment(id);
 						attachment.fetch();
@@ -173,12 +162,7 @@ const { Tabs } = require('./scripts/tabs');
 					var ids = [];
 					attachment.forEach((item) => {
 						if (item.id) {
-							image +=
-								'<li class="preview-wrap" data-id=' +
-								item.id +
-								'><div class="preview-image" style="background-image:url(' +
-								item.url +
-								')"></div> <button class="metabox-image-remove"><span class="dashicons dashicons-no-alt"></span></button><a href="#" class="metabox-image-edit" target="_blank"> <span class="dashicons dashicons-edit-large"></span> </a> </li>';
+							image += '<li class="preview-wrap" data-id=' + item.id + '><div class="preview-image" style="background-image:url(' + item.url + ')"></div> <button class="metabox-image-remove"><span class="dashicons dashicons-no-alt"></span></button><a href="' + admin_script.adminurl + '/post.php?post=' + item.id + '&action=edit" class="metabox-image-edit" target="_blank"> <span class="dashicons dashicons-edit-large"></span> </a> </li>';
 							ids.push(item.id);
 						}
 					});

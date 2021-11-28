@@ -117,7 +117,13 @@ class Loaded {
 			PSSMB_VERSION,
 			true
 		);
-
+		wp_localize_script(
+			'pssgallery-admin',
+			'admin_script',
+			array(
+				'adminurl' => admin_url( '/' ), // WordPress AJAX.
+			)
+		);
 		wp_enqueue_style( 'pssmetabox' );
 	}
 

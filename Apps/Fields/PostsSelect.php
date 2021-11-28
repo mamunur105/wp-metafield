@@ -62,9 +62,7 @@ class PostsSelect extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			global $post;
 			$id          = sanitize_text_field( $this->field['id'] );
-			$type        = sanitize_text_field( $this->field['type'] );
 			$class       = sanitize_text_field( $this->field['class'] );
 			$title       = sanitize_text_field( $this->field['title'] );
 			$desc        = sanitize_text_field( $this->field['desc'] );
@@ -72,9 +70,6 @@ class PostsSelect extends GetFields {
 			$options     = $this->get_posts();
 			$multiselect = boolval( $this->field['multiselect'] );
 			$value       = $this->get_settings_value();
-			// if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-			// 	$value = $this->field['default'];
-			// }
 			$value = maybe_unserialize( $value );
 			wp_enqueue_style( 'select2' );
 			wp_enqueue_script( 'select2' );

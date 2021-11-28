@@ -82,12 +82,12 @@ abstract class AbsController {
 	/**
 	 * Save settings data.
 	 *
-	 * @param [type] $a first value $post_id for metameta .
-	 * @param [type] $b secound value post Object.
+	 * @param [type] $post_id first value $post_id for metameta .
+	 * @param [type] $post secound value post Object.
 	 * @param [type] $update_value third meta_value.
 	 * @return mixed
 	 */
-	protected function save_settings( $a, $b, $update_value ) {
+	protected function save_settings( $post_id, $post, $update_value ) {
 		// loop through fields and save the data.
 		if ( $this->varify_nonce() ) {
 			foreach ( $this->fields as $field ) {
@@ -148,7 +148,7 @@ abstract class AbsController {
 				}
 				$field = sanitize_text_field( $field['id'] );
 				if ( isset( $this->settings['post_types'] ) && ! empty( $this->settings['post_types'] ) ) {
-					update_post_meta( $a, $field, $update_value );
+					update_post_meta( $post_id, $field, $update_value );
 				}
 				if ( ! isset( $this->settings['post_types'] ) ) {
 					update_option( $field, $update_value );

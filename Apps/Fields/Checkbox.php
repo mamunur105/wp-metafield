@@ -23,7 +23,6 @@ class Checkbox extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			global $post;
 			$id       = sanitize_text_field( $this->field['id'] );
 			$type     = sanitize_text_field( $this->field['type'] );
 			$class    = sanitize_text_field( $this->field['class'] );
@@ -32,10 +31,7 @@ class Checkbox extends GetFields {
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$options  = array_map( 'esc_attr', $this->field['options'] );
 			$value    = $this->get_settings_value();
-			// if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-			// 	$value = $this->field['default'];
-			// }
-			$value = maybe_unserialize( $value );
+			$value    = maybe_unserialize( $value );
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>">
 				<div class="label col">

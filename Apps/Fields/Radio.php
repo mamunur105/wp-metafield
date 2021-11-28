@@ -40,7 +40,6 @@ class Radio extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			global $post;
 			$id       = sanitize_text_field( $this->field['id'] );
 			$type     = sanitize_text_field( $this->field['type'] );
 			$class    = sanitize_text_field( $this->field['class'] );
@@ -49,9 +48,6 @@ class Radio extends GetFields {
 			$value    = $this->get_settings_value();
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			// if ( ! $value && ! metadata_exists( 'post', $post->ID, $this->field['id'] ) ) {
-			// 	$value = sanitize_text_field( $this->field['default'] );
-			// }
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>">
 				<div class="label col">

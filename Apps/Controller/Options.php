@@ -91,8 +91,7 @@ class Options extends AbsController {
 				parent::from_field();
 				foreach ( $this->fields as $field ) {
 					$field['settings_type'] = 'options_settings';
-					// $field['settings_key'] = 'options_settings';
-					$get_the_field = CallTheField::init( $field );
+					$get_the_field          = CallTheField::init( $field );
 					$get_the_field->get_fields();
 				}
 				$this->after_container();
@@ -106,24 +105,15 @@ class Options extends AbsController {
 	/**
 	 * Save function
 	 *
-	 * @param [type] $post_id post id.
-	 * @param [type] $post post object.
-	 * @param [type] $update update true.
 	 * @return mixed
 	 */
 	public function save_settings_data() {
 		if ( isset( $_POST['pico_option_settings'] ) ) {
-			// if ( $this->varify_nonce() ) {
-				$varify = sanitize_text_field( wp_unslash( $_POST['pico_option_settings'] ) );
-				if ( 'pico_option_settings' === $varify ) {
-					parent::save_settings( null, null, null );
-				}
-			// }
+			$varify = sanitize_text_field( wp_unslash( $_POST['pico_option_settings'] ) );
+			if ( 'pico_option_settings' === $varify ) {
+				parent::save_settings( null, null, null );
+			}
 		}
 	}
-
-
-
-
 
 }

@@ -22,9 +22,7 @@ class Image extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			global $post;
 			$id         = sanitize_text_field( $this->field['id'] );
-			$type       = sanitize_text_field( $this->field['type'] );
 			$class      = sanitize_text_field( $this->field['class'] );
 			$title      = sanitize_text_field( $this->field['title'] );
 			$desc       = sanitize_text_field( $this->field['desc'] );
@@ -32,8 +30,6 @@ class Image extends GetFields {
 			$image_id   = intval( $this->get_settings_value() );
 			$image_url  = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : 'https://via.placeholder.com/700x200';
 			$edit_image = admin_url( 'post.php?post=' . $image_id . '&action=edit' );
-			// wp_enqueue_media();
-
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper image-upload <?php echo esc_attr( $class ); ?>">
 				<div class="label col">
