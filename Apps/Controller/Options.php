@@ -24,6 +24,7 @@ class Options extends AbsController {
 		$this->settings = $this->set_settings( $settings );
 		$this->fields   = $this->settings['fields'];
 		add_action( 'admin_menu', array( $this, 'add_settings' ) );
+		add_action( 'admin_menu', array( $this, 'save_settings_data' ) );
 	}
 	/**
 	 * Undocumented function
@@ -83,14 +84,15 @@ class Options extends AbsController {
 			<?php if ( $this->settings['page_title'] ) { ?>
 				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
 			<?php } ?>
-			<form method="post" action="options.php">
+			<form method="post" action="">
+				<input type="hidden" name="pico_option_settings" value="pico_option_settings" />
 				<?php
 				$this->before_container();
 				parent::from_field();
 				foreach ( $this->fields as $field ) {
 					$field['settings_type'] = 'options_settings';
 					// $field['settings_key'] = 'options_settings';
-					$get_the_field          = CallTheField::init( $field );
+					$get_the_field = CallTheField::init( $field );
 					$get_the_field->get_fields();
 				}
 				$this->after_container();
@@ -109,31 +111,14 @@ class Options extends AbsController {
 	 * @param [type] $update update true.
 	 * @return mixed
 	 */
-	// public function save_settings( $post_id, $post, $autoload ) {
-	// if ( ! in_array( $post->post_type, $this->settings['post_types'], true ) ) {
-	// return $post_id;
-	// }
-	// if ( ! current_user_can( 'edit_page', $post_id ) ) {
-	// return $post_id;
-	// }
-	// if ( ! current_user_can( 'edit_post', $post_id ) ) {
-	// return $post_id;
-	// }
-	// verify nonce.
-	// if ( isset( $_POST['PS_Metaboxes_nonce'] ) ) {
-	// $nonce_check = sanitize_text_field( wp_unslash( $_POST['PS_Metaboxes_nonce'] ) );
-	// if ( ! wp_verify_nonce( $nonce_check, basename( __FILE__ ) ) ) {
-	// return $post_id;
-	// }
-	// } else {
-	// return $post_id;
-	// }
-	// check autosave.
-	// if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-	// return $post_id;
-	// }
-	// parent::save_settings( $post_id, $post, $autoload );
-	// }
+	public function save_settings_data() {
+		if ( isset( $_POST['pico_option_settings'] ) ) {
+			$varify = sanitize_text_field( wp_unslash( $_POST['pico_option_settings'] ) );
+			if ( 'pico_option_settings' === $varify ) {
+				parent::save_settings( null, null, null );
+			}
+		}
+	}
 
 
 

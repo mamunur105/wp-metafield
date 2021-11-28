@@ -35,8 +35,8 @@ const FileManagerPluginConfig = (production) => {
 						destination: './dist/wp-picofield/assets'
 					},
 					{
-						source: './classes',
-						destination: './dist/wp-picofield/classes'
+						source: './Apps',
+						destination: './dist/wp-picofield/Apps'
 					},
 					{
 						source: './vendor',

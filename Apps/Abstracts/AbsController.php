@@ -150,7 +150,7 @@ abstract class AbsController {
 					update_post_meta( $a, $field['id'], $update_value );
 				}
 				if ( ! isset( $this->settings['post_types'] ) ) {
-					update_option( $this->settings['id'], $update_value );
+					update_option( $field['id'], $update_value );
 				}
 			} // end foreach
 		}
