@@ -36,15 +36,16 @@ abstract class GetFields {
 	 */
 	public function get_settings_value() {
 		$value = '';
+		$field = sanitize_text_field( $this->field['id'] );
 		if ( 'metabox_settings' === $this->field['settings_type'] ) {
 			global $post;
-			$value = get_post_meta( $post->ID, $this->field['id'], true );
-			if ( ! $value && ! metadata_exists( $post->post_type, $post->ID, $this->field['id'] ) ) {
+			$value = get_post_meta( $post->ID, $field, true );
+			if ( ! $value && ! metadata_exists( $post->post_type, $post->ID, $field ) ) {
 				$value = $this->field['default'];
 			}
 		}
 		if ( 'options_settings' === $this->field['settings_type'] ) {
-			$value = get_option( $this->field['id'] );
+			$value = get_option( $field );
 		}
 		return $value;
 	}

@@ -146,11 +146,12 @@ abstract class AbsController {
 						break;
 					default:
 				}
+				$field = sanitize_text_field( $field['id'] );
 				if ( isset( $this->settings['post_types'] ) && ! empty( $this->settings['post_types'] ) ) {
-					update_post_meta( $a, $field['id'], $update_value );
+					update_post_meta( $a, $field, $update_value );
 				}
 				if ( ! isset( $this->settings['post_types'] ) ) {
-					update_option( $field['id'], $update_value );
+					update_option( $field, $update_value );
 				}
 			} // end foreach
 		}
