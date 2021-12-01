@@ -10,7 +10,6 @@ namespace PS\INIT;
 
 use PS\INIT\Traits\Singleton;
 use PS\INIT\Controller\Post_Metabox;
-use PS\INIT\Controller\Tax_Metabox;
 use PS\INIT\Controller\Options;
 
 /**
@@ -23,7 +22,7 @@ class Loaded {
 	 */
 	private function __construct() {
 		if ( ! defined( 'PSSMB_VERSION' ) ) {
-			define( 'PSSMB_VERSION', '1.0.0' );
+			define( 'PSSMB_VERSION', '1.0.0.1' );
 		}
 		if ( ! defined( 'PSSMB_PLUGIN_NAME' ) ) {
 			define( 'PSSMB_PLUGIN_NAME', 'pssmetaboxes' );

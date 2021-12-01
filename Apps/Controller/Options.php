@@ -33,19 +33,23 @@ class Options extends AbsController {
 	 * @return array
 	 */
 	private function set_settings( $settings ) {
+		if ( isset( $settings['settings_type'] ) ) {
+			unset( $settings['settings_type'] );
+		}
 		$new_settings = array_merge(
 			array(
-				'menu_title'  => esc_html__( 'Option Title', 'picosoft' ),
-				'page_title'  => esc_html__( 'Page Title', 'picosoft' ),
-				'classes'     => 'picosoft-option-wrapper',
-				'id'          => 'pico-option',
-				'position'    => 6,
-				'capability'  => 'manage_options',
-				'menu_icon'   => '',
-				'parent_slug' => '',
-				'tabs'        => array(),
-				'tabs_type'   => 'horizontal-tab', // vertical-tab.
-				'fields'      => array(),
+				'settings_type' => 'option',
+				'menu_title'    => esc_html__( 'Option Title', 'picosoft' ),
+				'page_title'    => esc_html__( 'Page Title', 'picosoft' ),
+				'classes'       => 'picosoft-option-wrapper',
+				'id'            => 'pico-option',
+				'position'      => 6,
+				'capability'    => 'manage_options',
+				'menu_icon'     => '',
+				'parent_slug'   => '',
+				'tabs'          => array(),
+				'tabs_type'     => 'horizontal-tab', // vertical-tab.
+				'fields'        => array(),
 			),
 			$settings
 		);

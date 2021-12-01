@@ -34,16 +34,20 @@ class Post_Metabox extends AbsController {
 	 * @return array
 	 */
 	private function set_settings( $settings ) {
+		if ( isset( $settings['settings_type'] ) ) {
+			unset( $settings['settings_type'] );
+		}
 		$default = array(
-			'id'         => wp_generate_uuid4(),
-			'title'      => 'Title',
-			'post_types' => array( 'post' ),
-			'context'    => 'normal',
-			'priority'   => 'high',
-			'classes'    => 'picosoft-metabox',
-			'tabs'       => array(),
-			'tabs_type'  => 'horizontal-tab', // vertical-tab.
-			'fields'     => array(),
+			'settings_type' => 'post_types',
+			'id'            => wp_generate_uuid4(),
+			'title'         => 'Title',
+			'post_types'    => array( 'post' ),
+			'context'       => 'normal',
+			'priority'      => 'high',
+			'classes'       => 'picosoft-metabox',
+			'tabs'          => array(),
+			'tabs_type'     => 'horizontal-tab', // vertical-tab.
+			'fields'        => array(),
 		);
 		if ( isset( $settings['post_types'] ) && empty( $settings['post_types'] ) ) {
 			$settings['post_types'] = array( 'post' );

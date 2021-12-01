@@ -50,8 +50,8 @@ abstract class AbsController {
 	 *
 	 * @return void
 	 */
-	public function before_container() { 
-		$this->settings['classes'] = $this->settings['classes'] . ' ' . $this->settings['tabs_type'] ;
+	public function before_container() {
+		$this->settings['classes'] = $this->settings['classes'] . ' ' . $this->settings['tabs_type'];
 		?>
 		<div id="<?php echo esc_attr( $this->settings['id'] ); ?>" class="picosoft-settings-container <?php echo esc_attr( $this->settings['classes'] ); ?>">
 		<?php
@@ -76,7 +76,7 @@ abstract class AbsController {
 				$tabs = $this->settings['tabs']
 				?>
 				<div class="top-gap"></div>
-		<?php
+				<?php
 			}
 	}
 
@@ -100,70 +100,67 @@ abstract class AbsController {
 	protected function save_settings( $post_id, $post, $update_value ) {
 		// loop through fields and save the data.
 		if ( $this->varify_nonce() ) {
+			$settings = array();
 			foreach ( $this->fields as $field ) {
-				switch ( $field['type'] ) {
-					case 'gallery':
-					case 'number':
-					case 'date':
-					case 'radio':
-					case 'switchbtn':
-					case 'radioimage':
-					case 'textarea':
-					case 'colorpicker':
-					case 'text':
-						if ( isset( $_POST[ $field['id'] ] ) ) {
+				if ( isset( $_POST[ $field['id'] ] ) ) {
+					switch ( $field['type'] ) {
+						case 'gallery':
+						case 'number':
+						case 'date':
+						case 'radio':
+						case 'switchbtn':
+						case 'radioimage':
+						case 'textarea':
+						case 'colorpicker':
+						case 'text':
 							$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
-						}
-						break;
-					case 'toggleswitch':
-						if ( isset( $_POST[ $field['id'] ] ) ) {
+							break;
+						case 'toggleswitch':
 							$update_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
-						} else {
-							$update_value = '';
-						}
-						break;
-					case 'url':
-						if ( isset( $_POST[ $field['id'] ] ) ) {
+							break;
+						case 'url':
 							$update_value = esc_url_raw( wp_unslash( $_POST[ $field['id'] ] ) );
-						}
-						break;
-					case 'email':
-						if ( isset( $_POST[ $field['id'] ] ) ) {
+							break;
+						case 'email':
 							$update_value = sanitize_email( wp_unslash( $_POST[ $field['id'] ] ) );
-						}
-						break;
-					case 'select':
-					case 'postsselect':
-					case 'sidebar':
-					case 'checkbox':
-						if ( isset( $_POST[ $field['id'] ] ) ) {
+							break;
+						case 'select':
+						case 'postsselect':
+						case 'sidebar':
+						case 'checkbox':
 							$update_value = $this->sanitize_text_or_array_field( wp_unslash( $_POST[ $field['id'] ] ) );
 							$update_value = maybe_serialize( $update_value );
-						} else {
-							$update_value = array();
-						}
-						break;
-					case 'image':
-					case 'rangeslider':
-						if ( isset( $_POST[ $field['id'] ] ) ) {
+							break;
+						case 'image':
+						case 'rangeslider':
 							$update_value = intval( wp_unslash( $_POST[ $field['id'] ] ) );
-						}
-						break;
-					case 'editor':
-						if ( isset( $_POST[ $field['id'] ] ) ) {
-							$update_value = apply_filters( 'the_content', wp_unslash( $_POST[ $field['id'] ] ) );
-						}
-						break;
-					default:
+							break;
+						case 'editor':
+								$update_value = apply_filters( 'the_content', wp_unslash( $_POST[ $field['id'] ] ) );
+							break;
+						default:
+					}
+				} else {
+					$update_value = null;
 				}
-				$field = sanitize_text_field( $field['id'] );
-				if ( isset( $this->settings['post_types'] ) && ! empty( $this->settings['post_types'] ) ) {
-					update_post_meta( $post_id, $field, $update_value );
-				}
-				if ( ! isset( $this->settings['post_types'] ) ) {
-					update_option( $field, $update_value );
-				}
+				$field              = sanitize_text_field( $field['id'] );
+				$settings[ $field ] = $update_value;
 			} // end foreach
+
+			if ( 'post_types' === $this->settings['settings_type'] ) {
+				wp_update_post(
+					array(
+						'ID'         => $post_id,
+						'meta_input' => $settings,
+					)
+				);
+			}
+			if ( 'option' === $this->settings['settings_type'] ) {
+				update_option( $this->settings['id'], $update_value );
+			}
+
+			do_action( 'pico_update_settings', $settings );
+
 		}
 	}
 
