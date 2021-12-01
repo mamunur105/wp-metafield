@@ -1,6 +1,6 @@
 .fields-wrapper {
 	@extend %d-flex;
-	padding: 15px 10px;
+	padding: 30px 20px;
     border: 1px solid #ccc;
     margin-top: -1px;
 	label {
@@ -34,7 +34,10 @@
 		flex: 0 0 100%;
 	}
 	p{
-		margin-top: 3px;
+		margin-top: 10px;
+		&:last-child{
+			margin-bottom: 0;
+		}
 	}
 }
 

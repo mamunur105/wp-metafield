@@ -57,15 +57,34 @@ class Loaded {
 				new Options( $setting );
 			}
 		}
-
-		do_action('add_new_option_settings');
 		// $tex_meta = apply_filters( 'pico_tex_meta_boxes', array(), 10, 1 );
 		// if ( is_array( $tex_meta ) && count( $tex_meta ) ) {
-		// 	foreach ( $tex_meta as $tex ) {
-		// 		new Tax_Metabox( $tex );
-		// 	}
+		// foreach ( $tex_meta as $tex ) {
+		// new Tax_Metabox( $tex );
 		// }
+		// }
+		do_action( 'pico_add_new_option_settings' );
+	}
+	/**
+	 * ALl options data.
+	 *
+	 * @return array
+	 */
+	public function get_option() {
+		return wp_load_alloptions();
+	}
 
+	/**
+	 * ALl options data.
+	 *
+	 * @return array
+	 */
+	public function get_meta( $type = 'post', $post_id ) {
+		$post_id = absint( $post_id );
+		if ( $post_id ) {
+			return false;
+		}
+		return get_metadata( $type, $post_id );
 	}
 
 	/**

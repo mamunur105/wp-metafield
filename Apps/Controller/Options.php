@@ -99,6 +99,8 @@ class Options extends AbsController {
 				echo '<div class="button-wrapper">';
 					submit_button();
 				echo '</div>';
+				// $all_options = wp_load_alloptions();
+				// error_log( print_r( $all_options, true ), 3, __DIR__ . '/log.txt' );
 				?>
 			</form>
 		</div>

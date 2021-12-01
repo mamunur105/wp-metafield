@@ -37,24 +37,27 @@ class SwitchBtn extends GetFields {
 						<p> <?php echo esc_html( $subtitle ); ?></p>
 					<?php } ?>
 				</div>
-				<div class="field-wrapper col d-flex flex-wrap">
-					<?php
-					if ( ! empty( $options ) ) {
-						foreach ( $options as $key => $option ) {
-							$checked = $key === $value ? 'checked' : '';
-							?>
-							<div class="switchbtn-wraper">
-								<input name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $key ); ?>" type="radio" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
-								<label for="<?php echo esc_attr( $key ); ?>" class="checkmark" > <?php echo esc_attr( $option ); ?></label>
-							</div>
-							<?php
+				<div class="field-wrapper col">
+					<div class="d-flex flex-wrap">
+						<?php
+						if ( ! empty( $options ) ) {
+							foreach ( $options as $key => $option ) {
+								$checked = $key === $value ? 'checked' : '';
+								?>
+								<div class="switchbtn-wraper">
+									<input name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $key ); ?>" type="radio" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
+									<label for="<?php echo esc_attr( $key ); ?>" class="checkmark" > <?php echo esc_attr( $option ); ?></label>
+								</div>
+								<?php
+							}
 						}
-					}
-					?>
+						?>
+					</div>
 					<?php if ( ! empty( $desc ) ) { ?>
 						<p> <?php echo esc_html( $desc ); ?></p>
 					<?php } ?>
 				</div>
+
 			</div>
 			<?php
 		}
