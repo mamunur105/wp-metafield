@@ -9,7 +9,8 @@
 namespace PS\INIT;
 
 use PS\INIT\Traits\Singleton;
-use PS\INIT\Controller\Metabox;
+use PS\INIT\Controller\Post_Metabox;
+use PS\INIT\Controller\Tax_Metabox;
 use PS\INIT\Controller\Options;
 
 /**
@@ -47,7 +48,7 @@ class Loaded {
 		$meta_boxes = apply_filters( 'pico_meta_boxes', array(), 10, 1 );
 		if ( is_array( $meta_boxes ) && count( $meta_boxes ) ) {
 			foreach ( $meta_boxes as $meta_box ) {
-				new Metabox( $meta_box );
+				new Post_Metabox( $meta_box );
 			}
 		}
 		$pico_setting = apply_filters( 'pico_setting', array(), 10, 1 );
@@ -56,6 +57,15 @@ class Loaded {
 				new Options( $setting );
 			}
 		}
+
+		do_action('add_new_option_settings');
+		// $tex_meta = apply_filters( 'pico_tex_meta_boxes', array(), 10, 1 );
+		// if ( is_array( $tex_meta ) && count( $tex_meta ) ) {
+		// 	foreach ( $tex_meta as $tex ) {
+		// 		new Tax_Metabox( $tex );
+		// 	}
+		// }
+
 	}
 
 	/**

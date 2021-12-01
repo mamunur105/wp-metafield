@@ -7,10 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'PS\\INIT\\Abstracts\\AbsController' => $baseDir . '/Apps/Abstracts/AbsController.php',
     'PS\\INIT\\Abstracts\\GetFields' => $baseDir . '/Apps/Abstracts/GetFields.php',
-    'PS\\INIT\\Controller\\CallTheField' => $baseDir . '/Apps/Controller/CallTheField.php',
-    'PS\\INIT\\Controller\\Metabox' => $baseDir . '/Apps/Controller/Metabox.php',
     'PS\\INIT\\Controller\\Options' => $baseDir . '/Apps/Controller/Options.php',
+    'PS\\INIT\\Controller\\Post_Metabox' => $baseDir . '/Apps/Controller/Post_Metabox.php',
+    'PS\\INIT\\Controller\\Tax_Metabox' => $baseDir . '/Apps/Controller/Tax_Metabox.php',
     'PS\\INIT\\Fields\\Checkbox' => $baseDir . '/Apps/Fields/Checkbox.php',
     'PS\\INIT\\Fields\\ColorPicker' => $baseDir . '/Apps/Fields/ColorPicker.php',
     'PS\\INIT\\Fields\\Editor' => $baseDir . '/Apps/Fields/Editor.php',
@@ -28,5 +29,8 @@ return array(
     'PS\\INIT\\Fields\\Textarea' => $baseDir . '/Apps/Fields/Textarea.php',
     'PS\\INIT\\Fields\\ToggleSwitch' => $baseDir . '/Apps/Fields/ToggleSwitch.php',
     'PS\\INIT\\Loaded' => $baseDir . '/Apps/Loaded.php',
+    'PS\\INIT\\Model\\CallTheField' => $baseDir . '/Apps/Model/CallTheField.php',
+    'PS\\INIT\\Traits\\Nonce' => $baseDir . '/Apps/Traits/Nonce.php',
+    'PS\\INIT\\Traits\\SanitizeTextOrArray' => $baseDir . '/Apps/Traits/SanitizeTextOrArray.php',
     'PS\\INIT\\Traits\\Singleton' => $baseDir . '/Apps/Traits/Singleton.php',
 );

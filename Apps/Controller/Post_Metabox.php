@@ -13,7 +13,7 @@ use PS\INIT\Model\CallTheField;
 /**
  * Display Metabox.
  */
-class Metabox extends AbsController {
+class Post_Metabox extends AbsController {
 
 	/**
 	 * Metaboxes.

@@ -22,10 +22,11 @@ class ComposerStaticInit398df2f650b479cdf847695faea07e3b
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'PS\\INIT\\Abstracts\\AbsController' => __DIR__ . '/../..' . '/Apps/Abstracts/AbsController.php',
         'PS\\INIT\\Abstracts\\GetFields' => __DIR__ . '/../..' . '/Apps/Abstracts/GetFields.php',
-        'PS\\INIT\\Controller\\CallTheField' => __DIR__ . '/../..' . '/Apps/Controller/CallTheField.php',
-        'PS\\INIT\\Controller\\Metabox' => __DIR__ . '/../..' . '/Apps/Controller/Metabox.php',
         'PS\\INIT\\Controller\\Options' => __DIR__ . '/../..' . '/Apps/Controller/Options.php',
+        'PS\\INIT\\Controller\\Post_Metabox' => __DIR__ . '/../..' . '/Apps/Controller/Post_Metabox.php',
+        'PS\\INIT\\Controller\\Tax_Metabox' => __DIR__ . '/../..' . '/Apps/Controller/Tax_Metabox.php',
         'PS\\INIT\\Fields\\Checkbox' => __DIR__ . '/../..' . '/Apps/Fields/Checkbox.php',
         'PS\\INIT\\Fields\\ColorPicker' => __DIR__ . '/../..' . '/Apps/Fields/ColorPicker.php',
         'PS\\INIT\\Fields\\Editor' => __DIR__ . '/../..' . '/Apps/Fields/Editor.php',
@@ -43,6 +44,9 @@ class ComposerStaticInit398df2f650b479cdf847695faea07e3b
         'PS\\INIT\\Fields\\Textarea' => __DIR__ . '/../..' . '/Apps/Fields/Textarea.php',
         'PS\\INIT\\Fields\\ToggleSwitch' => __DIR__ . '/../..' . '/Apps/Fields/ToggleSwitch.php',
         'PS\\INIT\\Loaded' => __DIR__ . '/../..' . '/Apps/Loaded.php',
+        'PS\\INIT\\Model\\CallTheField' => __DIR__ . '/../..' . '/Apps/Model/CallTheField.php',
+        'PS\\INIT\\Traits\\Nonce' => __DIR__ . '/../..' . '/Apps/Traits/Nonce.php',
+        'PS\\INIT\\Traits\\SanitizeTextOrArray' => __DIR__ . '/../..' . '/Apps/Traits/SanitizeTextOrArray.php',
         'PS\\INIT\\Traits\\Singleton' => __DIR__ . '/../..' . '/Apps/Traits/Singleton.php',
     );
 
