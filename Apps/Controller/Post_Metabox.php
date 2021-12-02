@@ -37,6 +37,9 @@ class Post_Metabox extends AbsController {
 		if ( isset( $settings['settings_type'] ) ) {
 			unset( $settings['settings_type'] );
 		}
+		if ( isset( $settings['prev_value'] ) ) {
+			unset( $settings['prev_value'] );
+		}
 		$default = array(
 			'settings_type' => 'post_types',
 			'id'            => wp_generate_uuid4(),
@@ -78,16 +81,17 @@ class Post_Metabox extends AbsController {
 	 */
 	public function from_field() {
 		if ( ! empty( $this->fields ) ) {
+			$settings = $this->settings;
 			$this->before_container();
 			parent::from_field();
 			foreach ( $this->fields as $field ) {
-				$field['settings_type'] = 'metabox_settings';
-				$get_the_field          = CallTheField::init( $field );
+				$get_the_field = CallTheField::init( $field, $settings );
 				$get_the_field->get_fields();
 			}
 			$this->after_container();
 		}
 	}
+
 
 	/**
 	 * Save function

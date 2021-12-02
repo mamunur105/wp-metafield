@@ -22,13 +22,13 @@ class Editor  extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			$id       = sanitize_text_field( $this->field['id'] );
-			$class    = sanitize_text_field( $this->field['class'] );
-			$title    = sanitize_text_field( $this->field['title'] );
-			$desc     = sanitize_text_field( $this->field['desc'] );
-			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			$require  = $this->field['condition'];
-			$value    = $this->get_settings_value();
+			$id        = sanitize_text_field( $this->field['id'] );
+			$class     = sanitize_text_field( $this->field['class'] );
+			$title     = sanitize_text_field( $this->field['title'] );
+			$desc      = sanitize_text_field( $this->field['desc'] );
+			$subtitle  = sanitize_text_field( $this->field['subtitle'] );
+			$require   = $this->field['condition'];
+			$value     = $this->get_settings_value( $id );
 			$data_attr = '';
 
 			if ( ! empty( $require['field'] ) && ! empty( $require['value'] ) && ! empty( $require['compare'] ) ) {

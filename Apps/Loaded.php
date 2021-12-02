@@ -22,7 +22,7 @@ class Loaded {
 	 */
 	private function __construct() {
 		if ( ! defined( 'PSSMB_VERSION' ) ) {
-			define( 'PSSMB_VERSION', '1.0.0.1' );
+			define( 'PSSMB_VERSION', '1.0.0.2' );
 		}
 		if ( ! defined( 'PSSMB_PLUGIN_NAME' ) ) {
 			define( 'PSSMB_PLUGIN_NAME', 'pssmetaboxes' );
@@ -58,9 +58,9 @@ class Loaded {
 		}
 		// $tex_meta = apply_filters( 'pico_tex_meta_boxes', array(), 10, 1 );
 		// if ( is_array( $tex_meta ) && count( $tex_meta ) ) {
-		// foreach ( $tex_meta as $tex ) {
-		// new Tax_Metabox( $tex );
-		// }
+			// foreach ( $tex_meta as $tex ) {
+				// new Tax_Metabox( $tex );
+			// }
 		// }
 		do_action( 'pico_add_new_option_settings' );
 	}
@@ -70,7 +70,7 @@ class Loaded {
 	 * @return array
 	 */
 	public function get_option() {
-		return wp_load_alloptions();
+		// return wp_load_alloptions(); 
 	}
 
 	/**
@@ -78,13 +78,13 @@ class Loaded {
 	 *
 	 * @return array
 	 */
-	public function get_meta( $type = 'post', $post_id ) {
-		$post_id = absint( $post_id );
-		if ( $post_id ) {
-			return false;
-		}
-		return get_metadata( $type, $post_id );
-	}
+	// public function get_meta( $type = 'post', $post_id ) {
+	// 	$post_id = absint( $post_id );
+	// 	if ( $post_id ) {
+	// 		return false;
+	// 	}
+	// 	return get_metadata( $type, $post_id );
+	// }
 
 	/**
 	 * Scripts.
@@ -205,3 +205,4 @@ class Loaded {
 		}
 	}
 }
+

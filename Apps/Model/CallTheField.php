@@ -44,6 +44,13 @@ class CallTheField {
 	private $field = null;
 
 	/**
+	 * Field.
+	 *
+	 * @var [type]
+	 */
+	private $settings = null;
+
+	/**
 	 * Get instance;
 	 *
 	 * @var [type]
@@ -62,7 +69,7 @@ class CallTheField {
 	 * @param array $field is an array.
 	 * @return object
 	 */
-	public static function init( $field ) {
+	public static function init( $field, $settings = null ) {
 		$defaults = array(
 			'id'        => '',
 			'title'     => '',
@@ -80,7 +87,8 @@ class CallTheField {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
-		self::$instance->field = $field;
+		self::$instance->field    = $field;
+		self::$instance->settings = $settings;
 		return self::$instance;
 	}
 
@@ -90,8 +98,9 @@ class CallTheField {
 	 * @return void
 	 */
 	public function get_fields() {
-		$input      = MissingField::init( $this->field );
-		$field_type = $this->field['type'];
+		$this->field['prev_value'] = $this->get_value();
+		$input                     = MissingField::init( $this->field );
+		$field_type                = $this->field['type'];
 		if (
 			is_array( $this->field )
 			&& isset( $this->field['id'] )
@@ -158,6 +167,19 @@ class CallTheField {
 		}
 		$input->get_field();
 	}
-
+	/**
+	 * Undocumented function.
+	 *
+	 * @return Mixed
+	 */
+	public function get_value() {
+		$value    = 'Hello';
+		$field_id = sanitize_text_field( $this->settings['id'] );
+		if ( 'post_types' === $this->settings['settings_type'] ) {
+			global $post;
+			$value = get_post_meta( $post->ID );
+		}
+		return $value;
+	}
 
 }

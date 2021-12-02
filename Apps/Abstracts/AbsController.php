@@ -143,24 +143,23 @@ abstract class AbsController {
 				} else {
 					$update_value = null;
 				}
-				$field              = sanitize_text_field( $field['id'] );
-				$settings[ $field ] = $update_value;
+				$field_id              = sanitize_text_field( $field['id'] );
+				$settings[ $field_id ] = $update_value;
+				if ( isset( $this->settings['post_types'] ) && ! empty( $this->settings['post_types'] ) ) {
+					update_post_meta( $post_id, $field_id, $update_value );
+				}
 			} // end foreach
 
-			if ( 'post_types' === $this->settings['settings_type'] ) {
-				wp_update_post(
-					array(
-						'ID'         => $post_id,
-						'meta_input' => $settings,
-					)
-				);
-			}
-			if ( 'option' === $this->settings['settings_type'] ) {
-				update_option( $this->settings['id'], $update_value );
+			switch ( $this->settings['settings_type'] ) {
+				case 'option':
+					$serialize_settings = maybe_serialize( $settings );
+					update_option( $this->settings['id'], $serialize_settings );
+					break;
+				default:
+					break;
 			}
 
-			do_action( 'pico_update_settings', $settings );
-
+			do_action( 'pico_update_settings', $settings, $post_id, $post, $update_value );
 		}
 	}
 

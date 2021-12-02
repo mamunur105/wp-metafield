@@ -61,8 +61,8 @@ class Sidebar extends GetFields {
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$options  = $this->get_sidebar();
-			$value    = $this->get_settings_value();
-			$value = maybe_unserialize( $value );
+			$value    = $this->get_settings_value( $id );
+			// $value = maybe_unserialize( $value );
 			wp_enqueue_style( 'select2' );
 			wp_enqueue_script( 'select2' );
 			?>

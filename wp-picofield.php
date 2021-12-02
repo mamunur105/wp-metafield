@@ -12,7 +12,7 @@
  * Plugin URI: http://wordpress.org/
  * Description: test.
  * Author: Picosoft
- * Version: 1.0.0.1
+ * Version: 1.0.0.2
  * Author URI: #
  */
 // If this file is called directly, abort.

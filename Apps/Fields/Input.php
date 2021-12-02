@@ -28,7 +28,7 @@ class Input extends GetFields {
 			$title    = sanitize_text_field( $this->field['title'] );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			$value    = $this->get_settings_value();
+			$value    = $this->get_settings_value( $id );
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>">
 				<div class="label col">

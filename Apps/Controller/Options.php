@@ -36,27 +36,28 @@ class Options extends AbsController {
 		if ( isset( $settings['settings_type'] ) ) {
 			unset( $settings['settings_type'] );
 		}
-		$new_settings = array_merge(
-			array(
-				'settings_type' => 'option',
-				'menu_title'    => esc_html__( 'Option Title', 'picosoft' ),
-				'page_title'    => esc_html__( 'Page Title', 'picosoft' ),
-				'classes'       => 'picosoft-option-wrapper',
-				'id'            => 'pico-option',
-				'position'      => 6,
-				'capability'    => 'manage_options',
-				'menu_icon'     => '',
-				'parent_slug'   => '',
-				'tabs'          => array(),
-				'tabs_type'     => 'horizontal-tab', // vertical-tab.
-				'fields'        => array(),
-			),
-			$settings
-		);
-		if ( isset( $new_settings['post_types'] ) ) {
-			unset( $new_settings['post_types'] );
+		if ( isset( $settings['prev_value'] ) ) {
+			unset( $settings['prev_value'] );
 		}
-		return $new_settings;
+		$default = array(
+			'settings_type' => 'option',
+			'menu_title'    => esc_html__( 'Option Title', 'picosoft' ),
+			'page_title'    => esc_html__( 'Page Title', 'picosoft' ),
+			'classes'       => 'picosoft-option-wrapper',
+			'id'            => 'pico-option',
+			'position'      => 6,
+			'capability'    => 'manage_options',
+			'menu_icon'     => '',
+			'parent_slug'   => '',
+			'tabs'          => array(),
+			'tabs_type'     => 'horizontal-tab', // vertical-tab.
+			'fields'        => array(),
+		);
+		if ( isset( $settings['post_types'] ) ) {
+			unset( $settings['post_types'] );
+		}
+		$default['fields']['prev_value'] = 'Hi this is';
+		return array_merge( $default, $settings );
 	}
 
 	/**
@@ -103,8 +104,7 @@ class Options extends AbsController {
 				echo '<div class="button-wrapper">';
 					submit_button();
 				echo '</div>';
-				// $all_options = wp_load_alloptions();
-				// error_log( print_r( $all_options, true ), 3, __DIR__ . '/log.txt' );
+				
 				?>
 			</form>
 		</div>

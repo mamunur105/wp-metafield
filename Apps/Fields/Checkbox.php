@@ -30,8 +30,8 @@ class Checkbox extends GetFields {
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$options  = array_map( 'esc_attr', $this->field['options'] );
-			$value    = $this->get_settings_value();
-			$value    = maybe_unserialize( $value );
+			$value    = $this->get_settings_value( $id );
+			// error_log( print_r( $this->field['prev_value'] , true ), 3, __DIR__ . '/log.txt' );
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>">
 				<div class="label col">

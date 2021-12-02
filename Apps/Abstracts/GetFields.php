@@ -28,26 +28,25 @@ abstract class GetFields {
 	 * @return mixed
 	 */
 	abstract public function get_field();
-
 	/**
 	 * Undocumented function
 	 *
-	 * @return Mixed
+	 * @return mixed
 	 */
-	public function get_settings_value() {
-		$value = '';
-		$field = sanitize_text_field( $this->field['id'] );
-		if ( 'metabox_settings' === $this->field['settings_type'] ) {
-			global $post;
-			$value = get_post_meta( $post->ID, $field, true );
-			if ( ! $value && ! metadata_exists( $post->post_type, $post->ID, $field ) ) {
-				$value = $this->field['default'];
-			}
+	public function get_settings_value( $id ) {
+		$value = null;
+		if ( $id ) {
+			$get_values = maybe_unserialize( $this->field['prev_value'] );
+			$value      = maybe_unserialize( $get_values[ $id ][0] );
 		}
-		if ( 'options_settings' === $this->field['settings_type'] ) {
-			$value = get_option( $field );
+		if ( is_serialized( $value ) ) {
+			$value = maybe_unserialize( $value );
 		}
+		error_log( print_r( maybe_unserialize( $value ), true ), 3, __DIR__ . '/log.txt' );
 		return $value;
 	}
+
+
+
 
 }

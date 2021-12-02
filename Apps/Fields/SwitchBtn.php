@@ -26,7 +26,7 @@ class SwitchBtn extends GetFields {
 			$class    = sanitize_text_field( $this->field['class'] );
 			$title    = sanitize_text_field( $this->field['title'] );
 			$options  = array_map( 'esc_attr', $this->field['options'] );
-			$value    = $this->get_settings_value();
+			$value    = $this->get_settings_value( $id );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			?>

@@ -35,6 +35,12 @@ class ToggleSwitch extends GetFields {
 		return self::$instance;
 	}
 
+	public function get_settings_value( $id ) {
+		$get_values = maybe_unserialize( $this->field['prev_value'] );
+		$value      = maybe_unserialize( $get_values[ $id ][0] );
+		return $value;
+	}
+
 	/**
 	 * Return input field.
 	 *
@@ -47,7 +53,7 @@ class ToggleSwitch extends GetFields {
 			$title    = sanitize_text_field( $this->field['title'] );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			$value    = $this->get_settings_value();
+			$value    = $this->get_settings_value( $id );
 			if ( 'yes' !== $value ) {
 				$value = false;
 			}

@@ -25,7 +25,7 @@ class ColorPicker extends GetFields {
 			$id       = sanitize_text_field( $this->field['id'] );
 			$class    = sanitize_text_field( $this->field['class'] );
 			$title    = sanitize_text_field( $this->field['title'] );
-			$value    = $this->get_settings_value();
+			$value    = $this->get_settings_value( $id );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			wp_enqueue_script( 'wp-color-picker-alpha' );
