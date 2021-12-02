@@ -90,24 +90,24 @@ function testing_metadata_( $meta_boxes ) {
 				'desc'     => esc_html__( 'Checking textarea field', 'picosoft' ),
 			),
 
-			array(
-				'id'       => 'gallery_1',
-				'title'    => esc_html__( 'Gallery', 'picosoft' ),
-				'subtitle' => esc_html__( 'Subtitle Gallery', 'picosoft' ),
-				'type'     => 'gallery',
-				'tab'      => 'tabs_one',
-				'class'    => 'testname',
-				'desc'     => esc_html__( 'Checking gallery field', 'picosoft' ),
-			),
+			// array(
+			// 	'id'       => 'gallery_1',
+			// 	'title'    => esc_html__( 'Gallery', 'picosoft' ),
+			// 	'subtitle' => esc_html__( 'Subtitle Gallery', 'picosoft' ),
+			// 	'type'     => 'gallery',
+			// 	'tab'      => 'tabs_one',
+			// 	'class'    => 'testname',
+			// 	'desc'     => esc_html__( 'Checking gallery field', 'picosoft' ),
+			// ),
 
-			array(
-				'id'    => 'image_',
-				'title' => esc_html__( 'image', 'picosoft' ),
-				'type'  => 'image',
-				'tab'   => 'tabs_one',
-				'class' => 'testname',
-				'desc'  => esc_html__( 'Checking image field', 'picosoft' ),
-			),
+			// array(
+			// 	'id'    => 'image_',
+			// 	'title' => esc_html__( 'image', 'picosoft' ),
+			// 	'type'  => 'image',
+			// 	'tab'   => 'tabs_one',
+			// 	'class' => 'testname',
+			// 	'desc'  => esc_html__( 'Checking image field', 'picosoft' ),
+			// ),
 			array(
 				'id'      => 'number_1',
 				'title'   => esc_html__( 'Number field', 'picosoft' ),
@@ -843,7 +843,7 @@ function testing_settings( $settings ) {
 	return $settings;
 }
 
-add_filter( 'pico_setting', 'testing_settings', 99 );
+// add_filter( 'pico_setting', 'testing_settings', 99 );
 
 
 /**
@@ -1117,4 +1117,4 @@ function texonomy_metadata_( $meta_boxes ) {
 	); // End picosoft_page_header_footer.
 	return $meta_boxes;
 }
-add_filter( 'pico_tex_meta_boxes', 'texonomy_metadata_', 99 );
+// add_filter( 'pico_tex_meta_boxes', 'texonomy_metadata_', 99 );

@@ -56,7 +56,7 @@ class Editor  extends GetFields {
 							'wpautop'       => true, // use wpautop?
 							'media_buttons' => true, // show insert/upload button(s)
 							'textarea_name' => $id, // set the textarea name to something different, square brackets [] can be used here
-							'textarea_rows' => get_option( 'default_post_edit_rows', 10 ), // rows="..."
+							'textarea_rows' => 10,//get_option( 'default_post_edit_rows', 10 ), // rows="..." Reduce Query in this line by removing get_option function.
 							'tabindex'      => '',
 							'editor_css'    => '', // extra styles for both visual and HTML editors buttons,.
 							'editor_class'  => '', // add extra class(es) to the editor textarea.
