@@ -90,24 +90,24 @@ function testing_metadata_( $meta_boxes ) {
 				'desc'     => esc_html__( 'Checking textarea field', 'picosoft' ),
 			),
 
-			// array(
-			// 	'id'       => 'gallery_1',
-			// 	'title'    => esc_html__( 'Gallery', 'picosoft' ),
-			// 	'subtitle' => esc_html__( 'Subtitle Gallery', 'picosoft' ),
-			// 	'type'     => 'gallery',
-			// 	'tab'      => 'tabs_one',
-			// 	'class'    => 'testname',
-			// 	'desc'     => esc_html__( 'Checking gallery field', 'picosoft' ),
-			// ),
+			array(
+				'id'       => 'gallery_1',
+				'title'    => esc_html__( 'Gallery', 'picosoft' ),
+				'subtitle' => esc_html__( 'Subtitle Gallery', 'picosoft' ),
+				'type'     => 'gallery',
+				'tab'      => 'tabs_one',
+				'class'    => 'testname',
+				'desc'     => esc_html__( 'Checking gallery field', 'picosoft' ),
+			),
 
-			// array(
-			// 	'id'    => 'image_',
-			// 	'title' => esc_html__( 'image', 'picosoft' ),
-			// 	'type'  => 'image',
-			// 	'tab'   => 'tabs_one',
-			// 	'class' => 'testname',
-			// 	'desc'  => esc_html__( 'Checking image field', 'picosoft' ),
-			// ),
+			array(
+				'id'    => 'image_',
+				'title' => esc_html__( 'image', 'picosoft' ),
+				'type'  => 'image',
+				'tab'   => 'tabs_one',
+				'class' => 'testname',
+				'desc'  => esc_html__( 'Checking image field', 'picosoft' ),
+			),
 			array(
 				'id'      => 'number_1',
 				'title'   => esc_html__( 'Number field', 'picosoft' ),

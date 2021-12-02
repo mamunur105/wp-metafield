@@ -45,7 +45,7 @@ class PostsSelect extends GetFields {
 			$post_types = $this->sanitize_text_or_array_field( wp_unslash( $this->field['post_types'] ) );
 			$posts_list = get_posts(
 				array(
-					'posts_per_page' => 5,
+					'posts_per_page' => -1,
 					'post_type'      => $post_types,
 				)
 			);
