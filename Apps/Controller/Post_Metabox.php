@@ -88,6 +88,7 @@ class Post_Metabox extends AbsController {
 				$get_the_field = CallTheField::init( $field, $settings );
 				$get_the_field->get_fields();
 			}
+			submit_button();
 			$this->after_container();
 		}
 	}
