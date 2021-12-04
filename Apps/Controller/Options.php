@@ -10,11 +10,12 @@ namespace PS\INIT\Controller;
 
 use PS\INIT\Abstracts\AbsController;
 use PS\INIT\Model\CallTheField;
+use PS\INIT\Traits\Getdata;
 /**
  * Display Metabox.
  */
 class Options extends AbsController {
-
+	use Getdata;
 	/**
 	 * Undocumented function.
 	 *
@@ -56,7 +57,6 @@ class Options extends AbsController {
 		if ( isset( $settings['post_types'] ) ) {
 			unset( $settings['post_types'] );
 		}
-		$default['fields']['prev_value'] = 'Hi this is';
 		return array_merge( $default, $settings );
 	}
 
@@ -93,10 +93,12 @@ class Options extends AbsController {
 			<form method="post" action="">
 				<input type="hidden" name="pico_option_settings" value="pico_option_settings" />
 				<?php
+				$option_value = $this->get_value();
 				$this->before_container();
 				parent::from_field();
 				foreach ( $this->fields as $field ) {
-					$field['settings_type'] = 'options_settings';
+					// $field['settings_field_type'] = 'options_settings';
+					$field['prev_value'] = $option_value;
 					$get_the_field          = CallTheField::init( $field );
 					$get_the_field->get_fields();
 				}
@@ -104,7 +106,6 @@ class Options extends AbsController {
 				echo '<div class="button-wrapper">';
 					submit_button();
 				echo '</div>';
-				
 				?>
 			</form>
 		</div>

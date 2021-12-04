@@ -54,8 +54,6 @@ class ToggleSwitch extends GetFields {
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
-			// error_log( print_r( $value, true ), 3, __DIR__ . '/log.txt' );
-			
 			if ( 'yes' !== $value ) {
 				$value = false;
 			}

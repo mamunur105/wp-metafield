@@ -10,11 +10,12 @@ namespace PS\INIT\Controller;
 
 use PS\INIT\Abstracts\AbsController;
 use PS\INIT\Model\CallTheField;
+use PS\INIT\Traits\Getdata;
 /**
  * Display Metabox.
  */
 class Post_Metabox extends AbsController {
-
+	use Getdata;
 	/**
 	 * Metaboxes.
 	 *
@@ -81,15 +82,18 @@ class Post_Metabox extends AbsController {
 	 */
 	public function from_field() {
 		if ( ! empty( $this->fields ) ) {
-			$settings = $this->settings;
+			$meta_value = $this->get_value();
 			$this->before_container();
 			parent::from_field();
 			foreach ( $this->fields as $field ) {
-				$get_the_field = CallTheField::init( $field, $settings );
+				$field['prev_value'] = $meta_value;
+				$get_the_field       = CallTheField::init( $field );
 				$get_the_field->get_fields();
 			}
-			submit_button();
 			$this->after_container();
+			echo '<div class="button-wrapper">';
+				submit_button();
+			echo '</div>';
 		}
 	}
 

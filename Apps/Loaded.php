@@ -56,12 +56,6 @@ class Loaded {
 				new Options( $setting );
 			}
 		}
-		// $tex_meta = apply_filters( 'pico_tex_meta_boxes', array(), 10, 1 );
-		// if ( is_array( $tex_meta ) && count( $tex_meta ) ) {
-			// foreach ( $tex_meta as $tex ) {
-				// new Tax_Metabox( $tex );
-			// }
-		// }
 		do_action( 'pico_add_new_option_settings' );
 	}
 	/**

@@ -1,0 +1,24 @@
+Array
+(
+    [toggleswitch_1] => yes
+    [checkbox_1] => iPhone
+    [colorpicker_1] => rgb(196,196,196)
+    [editor_11] => <p>Checking textarea field</p>
+
+    [gallery_1] => 71,72,73
+    [image_] => 24
+    [number_1] => 156456
+    [date_2] => 2021-12-22
+    [email_3] => rmamunur105@gmail.com
+    [url_4] => https://www.facebook.com/
+    [text_5] => Checking text field
+    [multiselect_11] => iPhone
+    [multiselect_20] => iPhone
+    [postsselect_22] => 92
+    [radio_1] => Macbook-3
+    [radioimage_2] => radioimage_2
+    [rangeslider_2] => 503
+    [sidebar_1] => sidebar-1
+    [switchbtn_1] => RadioSwitch-3
+    [textarea_1] => Checking textarea field Checking textarea field
+)

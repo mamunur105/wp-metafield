@@ -42,7 +42,6 @@ class Checkbox extends GetFields {
 				<div class="checkboxes-wrapper col d-flex flex-wrap">
 				<?php
 				if ( ! empty( $options ) ) {
-					// error_log( print_r( $options, true ), 3, __DIR__ . '/log.txt' );
 					foreach ( $options as $key => $option ) {
 						$checked = is_array( $value ) && in_array( $key, $value, true ) ? 'checked' : '';
 						?>

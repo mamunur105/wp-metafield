@@ -24,12 +24,11 @@ use PS\INIT\Fields\Sidebar;
 use PS\INIT\Fields\Image;
 use PS\INIT\Fields\Gallery;
 use PS\INIT\Fields\Editor;
-use PS\INIT\Traits\Getdata;
+
 /**
  * Display Field.
  */
 class CallTheField {
-	use Getdata;
 	/**
 	 * Get instance;
 	 *
@@ -85,6 +84,7 @@ class CallTheField {
 			),
 		);
 		$field    = wp_parse_args( $field, $defaults );
+		// error_log( print_r( $field, true ), 3, __DIR__ . '/log.txt' );
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
@@ -99,7 +99,7 @@ class CallTheField {
 	 * @return void
 	 */
 	public function get_fields() {
-		$this->field['prev_value'] = $this->get_value();
+		
 		$input                     = MissingField::init( $this->field );
 		$field_type                = $this->field['type'];
 		if (

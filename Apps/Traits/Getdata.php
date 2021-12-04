@@ -24,7 +24,13 @@ trait Getdata {
 				$post_id = $post->ID;
 			}
 			$values = get_post_meta( $post->ID );
+			$values = apply_filters( 'pico_prepare_meta_data', $values, $this->settings );
 		}
+		if ( 'option' === $this->settings['settings_type'] ) {
+			$values = get_option( $field_id );
+			$values = apply_filters( 'pico_prepare_option_data', $values, $this->settings );
+		}
+
 		return $this->data_prepare( $values );
 	}
 
@@ -41,35 +47,11 @@ trait Getdata {
 		}
 		foreach ( $this->settings['fields'] as $fld ) {
 			if ( isset( $fld['id'] ) && isset( $values[ $fld['id'] ] ) ) {
-				if ( is_array( $values[ $fld['id'] ] ) ) {
-					$array_root_value = isset( $values[ $fld['id'] ][0] ) ? $values[ $fld['id'] ][0] : $values[ $fld['id'] ];
-				} else {
-					$array_root_value = $values[ $fld['id'] ];
-				}
-				$main                    = maybe_unserialize( $array_root_value );
-				$new_value[ $fld['id'] ] = $main;
+
+				$new_value[ $fld['id'] ] = $values[ $fld['id'] ];
 			}
 		}
 		return $new_value;
 	}
-	/**
-	 * Undocumented function
-	 *
-	 * @param [type] $value gield value.
-	 * @return mixed
-	 */
-	// public function make_unserialize( $value ) {
-	// $main = maybe_unserialize( $value );
-	// $main = array_map('maybe_unserialize', $value );
-	// if ( is_array( $main ) ) {
-	// foreach ($main as $val ) {
-	// $main = maybe_unserialize( $val );
-	// }
-	// } else {
-	// $main = maybe_unserialize( $main );
-	// }
-	// error_log( print_r( $main, true ), 3, __DIR__ . '/log.txt' );
-	// return $main;
-	// }
 
 }
