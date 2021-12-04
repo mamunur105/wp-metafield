@@ -69,7 +69,7 @@ class PostsSelect extends GetFields {
 			$subtitle    = sanitize_text_field( $this->field['subtitle'] );
 			$options     = $this->get_posts();
 			$multiselect = boolval( $this->field['multiselect'] );
-			$value    = $this->get_settings_value( $id );
+			$value       = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
 			// $value = maybe_unserialize( $value );
 			wp_enqueue_style( 'select2' );
 			wp_enqueue_script( 'select2' );

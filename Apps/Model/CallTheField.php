@@ -24,11 +24,12 @@ use PS\INIT\Fields\Sidebar;
 use PS\INIT\Fields\Image;
 use PS\INIT\Fields\Gallery;
 use PS\INIT\Fields\Editor;
-
+use PS\INIT\Traits\Getdata;
 /**
  * Display Field.
  */
 class CallTheField {
+	use Getdata;
 	/**
 	 * Get instance;
 	 *
@@ -102,11 +103,11 @@ class CallTheField {
 		$input                     = MissingField::init( $this->field );
 		$field_type                = $this->field['type'];
 		if (
-			is_array( $this->field )
-			&& isset( $this->field['id'] )
-			&& ! empty( $this->field['id'] )
-			&& isset( $this->field['title'] )
-			&& ! empty( $this->field['title'] )
+		is_array( $this->field )
+		&& isset( $this->field['id'] )
+		&& ! empty( $this->field['id'] )
+		&& isset( $this->field['title'] )
+		&& ! empty( $this->field['title'] )
 		) {
 			if ( isset( $this->field['tab'] ) ) {
 				$this->field['class'] = isset( $this->field['class'] ) ? $this->field['class'] . ' tab-contents ' . $this->field['tab'] : $this->field['tab'];
@@ -167,19 +168,6 @@ class CallTheField {
 		}
 		$input->get_field();
 	}
-	/**
-	 * Undocumented function.
-	 *
-	 * @return Mixed
-	 */
-	public function get_value() {
-		$value    = 'Hello';
-		$field_id = sanitize_text_field( $this->settings['id'] );
-		if ( 'post_types' === $this->settings['settings_type'] ) {
-			global $post;
-			$value = get_post_meta( $post->ID );
-		}
-		return $value;
-	}
+
 
 }

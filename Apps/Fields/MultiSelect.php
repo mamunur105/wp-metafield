@@ -48,7 +48,7 @@ class MultiSelect extends GetFields {
 			$multiselect = boolval( $this->field['multiselect'] );
 			$desc        = sanitize_text_field( $this->field['desc'] );
 			$subtitle    = sanitize_text_field( $this->field['subtitle'] );
-			$value    = $this->get_settings_value( $id );
+			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
 			// $value = maybe_unserialize( $value );
 			wp_enqueue_style( 'select2' );
 			wp_enqueue_script( 'select2' );

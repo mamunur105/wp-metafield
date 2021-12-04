@@ -28,7 +28,7 @@ class Editor  extends GetFields {
 			$desc      = sanitize_text_field( $this->field['desc'] );
 			$subtitle  = sanitize_text_field( $this->field['subtitle'] );
 			$require   = $this->field['condition'];
-			$value     = $this->get_settings_value( $id );
+			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : '';
 			$data_attr = '';
 
 			if ( ! empty( $require['field'] ) && ! empty( $require['value'] ) && ! empty( $require['compare'] ) ) {

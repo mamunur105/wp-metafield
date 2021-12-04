@@ -48,7 +48,7 @@ class RangeSlider extends GetFields {
 			$max      = sanitize_text_field( $this->field['max'] );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			$value    = $this->get_settings_value( $id );
+			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : null;
 			wp_enqueue_script( 'range-slider' );
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>">

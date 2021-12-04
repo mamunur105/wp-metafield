@@ -129,7 +129,7 @@ abstract class AbsController {
 						case 'sidebar':
 						case 'checkbox':
 							$update_value = $this->sanitize_text_or_array_field( wp_unslash( $_POST[ $field['id'] ] ) );
-							$update_value = maybe_serialize( $update_value );
+							// $update_value = maybe_serialize( $update_value );
 							break;
 						case 'image':
 						case 'rangeslider':
@@ -152,8 +152,8 @@ abstract class AbsController {
 
 			switch ( $this->settings['settings_type'] ) {
 				case 'option':
-					$serialize_settings = maybe_serialize( $settings );
-					update_option( $this->settings['id'], $serialize_settings );
+					// $serialize_settings = maybe_serialize( $settings );
+					update_option( $this->settings['id'], $settings );
 					break;
 				default:
 					break;

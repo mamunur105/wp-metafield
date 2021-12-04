@@ -50,7 +50,8 @@ class RadioImage extends GetFields {
 			$column   = intval( $this->field['column'] );
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			$value    = $this->get_settings_value( $id );
+			$value       = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
+
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper radio-image flex-wrap <?php echo esc_attr( $class ); ?>" data-col="<?php esc_attr( $column ); ?>">
 				<div class="label col">

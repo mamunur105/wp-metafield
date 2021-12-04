@@ -27,7 +27,7 @@ class Image extends GetFields {
 			$title      = sanitize_text_field( $this->field['title'] );
 			$desc       = sanitize_text_field( $this->field['desc'] );
 			$subtitle   = sanitize_text_field( $this->field['subtitle'] );
-			$value      = $this->get_settings_value( $id );
+			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : null;
 			$image_id   = intval( $value );
 			$image_url  = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : 'https://via.placeholder.com/700x200';
 			$edit_image = admin_url( 'post.php?post=' . $image_id . '&action=edit' );
