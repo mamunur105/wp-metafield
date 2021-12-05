@@ -51,12 +51,15 @@ trait Getdata {
 			if ( isset( $fld['id'] ) && isset( $values[ $fld['id'] ] ) ) {
 				if ( isset( $values[ $fld['id'] ][0] ) ) {
 					$value = maybe_unserialize( $values[ $fld['id'] ][0] );
-				}else{
+				} else {
 					$value = maybe_unserialize( $values[ $fld['id'] ] );
 				}
 				$new_value[ $fld['id'] ] = $value;
+			} elseif ( isset( $fld['default'] ) ) {
+				$new_value[ $fld['id'] ] = $fld['default'];
 			}
 		}
+		error_log( print_r( $new_value, true ), 3, __DIR__ . '/log.txt' );
 		return $new_value;
 	}
 
