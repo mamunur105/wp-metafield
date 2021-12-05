@@ -1,0 +1,90 @@
+Array
+(
+    [editor_field_12] => <p>Default value</p>
+
+)
+Array
+(
+    [editor_field_12] => <p>Default value</p>
+
+)
+Array
+(
+    [editor_field_12] => <p>Default value</p>
+
+)
+Array
+(
+    [editor_field_12] => <p>Default value</p>
+
+)
+Array
+(
+    [editor_field_12] => <p>Default value</p>
+
+)
+Array
+(
+    [editor_field_12] => <p>Default value</p>
+
+)
+Array
+(
+    [editor_field_12] => <p>Default value</p>
+
+)
+Array
+(
+    [editor_field_12] => <p>Default value</p>
+
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)
+Array
+(
+    [gallery_field_1] => 82
+    [image_field_2] => 82
+)

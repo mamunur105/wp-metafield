@@ -145,20 +145,13 @@ abstract class AbsController {
 				}
 				$field_id              = sanitize_text_field( $field['id'] );
 				$settings[ $field_id ] = $update_value;
-				if ( isset( $this->settings['post_types'] ) && ! empty( $this->settings['post_types'] ) ) {
+				if ( 'post_types' === $this->settings['settings_type'] ) {
 					update_post_meta( $post_id, $field_id, $update_value );
 				}
 			} // end foreach
-
-			switch ( $this->settings['settings_type'] ) {
-				case 'option':
-					// $serialize_settings = maybe_serialize( $settings );
-					update_option( $this->settings['id'], $settings );
-					break;
-				default:
-					break;
+			if ( 'option' === $this->settings['settings_type'] ) {
+				update_option( $this->settings['id'], $settings );
 			}
-
 			do_action( 'tinyfield_update_settings', $settings, $post_id, $post, $update_value );
 		}
 	}

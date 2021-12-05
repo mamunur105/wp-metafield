@@ -25,12 +25,12 @@ trait Getdata {
 			}
 			$values = get_post_meta( $post_id );
 			$values = apply_filters( 'tiny_prepare_meta_data', $values, $this->settings );
-			return $this->meta_data_prepare( $values );
+			$values = $this->meta_data_prepare( $values );
 		}
 		if ( 'option' === $this->settings['settings_type'] ) {
 			$values = get_option( $field_id );
 			$values = apply_filters( 'tiny_prepare_option_data', $values, $this->settings );
-			return $values;
+			$values = $this->option_data_prepare( $values );
 		}
 
 		return $values;
@@ -59,7 +59,28 @@ trait Getdata {
 				$new_value[ $fld['id'] ] = $fld['default'];
 			}
 		}
-		error_log( print_r( $new_value, true ), 3, __DIR__ . '/log.txt' );
+		return $new_value;
+	}
+
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param [array] $values settings value.
+	 * @return array
+	 */
+	public function option_data_prepare( $values = array() ) {
+		$new_value = array();
+		error_log( print_r( $values, true ), 3, __DIR__ . '/log.txt' );
+		foreach ( $this->settings['fields'] as $fld ) {
+			if ( isset( $fld['id'] ) ) {
+				if ( isset( $values[ $fld['id'] ] ) ) {
+					$new_value[ $fld['id'] ] = maybe_unserialize( $values[ $fld['id'] ] );
+				} elseif ( isset( $fld['default'] ) ) {
+					$new_value[ $fld['id'] ] = $fld['default'];
+				}
+			}
+		}
 		return $new_value;
 	}
 
