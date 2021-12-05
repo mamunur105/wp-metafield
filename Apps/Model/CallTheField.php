@@ -84,7 +84,6 @@ class CallTheField {
 			),
 		);
 		$field    = wp_parse_args( $field, $defaults );
-		// error_log( print_r( $field, true ), 3, __DIR__ . '/log.txt' );
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}

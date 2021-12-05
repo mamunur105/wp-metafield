@@ -146,6 +146,7 @@ class Loaded {
 				'adminurl' => admin_url( '/' ), // WordPress AJAX.
 			)
 		);
+		wp_enqueue_media();
 		wp_enqueue_style( 'tinyfield' );
 	}
 

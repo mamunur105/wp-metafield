@@ -368,7 +368,6 @@ function testing_settings( $settings ) {
 	$settings[] = array(
 		'id'         => 'tinyfield_post_header_footer',
 		'menu_title' => esc_html__( 'Container 1', 'tinyfield' ),
-		'post_types' => array( 'post' ),
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'classes'    => 'tinyfield-metabox-wrapper',
@@ -388,7 +387,7 @@ function testing_settings( $settings ) {
 		'fields'     => array(
 			// Gallery field is under construction.
 			// TODO: default value is not working.
-			/*
+			
 			array(
 				'id'      => 'toggleswitch_field_3',
 				'title'   => esc_html__( 'Toggle Switch', 'tinyfield' ),
@@ -400,8 +399,7 @@ function testing_settings( $settings ) {
 				'default' => 'yes', // yes or ''.
 				'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'checkbox-field-5',
 				'title'   => esc_html__( 'Checkbox', 'tinyfield' ),
@@ -417,8 +415,7 @@ function testing_settings( $settings ) {
 				),
 				'desc'    => esc_html__( 'Checking checkbox Field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'colorpicker_field_2',
 				'title'   => esc_html__( 'Color Picker', 'tinyfield' ),
@@ -428,8 +425,7 @@ function testing_settings( $settings ) {
 				'default' => '#ff0000',
 				'desc'    => esc_html__( 'Checking colorpicker field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'       => 'editor_field_12',
 				'title'    => esc_html__( 'Editor field', 'tinyfield' ),
@@ -440,10 +436,9 @@ function testing_settings( $settings ) {
 				'default'  => 'Default value',
 				'desc'     => esc_html__( 'Checking textarea field', 'tinyfield' ),
 			),
-			*/
+			
 			// // Make MUltiple QUery.
 			
-			// TODO: Field is not upload image in settings field
 			array(
 				'id'       => 'gallery_field_1',
 				'title'    => esc_html__( 'Gallery', 'tinyfield' ),
@@ -454,7 +449,6 @@ function testing_settings( $settings ) {
 				'default'  => '82', // Image id '10, 15, 20'.
 				'desc'     => esc_html__( 'Checking gallery field', 'tinyfield' ),
 			),
-			
 			
 			// // Make MUltiple QUery.
 			array(
@@ -467,7 +461,6 @@ function testing_settings( $settings ) {
 				'desc'    => esc_html__( 'Checking image field', 'tinyfield' ),
 			),
 			
-			/*
 			array(
 				'id'      => 'number_field_1',
 				'title'   => esc_html__( 'Number field', 'tinyfield' ),
@@ -477,8 +470,7 @@ function testing_settings( $settings ) {
 				'default' => '123456789',
 				'desc'    => esc_html__( 'Checking number field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'date_field_2',
 				'title'   => esc_html__( 'Date field', 'tinyfield' ),
@@ -488,8 +480,7 @@ function testing_settings( $settings ) {
 				'default' => '2021-12-22', // Date formate 2021-12-22.
 				'desc'    => esc_html__( 'Checking date field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'email_field_3',
 				'title'   => esc_html__( 'Email field', 'tinyfield' ),
@@ -499,8 +490,7 @@ function testing_settings( $settings ) {
 				'default' => 'testname@gmail.com',
 				'desc'    => esc_html__( 'Checking email field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'url_field_4',
 				'title'   => esc_html__( 'URl field', 'tinyfield' ),
@@ -510,10 +500,9 @@ function testing_settings( $settings ) {
 				'default' => 'https://www.facebook.com/',
 				'desc'    => esc_html__( 'Checking url field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
-				'id'      => 'text_field_5',
+				'id'      => 'text_field_6',
 				'title'   => esc_html__( 'Text field', 'tinyfield' ),
 				'type'    => 'text',
 				'class'   => 'testname',
@@ -521,8 +510,7 @@ function testing_settings( $settings ) {
 				'default' => 'testname testname',
 				'desc'    => esc_html__( 'Checking text field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'          => 'multiselect_field_11',
 				'title'       => esc_html__( 'Multiselect Box', 'tinyfield' ),
@@ -530,7 +518,7 @@ function testing_settings( $settings ) {
 				'class'       => 'testname',
 				'tab'         => 'tabs_one',
 				'multiselect' => true,
-				'default'     => array( 'iPhone', 'iPad' ),
+				'default'     => array( 'iPhone', 'Macbook' ),
 				'options'     => array(
 					'iPhone'  => 'iPhone label text',
 					'iPad'    => 'iPad label text',
@@ -539,8 +527,7 @@ function testing_settings( $settings ) {
 				),
 				'desc'        => esc_html__( 'Checking multiselect field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'          => 'multiselect_field_20',
 				'title'       => esc_html__( 'Multiselect Disable', 'tinyfield' ),
@@ -557,8 +544,7 @@ function testing_settings( $settings ) {
 				),
 				'desc'        => esc_html__( 'Checking multiselect field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			// // Make MUltiple QUery.
 			array(
 				'id'          => 'postsselect_22',
@@ -571,8 +557,7 @@ function testing_settings( $settings ) {
 				'default'     => array( '2' ),
 				'desc'        => esc_html__( 'Checking postsselect field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'radio_field_1',
 				'title'   => esc_html__( 'Radio', 'tinyfield' ),
@@ -588,8 +573,7 @@ function testing_settings( $settings ) {
 				),
 				'desc'    => esc_html__( 'Checking radio field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'radioimage_field_2',
 				'title'   => esc_html__( 'Radio Image', 'tinyfield' ),
@@ -622,8 +606,7 @@ function testing_settings( $settings ) {
 				),
 				'desc'    => esc_html__( 'Checking radioimage field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'rangeslider_field_2',
 				'title'   => esc_html__( 'Range Slider', 'tinyfield' ),
@@ -635,8 +618,7 @@ function testing_settings( $settings ) {
 				'default' => 50,
 				'desc'    => esc_html__( 'Checking rangeslider Field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'    => 'sidebar_field_1',
 				'title' => esc_html__( 'Sidebar', 'tinyfield' ),
@@ -646,8 +628,7 @@ function testing_settings( $settings ) {
 				'default' => array( 'sidebar-1' ),
 				'desc'  => esc_html__( 'Checking sidebar field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'switchbtn_field_1',
 				'title'   => esc_html__( 'Switch?', 'tinyfield' ),
@@ -673,8 +654,7 @@ function testing_settings( $settings ) {
 				),
 				'desc'    => esc_html__( 'Checking switchbtn field', 'tinyfield' ),
 			),
-			*/
-			/*
+			
 			array(
 				'id'      => 'textarea_field_1',
 				'title'   => esc_html__( 'Textarea field', 'tinyfield' ),
@@ -684,7 +664,7 @@ function testing_settings( $settings ) {
 				'default' => 'Default value Default value',
 				'desc'    => esc_html__( 'Checking textarea field', 'tinyfield' ),
 			),
-			*/
+			
 		), // End fields.
 	); // End tinyfield_page_header_footer.
 	return $settings;

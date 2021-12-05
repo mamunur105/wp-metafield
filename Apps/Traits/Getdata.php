@@ -71,7 +71,6 @@ trait Getdata {
 	 */
 	public function option_data_prepare( $values = array() ) {
 		$new_value = array();
-		error_log( print_r( $values, true ), 3, __DIR__ . '/log.txt' );
 		foreach ( $this->settings['fields'] as $fld ) {
 			if ( isset( $fld['id'] ) ) {
 				if ( isset( $values[ $fld['id'] ] ) ) {
