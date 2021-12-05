@@ -6,7 +6,7 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT\Traits;
+namespace Tiny\Init\Traits;
 
 trait Getdata {
 
@@ -57,7 +57,6 @@ trait Getdata {
 				$new_value[ $fld['id'] ] = $value;
 			}
 		}
-		error_log( print_r( $new_value, true ), 3, __DIR__ . '/log.txt' );
 		return $new_value;
 	}
 

@@ -6,7 +6,7 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT\Traits;
+namespace Tiny\Init\Traits;
 
 trait SanitizeTextOrArray {
 

@@ -6,11 +6,11 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT;
+namespace Tiny\Init;
 
-use PS\INIT\Traits\Singleton;
-use PS\INIT\Controller\Post_Metabox;
-use PS\INIT\Controller\Options;
+use Tiny\Init\Traits\Singleton;
+use Tiny\Init\Controller\Post_Metabox;
+use Tiny\Init\Controller\Options;
 
 /**
  * Display Metabox.

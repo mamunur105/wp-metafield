@@ -16,37 +16,37 @@ const FileManagerPluginConfig = (production) => {
 				copy: [
 					{
 						source: './readme.txt',
-						destination: './dist/wp-picofield/readme.txt'
+						destination: './dist/wp-tinyfield/readme.txt'
 					},
 					{
 						source: './LICENSE.txt',
-						destination: './dist/wp-picofield/LICENSE.txt'
+						destination: './dist/wp-tinyfield/LICENSE.txt'
 					},
 					{
 						source: './index.php',
-						destination: './dist/wp-picofield/index.php'
+						destination: './dist/wp-tinyfield/index.php'
 					},
 					{
-						source: './wp-picofield.php',
-						destination: './dist/wp-picofield/wp-picofield.php'
+						source: './wp-tinyfield.php',
+						destination: './dist/wp-tinyfield/wp-tinyfield.php'
 					},
 					{
 						source: './assets',
-						destination: './dist/wp-picofield/assets'
+						destination: './dist/wp-tinyfield/assets'
 					},
 					{
 						source: './Apps',
-						destination: './dist/wp-picofield/Apps'
+						destination: './dist/wp-tinyfield/Apps'
 					},
 					{
 						source: './vendor',
-						destination: './dist/wp-picofield/vendor'
+						destination: './dist/wp-tinyfield/vendor'
 					}
 				],
 				archive: [
 					{
-						source: './dist/wp-picofield',
-						destination: './dist/wp-picofield.zip'
+						source: './dist/wp-tinyfield',
+						destination: './dist/wp-tinyfield.zip'
 					}
 				]
 			}

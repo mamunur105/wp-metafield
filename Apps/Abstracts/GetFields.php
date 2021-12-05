@@ -6,9 +6,9 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT\Abstracts;
+namespace Tiny\Init\Abstracts;
 
-use PS\INIT\Traits\SanitizeTextOrArray;
+use Tiny\Init\Traits\SanitizeTextOrArray;
 
 /**
  * Display Metabox.

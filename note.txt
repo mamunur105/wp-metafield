@@ -1,1 +1,4 @@
-1. Term meta should work.
+*. Plugin name should select
+*. Plugin hooks should re check
+*. All Functionality shuld check And field property check
+*. Term meta should work.

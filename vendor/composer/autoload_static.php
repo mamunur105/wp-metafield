@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit398df2f650b479cdf847695faea07e3b
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'T' => 
         array (
-            'PS\\INIT\\' => 8,
+            'Tiny\\Init\\' => 10,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PS\\INIT\\' => 
+        'Tiny\\Init\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Apps',
         ),
@@ -22,32 +22,32 @@ class ComposerStaticInit398df2f650b479cdf847695faea07e3b
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'PS\\INIT\\Abstracts\\AbsController' => __DIR__ . '/../..' . '/Apps/Abstracts/AbsController.php',
-        'PS\\INIT\\Abstracts\\GetFields' => __DIR__ . '/../..' . '/Apps/Abstracts/GetFields.php',
-        'PS\\INIT\\Controller\\Options' => __DIR__ . '/../..' . '/Apps/Controller/Options.php',
-        'PS\\INIT\\Controller\\Post_Metabox' => __DIR__ . '/../..' . '/Apps/Controller/Post_Metabox.php',
-        'PS\\INIT\\Controller\\Tax_Metabox' => __DIR__ . '/../..' . '/Apps/Controller/Tax_Metabox.php',
-        'PS\\INIT\\Fields\\Checkbox' => __DIR__ . '/../..' . '/Apps/Fields/Checkbox.php',
-        'PS\\INIT\\Fields\\ColorPicker' => __DIR__ . '/../..' . '/Apps/Fields/ColorPicker.php',
-        'PS\\INIT\\Fields\\Editor' => __DIR__ . '/../..' . '/Apps/Fields/Editor.php',
-        'PS\\INIT\\Fields\\Gallery' => __DIR__ . '/../..' . '/Apps/Fields/Gallery.php',
-        'PS\\INIT\\Fields\\Image' => __DIR__ . '/../..' . '/Apps/Fields/Image.php',
-        'PS\\INIT\\Fields\\Input' => __DIR__ . '/../..' . '/Apps/Fields/Input.php',
-        'PS\\INIT\\Fields\\MissingField' => __DIR__ . '/../..' . '/Apps/Fields/MissingField.php',
-        'PS\\INIT\\Fields\\MultiSelect' => __DIR__ . '/../..' . '/Apps/Fields/MultiSelect.php',
-        'PS\\INIT\\Fields\\PostsSelect' => __DIR__ . '/../..' . '/Apps/Fields/PostsSelect.php',
-        'PS\\INIT\\Fields\\Radio' => __DIR__ . '/../..' . '/Apps/Fields/Radio.php',
-        'PS\\INIT\\Fields\\RadioImage' => __DIR__ . '/../..' . '/Apps/Fields/RadioImage.php',
-        'PS\\INIT\\Fields\\RangeSlider' => __DIR__ . '/../..' . '/Apps/Fields/RangeSlider.php',
-        'PS\\INIT\\Fields\\Sidebar' => __DIR__ . '/../..' . '/Apps/Fields/Sidebar.php',
-        'PS\\INIT\\Fields\\SwitchBtn' => __DIR__ . '/../..' . '/Apps/Fields/SwitchBtn.php',
-        'PS\\INIT\\Fields\\Textarea' => __DIR__ . '/../..' . '/Apps/Fields/Textarea.php',
-        'PS\\INIT\\Fields\\ToggleSwitch' => __DIR__ . '/../..' . '/Apps/Fields/ToggleSwitch.php',
-        'PS\\INIT\\Loaded' => __DIR__ . '/../..' . '/Apps/Loaded.php',
-        'PS\\INIT\\Model\\CallTheField' => __DIR__ . '/../..' . '/Apps/Model/CallTheField.php',
-        'PS\\INIT\\Traits\\Nonce' => __DIR__ . '/../..' . '/Apps/Traits/Nonce.php',
-        'PS\\INIT\\Traits\\SanitizeTextOrArray' => __DIR__ . '/../..' . '/Apps/Traits/SanitizeTextOrArray.php',
-        'PS\\INIT\\Traits\\Singleton' => __DIR__ . '/../..' . '/Apps/Traits/Singleton.php',
+        'Tiny\\Init\\Abstracts\\AbsController' => __DIR__ . '/../..' . '/Apps/Abstracts/AbsController.php',
+        'Tiny\\Init\\Abstracts\\GetFields' => __DIR__ . '/../..' . '/Apps/Abstracts/GetFields.php',
+        'Tiny\\Init\\Controller\\Options' => __DIR__ . '/../..' . '/Apps/Controller/Options.php',
+        'Tiny\\Init\\Controller\\Post_Metabox' => __DIR__ . '/../..' . '/Apps/Controller/Post_Metabox.php',
+        'Tiny\\Init\\Fields\\Checkbox' => __DIR__ . '/../..' . '/Apps/Fields/Checkbox.php',
+        'Tiny\\Init\\Fields\\ColorPicker' => __DIR__ . '/../..' . '/Apps/Fields/ColorPicker.php',
+        'Tiny\\Init\\Fields\\Editor' => __DIR__ . '/../..' . '/Apps/Fields/Editor.php',
+        'Tiny\\Init\\Fields\\Gallery' => __DIR__ . '/../..' . '/Apps/Fields/Gallery.php',
+        'Tiny\\Init\\Fields\\Image' => __DIR__ . '/../..' . '/Apps/Fields/Image.php',
+        'Tiny\\Init\\Fields\\Input' => __DIR__ . '/../..' . '/Apps/Fields/Input.php',
+        'Tiny\\Init\\Fields\\MissingField' => __DIR__ . '/../..' . '/Apps/Fields/MissingField.php',
+        'Tiny\\Init\\Fields\\MultiSelect' => __DIR__ . '/../..' . '/Apps/Fields/MultiSelect.php',
+        'Tiny\\Init\\Fields\\PostsSelect' => __DIR__ . '/../..' . '/Apps/Fields/PostsSelect.php',
+        'Tiny\\Init\\Fields\\Radio' => __DIR__ . '/../..' . '/Apps/Fields/Radio.php',
+        'Tiny\\Init\\Fields\\RadioImage' => __DIR__ . '/../..' . '/Apps/Fields/RadioImage.php',
+        'Tiny\\Init\\Fields\\RangeSlider' => __DIR__ . '/../..' . '/Apps/Fields/RangeSlider.php',
+        'Tiny\\Init\\Fields\\Sidebar' => __DIR__ . '/../..' . '/Apps/Fields/Sidebar.php',
+        'Tiny\\Init\\Fields\\SwitchBtn' => __DIR__ . '/../..' . '/Apps/Fields/SwitchBtn.php',
+        'Tiny\\Init\\Fields\\Textarea' => __DIR__ . '/../..' . '/Apps/Fields/Textarea.php',
+        'Tiny\\Init\\Fields\\ToggleSwitch' => __DIR__ . '/../..' . '/Apps/Fields/ToggleSwitch.php',
+        'Tiny\\Init\\Loaded' => __DIR__ . '/../..' . '/Apps/Loaded.php',
+        'Tiny\\Init\\Model\\CallTheField' => __DIR__ . '/../..' . '/Apps/Model/CallTheField.php',
+        'Tiny\\Init\\Traits\\Getdata' => __DIR__ . '/../..' . '/Apps/Traits/Getdata.php',
+        'Tiny\\Init\\Traits\\Nonce' => __DIR__ . '/../..' . '/Apps/Traits/Nonce.php',
+        'Tiny\\Init\\Traits\\SanitizeTextOrArray' => __DIR__ . '/../..' . '/Apps/Traits/SanitizeTextOrArray.php',
+        'Tiny\\Init\\Traits\\Singleton' => __DIR__ . '/../..' . '/Apps/Traits/Singleton.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

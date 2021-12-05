@@ -6,24 +6,24 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT\Model;
+namespace Tiny\Init\Model;
 
-use PS\INIT\Fields\MissingField;
-use PS\INIT\Fields\Input;
-use PS\INIT\Fields\Checkbox;
-use PS\INIT\Fields\Radio;
-use PS\INIT\Fields\Textarea;
-use PS\INIT\Fields\SwitchBtn;
-use PS\INIT\Fields\ColorPicker;
-use PS\INIT\Fields\RangeSlider;
-use PS\INIT\Fields\ToggleSwitch;
-use PS\INIT\Fields\MultiSelect;
-use PS\INIT\Fields\RadioImage;
-use PS\INIT\Fields\PostsSelect;
-use PS\INIT\Fields\Sidebar;
-use PS\INIT\Fields\Image;
-use PS\INIT\Fields\Gallery;
-use PS\INIT\Fields\Editor;
+use Tiny\Init\Fields\MissingField;
+use Tiny\Init\Fields\Input;
+use Tiny\Init\Fields\Checkbox;
+use Tiny\Init\Fields\Radio;
+use Tiny\Init\Fields\Textarea;
+use Tiny\Init\Fields\SwitchBtn;
+use Tiny\Init\Fields\ColorPicker;
+use Tiny\Init\Fields\RangeSlider;
+use Tiny\Init\Fields\ToggleSwitch;
+use Tiny\Init\Fields\MultiSelect;
+use Tiny\Init\Fields\RadioImage;
+use Tiny\Init\Fields\PostsSelect;
+use Tiny\Init\Fields\Sidebar;
+use Tiny\Init\Fields\Image;
+use Tiny\Init\Fields\Gallery;
+use Tiny\Init\Fields\Editor;
 
 /**
  * Display Field.

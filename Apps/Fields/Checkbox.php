@@ -6,10 +6,10 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT\Fields;
+namespace Tiny\Init\Fields;
 
-use PS\INIT\Abstracts\GetFields;
-use PS\INIT\Traits\Singleton;
+use Tiny\Init\Abstracts\GetFields;
+use Tiny\Init\Traits\Singleton;
 
 /**
  * Display Input.

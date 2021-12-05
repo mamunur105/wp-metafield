@@ -6,11 +6,11 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT\Controller;
+namespace Tiny\Init\Controller;
 
-use PS\INIT\Abstracts\AbsController;
-use PS\INIT\Model\CallTheField;
-use PS\INIT\Traits\Getdata;
+use Tiny\Init\Abstracts\AbsController;
+use Tiny\Init\Model\CallTheField;
+use Tiny\Init\Traits\Getdata;
 /**
  * Display Metabox.
  */

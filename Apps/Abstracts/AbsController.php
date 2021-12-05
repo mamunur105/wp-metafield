@@ -6,10 +6,10 @@
  * @subpackage PS_Metaboxes
  */
 
-namespace PS\INIT\Abstracts;
+namespace Tiny\Init\Abstracts;
 
-use PS\INIT\Traits\SanitizeTextOrArray;
-use PS\INIT\Traits\Nonce;
+use Tiny\Init\Traits\SanitizeTextOrArray;
+use Tiny\Init\Traits\Nonce;
 
 /**
  * Display Metabox.

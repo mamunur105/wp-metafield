@@ -1,4 +1,4 @@
-=== Starter Block ===
+=== Lightweight option and metabox framework by Tiny Solution===
 Contributors:      The WordPress Contributors
 Tags:              block
 Tested up to:      5.8

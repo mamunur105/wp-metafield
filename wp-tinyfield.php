@@ -8,11 +8,11 @@
  */
 
 /*
- * Plugin Name: Picofield
+ * Plugin Name: Tinyfield Option and metabox
  * Plugin URI: http://wordpress.org/
  * Description: test.
- * Author: Picosoft
- * Version: 1.0.0.2
+ * Author: tinysolution
+ * Version: 1.0.0.3
  * Author URI: #
  */
 // If this file is called directly, abort.
@@ -30,7 +30,7 @@ if ( ! function_exists( 'pssmetabox_plugin' ) ) {
 	function pssmetabox_plugin() {
 
 		define( 'PSSMB_PLUGIN_DIR', __DIR__ );
-		if ( ! class_exists( 'PS\INIT\MetaboxLoded' ) ) {
+		if ( ! class_exists( 'Tiny\Init\MetaboxLoded' ) ) {
 			if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 				require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 			}
@@ -51,8 +51,8 @@ if ( ! function_exists( 'pssmetabox_setup_them' ) ) {
 			false,
 			dirname( __FILE__ ) . '/languages'
 		);
-		if ( class_exists( 'PS\INIT\Loaded' ) ) {
-			PS\INIT\Loaded::init();
+		if ( class_exists( 'Tiny\Init\Loaded' ) ) {
+			Tiny\Init\Loaded::init();
 		}
 	}
 }
