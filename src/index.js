@@ -19,7 +19,7 @@ const { Tabs } = require('./scripts/tabs');
 	 *
 	 * });
 	 */
-	var PS_Metaboxes = {};
+	var Tinyfield_Metaboxes = {};
 	var $window = $(window),
 		$document = $(document),
 		$select2 = $('.selectbox-wraper select'),
@@ -33,7 +33,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         01 - colorpicker
     *************************************************************/
-	PS_Metaboxes.wpColorPicker = () => {
+	Tinyfield_Metaboxes.wpColorPicker = () => {
 		if (psExists($colorpicker)) {
 			$colorpicker.wpColorPicker();
 		}
@@ -41,7 +41,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         02 - Select2 activation
     *************************************************************/
-	PS_Metaboxes.select2 = () => {
+	Tinyfield_Metaboxes.select2 = () => {
 		if (psExists($select2)) {
 			$select2.each(function() {
 				let parent = $(this).parent('.selectbox-wraper');
@@ -73,7 +73,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         03 - imageUpload activation
     *************************************************************/
-	PS_Metaboxes.imageUpload = () => {
+	Tinyfield_Metaboxes.imageUpload = () => {
 		if (psExists($image_upload)) {
 			// on upload button click
 			$image_upload.on('click', '.upload-btn', (e) => {
@@ -126,7 +126,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         03 - imageUpload activation
     *************************************************************/
-	PS_Metaboxes.galleryImage = () => {
+	Tinyfield_Metaboxes.galleryImage = () => {
 		if (psExists($galleryimage)) {
 			// on upload button click
 			$galleryimage.on('click', '.upload-btn', (e) => {
@@ -208,7 +208,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         04 - Checkbox
     *************************************************************/
-	PS_Metaboxes.checkBox = () => {
+	Tinyfield_Metaboxes.checkBox = () => {
 		let selector = $('.fields-wrapper').find( "[type=checkbox]" );
 		if (psExists(selector)) {
 			selector.each(function(index, item){
@@ -229,14 +229,14 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         05 - colorpicker
     *************************************************************/
-	PS_Metaboxes.Tabs = () => Tabs() ;
+	Tinyfield_Metaboxes.Tabs = () => Tabs() ;
 
 	$document.on('ready', () => {
-		PS_Metaboxes.wpColorPicker(),
-		PS_Metaboxes.select2(),
-		PS_Metaboxes.imageUpload(),
-		PS_Metaboxes.galleryImage(),
-		PS_Metaboxes.checkBox();
-		PS_Metaboxes.Tabs();
+		Tinyfield_Metaboxes.wpColorPicker(),
+		Tinyfield_Metaboxes.select2(),
+		Tinyfield_Metaboxes.imageUpload(),
+		Tinyfield_Metaboxes.galleryImage(),
+		Tinyfield_Metaboxes.checkBox();
+		Tinyfield_Metaboxes.Tabs();
 	});
 })(jQuery);

@@ -9,7 +9,7 @@
 /* ==========================================================================
 	Global Admin CSS
    ========================================================================== */
-.inside .picosoft-settings-container {
+.inside .tinyfield-settings-container {
   margin: 0 -14px;
   margin-top: -15px;
 }
@@ -24,7 +24,7 @@
 .wrap.ps-option > h1 {
   margin-bottom: 10px;
 }
-.wrap.ps-option .picosoft-metabox-container {
+.wrap.ps-option .tinyfield-metabox-container {
   margin: 0;
 }
 
@@ -56,7 +56,7 @@
   justify-content: flex-start;
 }
 
-.picosoft-metabox-container {
+.tinyfield-metabox-container {
   margin: -7px -15px 10px;
   min-height: 400px;
 }
@@ -539,7 +539,7 @@ input::-moz-focus-outer {
   font-size: 17px;
   border-bottom: 1px solid #838383;
 }
-.vertical-tab .picotab {
+.vertical-tab .tinytab {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -547,7 +547,7 @@ input::-moz-focus-outer {
   border-right: 0;
   background-color: #1d2327;
 }
-.vertical-tab .picotab button {
+.vertical-tab .tinytab button {
   text-align: left;
   padding: 14px 16px;
   border-bottom: 1px solid #838383;
@@ -565,13 +565,13 @@ input::-moz-focus-outer {
   margin-top: 0;
 }
 
-.picotab {
+.tinytab {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
   /* Style the buttons inside the tab */
 }
-.picotab button {
+.tinytab button {
   background-color: inherit;
   float: left;
   border: none;
@@ -584,7 +584,7 @@ input::-moz-focus-outer {
   font-weight: 600;
   text-transform: uppercase;
 }
-.picotab button:hover, .picotab button.active {
+.tinytab button:hover, .tinytab button.active {
   background-color: #fff;
   color: #333;
 }

@@ -2,8 +2,8 @@
 /**
  * Field displayed by this function.
  *
- * @package    PS Metabox
- * @subpackage PS_Metaboxes
+ * @package    Tinyfield Metabox
+ * @subpackage Tinyfield_Metaboxes
  */
 
 namespace Tiny\Init;
@@ -21,17 +21,17 @@ class Loaded {
 	 * Metaboxes.
 	 */
 	private function __construct() {
-		if ( ! defined( 'PSSMB_VERSION' ) ) {
-			define( 'PSSMB_VERSION', '1.0.0.2' );
+		if ( ! defined( 'TINYFIELD_VERSION' ) ) {
+			define( 'TINYFIELD_VERSION', '1.0.0.2' );
 		}
-		if ( ! defined( 'PSSMB_PLUGIN_NAME' ) ) {
-			define( 'PSSMB_PLUGIN_NAME', 'pssmetaboxes' );
+		if ( ! defined( 'TINYFIELD_PLUGIN_NAME' ) ) {
+			define( 'TINYFIELD_PLUGIN_NAME', 'tinyfield' );
 		}
-		if ( ! defined( 'PSSMB_URL' ) ) {
-			define( 'PSSMB_URL', $this->get_url_info_from_file( PSSMB_PLUGIN_DIR . '/Apps' )['url'] );
+		if ( ! defined( 'TINYFIELD_URL' ) ) {
+			define( 'TINYFIELD_URL', $this->get_url_info_from_file( TINYFIELD_PLUGIN_DIR . '/Apps' )['url'] );
 		}
-		if ( ! defined( 'PSSMB_ASSETS' ) ) {
-			define( 'PSSMB_ASSETS', PSSMB_URL . 'assets' );
+		if ( ! defined( 'TINYFIELD_ASSETS' ) ) {
+			define( 'TINYFIELD_ASSETS', TINYFIELD_URL . 'assets' );
 		}
 		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
@@ -44,19 +44,19 @@ class Loaded {
 	 * @return void
 	 */
 	public function settings() {
-		$meta_boxes = apply_filters( 'pico_meta_boxes', array(), 10, 1 );
+		$meta_boxes = apply_filters( 'tinyfield_meta_boxes', array(), 10, 1 );
 		if ( is_array( $meta_boxes ) && count( $meta_boxes ) ) {
 			foreach ( $meta_boxes as $meta_box ) {
 				new Post_Metabox( $meta_box );
 			}
 		}
-		$pico_setting = apply_filters( 'pico_setting', array(), 10, 1 );
-		if ( is_array( $pico_setting ) && count( $pico_setting ) ) {
-			foreach ( $pico_setting as $setting ) {
+		$tiny_setting = apply_filters( 'tinyfield_setting', array(), 10, 1 );
+		if ( is_array( $tiny_setting ) && count( $tiny_setting ) ) {
+			foreach ( $tiny_setting as $setting ) {
 				new Options( $setting );
 			}
 		}
-		do_action( 'pico_add_new_option_settings' );
+		do_action( 'tinyfield_add_new_option_settings' );
 	}
 	/**
 	 * ALl options data.
@@ -98,55 +98,55 @@ class Loaded {
 		 */
 
 		\wp_register_style(
-			'pssmetabox',
-			PSSMB_ASSETS . '/scripts/admin.css',
+			'tinyfield',
+			TINYFIELD_ASSETS . '/scripts/admin.css',
 			array(),
-			PSSMB_VERSION,
+			TINYFIELD_VERSION,
 			'all'
 		);
 		\wp_register_style(
 			'select2',
-			PSSMB_ASSETS . '/vendor/select2.min.css',
+			TINYFIELD_ASSETS . '/vendor/select2.min.css',
 			array(),
-			PSSMB_VERSION,
+			TINYFIELD_VERSION,
 			'all'
 		);
 		\wp_register_script(
 			'select2',
-			PSSMB_ASSETS . '/vendor/select2.min.js',
+			TINYFIELD_ASSETS . '/vendor/select2.min.js',
 			array( 'jquery' ),
-			PSSMB_VERSION,
+			TINYFIELD_VERSION,
 			true
 		);
 		\wp_register_script(
 			'wp-color-picker-alpha',
-			PSSMB_ASSETS . '/vendor/wp-color-picker-alpha.min.js',
+			TINYFIELD_ASSETS . '/vendor/wp-color-picker-alpha.min.js',
 			array( 'jquery', 'wp-color-picker' ),
-			PSSMB_VERSION,
+			TINYFIELD_VERSION,
 			true
 		);
 		\wp_register_script(
 			'range-slider',
-			PSSMB_ASSETS . '/vendor/range-slider.js',
+			TINYFIELD_ASSETS . '/vendor/range-slider.js',
 			array(),
-			PSSMB_VERSION,
+			TINYFIELD_VERSION,
 			true
 		);
 		\wp_enqueue_script(
-			'pssgallery-admin',
-			PSSMB_ASSETS . '/scripts/admin.js',
+			'tinyfieldgallery',
+			TINYFIELD_ASSETS . '/scripts/admin.js',
 			array( 'jquery' ),
-			PSSMB_VERSION,
+			TINYFIELD_VERSION,
 			true
 		);
 		wp_localize_script(
-			'pssgallery-admin',
+			'tinyfieldgallery',
 			'admin_script',
 			array(
 				'adminurl' => admin_url( '/' ), // WordPress AJAX.
 			)
 		);
-		wp_enqueue_style( 'pssmetabox' );
+		wp_enqueue_style( 'tinyfield' );
 	}
 
 	/**

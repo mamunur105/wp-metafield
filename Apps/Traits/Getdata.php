@@ -2,8 +2,8 @@
 /**
  * SIngleton.
  *
- * @package    PS Metabox
- * @subpackage PS_Metaboxes
+ * @package    Tinyfield Metabox
+ * @subpackage Tinyfield_Metaboxes
  */
 
 namespace Tiny\Init\Traits;
@@ -24,12 +24,12 @@ trait Getdata {
 				$post_id = $post->ID;
 			}
 			$values = get_post_meta( $post_id );
-			$values = apply_filters( 'pico_prepare_meta_data', $values, $this->settings );
+			$values = apply_filters( 'tiny_prepare_meta_data', $values, $this->settings );
 			return $this->meta_data_prepare( $values );
 		}
 		if ( 'option' === $this->settings['settings_type'] ) {
 			$values = get_option( $field_id );
-			$values = apply_filters( 'pico_prepare_option_data', $values, $this->settings );
+			$values = apply_filters( 'tiny_prepare_option_data', $values, $this->settings );
 			return $values;
 		}
 

@@ -2,8 +2,8 @@
 /**
  * SIngleton.
  *
- * @package    PS Metabox
- * @subpackage PS_Metaboxes
+ * @package    Tinyfield Metabox
+ * @subpackage Tinyfield_Metaboxes
  */
 
 namespace Tiny\Init\Traits;

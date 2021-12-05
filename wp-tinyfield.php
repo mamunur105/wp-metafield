@@ -2,7 +2,7 @@
 /**
  * The plugin bootstrap file
  *
- * @link              https://picosoft.com
+ * @link              https://tinyfield.com
  * @since             1.0.0
  * @package           ps_Gallery
  */
@@ -20,34 +20,34 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! function_exists( 'pssmetabox_plugin' ) ) {
-	add_action( 'plugins_loaded', 'pssmetabox_plugin' );
+if ( ! function_exists( 'tinyfield_plugin' ) ) {
+	add_action( 'plugins_loaded', 'tinyfield_plugin' );
 	/**
 	 * Undocumented function
 	 *
 	 * @return void
 	 */
-	function pssmetabox_plugin() {
+	function tinyfield_plugin() {
 
-		define( 'PSSMB_PLUGIN_DIR', __DIR__ );
+		define( 'TINYFIELD_PLUGIN_DIR', __DIR__ );
 		if ( ! class_exists( 'Tiny\Init\MetaboxLoded' ) ) {
 			if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 				require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 			}
 		}
-		add_action( 'after_setup_theme', 'pssmetabox_setup_them' );
+		add_action( 'after_setup_theme', 'tinyfield_setup_them' );
 
 	}
 }
-if ( ! function_exists( 'pssmetabox_setup_them' ) ) {
+if ( ! function_exists( 'tinyfield_setup_them' ) ) {
 	/**
 	 * Undocumented function
 	 *
 	 * @return void
 	 */
-	function pssmetabox_setup_them() {
+	function tinyfield_setup_them() {
 		\load_plugin_textdomain(
-			'psnmetabox',
+			'tinyfield',
 			false,
 			dirname( __FILE__ ) . '/languages'
 		);

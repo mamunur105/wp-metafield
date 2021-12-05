@@ -2,8 +2,8 @@
 /**
  * Field displayed by this function.
  *
- * @package    PS Metabox
- * @subpackage PS_Metaboxes
+ * @package    Tinyfield Metabox
+ * @subpackage Tinyfield_Metaboxes
  */
 
 namespace Tiny\Init\Controller;
@@ -48,7 +48,7 @@ class Post_Metabox extends AbsController {
 			'post_types'    => array( 'post' ),
 			'context'       => 'normal',
 			'priority'      => 'high',
-			'classes'       => 'picosoft-metabox',
+			'classes'       => 'tinyfield-metabox',
 			'tabs'          => array(),
 			'tabs_type'     => 'horizontal-tab', // vertical-tab.
 			'fields'        => array(),

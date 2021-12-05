@@ -2,8 +2,8 @@
 /**
  * Field displayed by this function.
  *
- * @package    PS Metabox
- * @subpackage PS_Metaboxes
+ * @package    Tinyfield Metabox
+ * @subpackage Tinyfield_Metaboxes
  */
 
 namespace Tiny\Init\Controller;
@@ -42,10 +42,10 @@ class Options extends AbsController {
 		}
 		$default = array(
 			'settings_type' => 'option',
-			'menu_title'    => esc_html__( 'Option Title', 'picosoft' ),
-			'page_title'    => esc_html__( 'Page Title', 'picosoft' ),
-			'classes'       => 'picosoft-option-wrapper',
-			'id'            => 'pico-option',
+			'menu_title'    => esc_html__( 'Option Title', 'tinyfield' ),
+			'page_title'    => esc_html__( 'Page Title', 'tinyfield' ),
+			'classes'       => 'tinyfield-option-wrapper',
+			'id'            => 'tiny-option',
 			'position'      => 6,
 			'capability'    => 'manage_options',
 			'menu_icon'     => '',
@@ -91,7 +91,7 @@ class Options extends AbsController {
 				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
 			<?php } ?>
 			<form method="post" action="">
-				<input type="hidden" name="pico_option_settings" value="pico_option_settings" />
+				<input type="hidden" name="tiny_option_settings" value="tiny_option_settings" />
 				<?php
 				$option_value = $this->get_value();
 				$this->before_container();
@@ -118,9 +118,9 @@ class Options extends AbsController {
 	 * @return mixed
 	 */
 	public function save_settings_data() {
-		if ( isset( $_POST['pico_option_settings'] ) ) {
-			$varify = sanitize_text_field( wp_unslash( $_POST['pico_option_settings'] ) );
-			if ( 'pico_option_settings' === $varify ) {
+		if ( isset( $_POST['tiny_option_settings'] ) ) {
+			$varify = sanitize_text_field( wp_unslash( $_POST['tiny_option_settings'] ) );
+			if ( 'tiny_option_settings' === $varify ) {
 				parent::save_settings( null, null, null );
 			}
 		}

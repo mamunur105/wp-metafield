@@ -2,8 +2,8 @@
 /**
  * Field displayed by this function.
  *
- * @package    PS Metabox
- * @subpackage PS_Metaboxes
+ * @package    Tinyfield Metabox
+ * @subpackage Tinyfield_Metaboxes
  */
 
 namespace Tiny\Init\Abstracts;
@@ -53,12 +53,12 @@ abstract class AbsController {
 	public function before_container() {
 		$this->settings['classes'] = $this->settings['classes'] . ' ' . $this->settings['tabs_type'];
 		?>
-		<div id="<?php echo esc_attr( $this->settings['id'] ); ?>" class="picosoft-settings-container <?php echo esc_attr( $this->settings['classes'] ); ?>">
+		<div id="<?php echo esc_attr( $this->settings['id'] ); ?>" class="tinyfield-settings-container <?php echo esc_attr( $this->settings['classes'] ); ?>">
 		<?php
 		if ( is_array( $this->settings['tabs'] ) && count( $this->settings['tabs'] ) ) {
 			$tabs = $this->settings['tabs']
 			?>
-			<div class="picotab">
+			<div class="tinytab">
 				<div class="top-gap"> MENU </div>
 				<?php
 				foreach ( $tabs as $key => $tab ) {
@@ -159,7 +159,7 @@ abstract class AbsController {
 					break;
 			}
 
-			do_action( 'pico_update_settings', $settings, $post_id, $post, $update_value );
+			do_action( 'tinyfield_update_settings', $settings, $post_id, $post, $update_value );
 		}
 	}
 

@@ -2,8 +2,8 @@
 /**
  * SIngleton.
  *
- * @package    PS Metabox
- * @subpackage PS_Metaboxes
+ * @package    Tinyfield Metabox
+ * @subpackage Tinyfield_Metaboxes
  */
 
 namespace Tiny\Init\Traits;
@@ -15,7 +15,7 @@ trait Nonce {
 	 *
 	 * @var array
 	 */
-	protected $nonce = 'pico_nonce';
+	protected $nonce = 'tiny_nonce';
 	/**
 	 * Recursive sanitation for text or array
 	 *
