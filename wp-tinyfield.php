@@ -8,12 +8,12 @@
  */
 
 /*
- * Plugin Name: Tinyfield Option and metabox
- * Plugin URI: http://wordpress.org/
- * Description: test.
+ * Plugin Name: Tinyfield Metabox and Option Fremwork
+ * Plugin URI: https://wordpress.org/plugins/wp-tinyfield
+ * Description: Metabox and Option Fremwork.
  * Author: tinysolution
  * Version: 1.0.0.3
- * Author URI: #
+ * Author URI: https://profiles.wordpress.org/tinysolution/
  */
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -58,4 +58,4 @@ if ( ! function_exists( 'tinyfield_setup_them' ) ) {
 }
 
 
-require_once dirname( __FILE__ ) . '/sample-metabox.php';
+// require_once dirname( __FILE__ ) . '/sample-metabox.php';
