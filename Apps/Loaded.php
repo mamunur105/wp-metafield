@@ -68,19 +68,6 @@ class Loaded {
 	}
 
 	/**
-	 * ALl options data.
-	 *
-	 * @return array
-	 */
-	// public function get_meta( $type = 'post', $post_id ) {
-	// 	$post_id = absint( $post_id );
-	// 	if ( $post_id ) {
-	// 		return false;
-	// 	}
-	// 	return get_metadata( $type, $post_id );
-	// }
-
-	/**
 	 * Scripts.
 	 *
 	 * @return void

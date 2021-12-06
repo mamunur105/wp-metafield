@@ -411,7 +411,6 @@ function testing_settings( $settings ) {
 		'tabs_type'  => 'vertical-tab',
 		'fields'     => array(
 			// Gallery field is under construction.
-			// TODO: default value is not working.
 			
 			array(
 				'id'      => 'toggleswitch_field_3',
