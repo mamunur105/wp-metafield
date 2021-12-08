@@ -344,7 +344,7 @@ function testing_metadata_( $meta_boxes ) {
 	); // End tinyfield_page_header_footer.
 	return $meta_boxes;
 }
-add_filter( 'tinyfield_meta_boxes', 'testing_metadata_', 99 );
+add_filter( 'tinyfield_post_meta_boxes', 'testing_metadata_', 99 );
 
 
 /**

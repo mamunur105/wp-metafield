@@ -44,7 +44,7 @@ class Loaded {
 	 * @return void
 	 */
 	public function settings() {
-		$meta_boxes = apply_filters( 'tinyfield_meta_boxes', array(), 10, 1 );
+		$meta_boxes = apply_filters( 'tinyfield_post_meta_boxes', array(), 10, 1 );
 		if ( is_array( $meta_boxes ) && count( $meta_boxes ) ) {
 			foreach ( $meta_boxes as $meta_box ) {
 				new Post_Metabox( $meta_box );
@@ -58,15 +58,6 @@ class Loaded {
 		}
 		do_action( 'tinyfield_add_new_option_settings' );
 	}
-	/**
-	 * ALl options data.
-	 *
-	 * @return array
-	 */
-	public function get_option() {
-		// return wp_load_alloptions(); 
-	}
-
 	/**
 	 * Scripts.
 	 *
@@ -83,7 +74,6 @@ class Loaded {
 		 * The Loader will then create the relationship between the defined
 		 * hooks and the functions defined in this class.
 		 */
-
 		\wp_register_style(
 			'tinyfield',
 			TINYFIELD_ASSETS . '/scripts/admin.css',
@@ -136,7 +126,6 @@ class Loaded {
 		wp_enqueue_media();
 		wp_enqueue_style( 'tinyfield' );
 	}
-
 	/**
 	 * File location to url.
 	 *

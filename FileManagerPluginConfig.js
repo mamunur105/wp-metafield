@@ -39,6 +39,10 @@ const FileManagerPluginConfig = (production) => {
 						destination: './dist/wp-tinyfield/Apps'
 					},
 					{
+						source: './Frontend',
+						destination: './dist/wp-tinyfield/Frontend'
+					},
+					{
 						source: './vendor',
 						destination: './dist/wp-tinyfield/vendor'
 					}
