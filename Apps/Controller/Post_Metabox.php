@@ -91,8 +91,7 @@ class Post_Metabox extends AbsController {
 				$get_the_field->get_fields();
 			}
 			$this->after_container();
-			// TODO: Submit button need style.
-			echo '<div class="button-wrapper">';
+			echo '<div class="tiny-button-wrapper">';
 				submit_button();
 			echo '</div>';
 		}

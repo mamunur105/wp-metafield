@@ -24,10 +24,12 @@ Field type:
 
 
 Next Upcoming Field and option:
-=> Conditional
-=> Group And Repeatable
-=> file
-=> Link
+1. => Conditional
+2. => Group And Repeatable
+3. => file
+4. => Link
+5. => ACE Editor
+
 
 
 Uses As metabox:

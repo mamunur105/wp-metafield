@@ -90,20 +90,20 @@ class Options extends AbsController {
 			<?php if ( $this->settings['page_title'] ) { ?>
 				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
 			<?php } ?>
-			<form method="post" action="">
+			<?php $admin_url = 'admin.php?page=' . $this->settings['id']; ?>
+			<form method="post" action="<?php echo esc_url( admin_url( $admin_url ) ); ?>">
 				<input type="hidden" name="tiny_option_settings" value="tiny_option_settings" />
 				<?php
 				$option_value = $this->get_value();
 				$this->before_container();
 				parent::from_field();
 				foreach ( $this->fields as $field ) {
-					// $field['settings_field_type'] = 'options_settings';
 					$field['prev_value'] = $option_value;
-					$get_the_field          = CallTheField::init( $field );
+					$get_the_field       = CallTheField::init( $field );
 					$get_the_field->get_fields();
 				}
 				$this->after_container();
-				echo '<div class="button-wrapper">';
+				echo '<div class="tiny-button-wrapper">';
 					submit_button();
 				echo '</div>';
 				?>
@@ -120,7 +120,10 @@ class Options extends AbsController {
 	public function save_settings_data() {
 		if ( isset( $_POST['tiny_option_settings'] ) ) {
 			$varify = sanitize_text_field( wp_unslash( $_POST['tiny_option_settings'] ) );
-			if ( 'tiny_option_settings' === $varify ) {
+			$page   = sanitize_text_field( wp_unslash( $_GET['page'] ) );
+			if ( 'tiny_option_settings' === $varify
+				&& $this->settings['id'] === $page
+			) {
 				parent::save_settings( null, null, null );
 			}
 		}

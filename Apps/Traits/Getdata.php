@@ -26,11 +26,13 @@ trait Getdata {
 			$values = get_post_meta( $post_id );
 			$values = apply_filters( 'tiny_prepare_meta_data', $values, $this->settings );
 			$values = $this->meta_data_prepare( $values );
+			return $values;
 		}
 		if ( 'option' === $this->settings['settings_type'] ) {
-			$values = get_option( $field_id );
-			$values = apply_filters( 'tiny_prepare_option_data', $values, $this->settings );
+			$values = get_option( $field_id . '_json' );
+			$values = json_decode( $values, true );
 			$values = $this->option_data_prepare( $values );
+			return $values;
 		}
 
 		return $values;

@@ -365,7 +365,7 @@ function testing_settings( $settings ) {
 		'desc'
 	*/
 	$settings[] = array(
-		'id'         => 'tinyfield_post_header_footer',
+		'id'         => 'tinyfield_settings_header',
 		'menu_title' => esc_html__( 'Container 1', 'tinyfield' ),
 		'context'    => 'normal',
 		'priority'   => 'high',
@@ -666,7 +666,7 @@ function testing_settings( $settings ) {
 		), // End fields.
 	); // End tinyfield_page_header_footer.
 	$settings[] = array(
-		'id'         => 'tinyfield_post_header_footerss',
+		'id'         => 'tinyfield_settings_footer',
 		'menu_title' => esc_html__( 'Container 1', 'tinyfield' ),
 		'context'    => 'normal',
 		'priority'   => 'high',

@@ -150,7 +150,10 @@ abstract class AbsController {
 				}
 			} // end foreach
 			if ( 'option' === $this->settings['settings_type'] ) {
+				$settings_json = wp_json_encode( $settings );
+				// TODO: Remove this line after checking.
 				update_option( $this->settings['id'], $settings );
+				update_option( $this->settings['id']. '_json', $settings_json );
 			}
 			do_action( 'tinyfield_update_settings', $settings, $post_id, $post, $update_value );
 		}
