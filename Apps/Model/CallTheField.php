@@ -44,13 +44,6 @@ class CallTheField {
 	private $field = null;
 
 	/**
-	 * Field.
-	 *
-	 * @var [type]
-	 */
-	private $settings = null;
-
-	/**
 	 * Get instance;
 	 *
 	 * @var [type]
@@ -69,7 +62,7 @@ class CallTheField {
 	 * @param array $field is an array.
 	 * @return object
 	 */
-	public static function init( $field, $settings = null ) {
+	public static function init( $field ) {
 		$defaults = array(
 			'id'        => '',
 			'title'     => '',
@@ -87,8 +80,7 @@ class CallTheField {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
-		self::$instance->field    = $field;
-		self::$instance->settings = $settings;
+		self::$instance->field = $field;
 		return self::$instance;
 	}
 
@@ -98,9 +90,8 @@ class CallTheField {
 	 * @return void
 	 */
 	public function get_fields() {
-		
-		$input                     = MissingField::init( $this->field );
-		$field_type                = $this->field['type'];
+		$input      = MissingField::init( $this->field );
+		$field_type = $this->field['type'];
 		if (
 		is_array( $this->field )
 		&& isset( $this->field['id'] )

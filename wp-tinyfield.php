@@ -13,6 +13,7 @@
  * Description: Metabox and Option Fremwork.
  * Author: tinysolution
  * Version: 1.0.0.3
+ * Text Domain: tinyfield
  * Author URI: https://profiles.wordpress.org/tinysolution/
  */
 // If this file is called directly, abort.

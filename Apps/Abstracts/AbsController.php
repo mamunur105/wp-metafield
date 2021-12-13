@@ -59,7 +59,7 @@ abstract class AbsController {
 			$tabs = $this->settings['tabs']
 			?>
 			<div class="tinytab">
-				<div class="top-gap"> MENU </div>
+				<div class="top-gap"><?php echo esc_html_e( 'MENU', 'tinyfield' ); ?></div>
 				<?php
 				foreach ( $tabs as $key => $tab ) {
 					$active = isset( $tab['default_active'] ) && $tab['default_active'] ? 'active' : '';
@@ -141,7 +141,7 @@ abstract class AbsController {
 						default:
 					}
 				} else {
-					$update_value = null;
+					$update_value = '';
 				}
 				$field_id              = sanitize_text_field( $field['id'] );
 				$settings[ $field_id ] = $update_value;
@@ -152,8 +152,7 @@ abstract class AbsController {
 			if ( 'option' === $this->settings['settings_type'] ) {
 				$settings_json = wp_json_encode( $settings );
 				// TODO: Remove this line after checking.
-				update_option( $this->settings['id'], $settings );
-				update_option( $this->settings['id']. '_json', $settings_json );
+				update_option( $this->settings['id'], $settings_json );
 			}
 			do_action( 'tinyfield_update_settings', $settings, $post_id, $post, $update_value );
 		}

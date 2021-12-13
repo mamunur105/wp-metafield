@@ -29,7 +29,7 @@ trait Getdata {
 			return $values;
 		}
 		if ( 'option' === $this->settings['settings_type'] ) {
-			$values = get_option( $field_id . '_json' );
+			$values = get_option( $field_id );
 			$values = json_decode( $values, true );
 			$values = $this->option_data_prepare( $values );
 			return $values;

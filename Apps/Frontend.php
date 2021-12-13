@@ -26,9 +26,10 @@ class Frontend {
 	 */
 	public function get_tiny_options( $option_id = '' ) {
 		if ( ! $option_id ) {
-			return;
+			return false;
 		}
 		$values = get_option( $option_id );
+		$values = json_decode( $values, true );
 		$values = $this->option_data_prepare( $values, $option_id );
 		return $values;
 	}
@@ -41,10 +42,10 @@ class Frontend {
 	 */
 	public function get_tiny_option( $field_id = '', $option_id = '' ) {
 		if ( ! $option_id ) {
-			return;
+			return false;
 		}
 		if ( ! $field_id ) {
-			return;
+			return false;
 		}
 		$values = $this->get_tiny_options( $option_id );
 		return $values[ $field_id ];
