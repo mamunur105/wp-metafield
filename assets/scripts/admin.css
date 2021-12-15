@@ -363,7 +363,6 @@ input::-moz-focus-outer {
 
 .fields-wrapper.radio-image {
   flex-wrap: wrap;
-  padding: 0 4px;
 }
 .fields-wrapper.radio-image .field-wrapper {
   box-sizing: border-box;

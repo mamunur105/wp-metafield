@@ -9,9 +9,6 @@
 namespace Tiny\Init;
 
 use Tiny\Init\Traits\Singleton;
-use Tiny\Init\Controller\Post_Metabox;
-use Tiny\Init\Controller\Options;
-use Tiny\Init\Traits\Getdata;
 
 /**
  * Display Metabox.
@@ -48,7 +45,7 @@ class Frontend {
 			return false;
 		}
 		$values = $this->get_tiny_options( $option_id );
-		return $values[ $field_id ];
+		return isset( $values[ $field_id ] ) ? $values[ $field_id ] : false;
 	}
 
 	/**
@@ -57,7 +54,7 @@ class Frontend {
 	 * @param [type] $post_id post id.
 	 * @return mixed
 	 */
-	public function get_tiny_post_meta( $post_id = null ) {
+	public function get_tiny_meta( $post_id = null ) {
 		if ( ! $post_id ) {
 			global $post;
 			$post_id = $post->ID;
@@ -73,12 +70,12 @@ class Frontend {
 	 * @param [type] $post_id post id.
 	 * @return mixed
 	 */
-	public function get_tiny_post_meta_by_id( $field_id, $post_id = null ) {
+	public function get_tiny_meta_by_id( $field_id, $post_id = null ) {
 		if ( ! $field_id ) {
 			return false;
 		}
-		$values = $this->get_tiny_post_meta( $post_id );
-		return $values[ $field_id ];
+		$values = $this->get_tiny_meta( $post_id );
+		return isset( $values[ $field_id ] ) ? $values[ $field_id ] : false;
 	}
 
 	/**
@@ -136,8 +133,6 @@ class Frontend {
 
 		return $new_value;
 	}
-
-
 
 
 }

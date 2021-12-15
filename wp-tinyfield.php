@@ -55,7 +55,7 @@ if ( ! function_exists( 'tinyfield_setup_them' ) ) {
 		if ( class_exists( 'Tiny\Init\Loaded' ) ) {
 			Tiny\Init\Loaded::init();
 		}
-		require_once TINYFIELD_PLUGIN_DIR . '/Frontend/frontend.php';
+		require_once TINYFIELD_PLUGIN_DIR . '/Frontend/Frontend.php';
 	}
 }
 
