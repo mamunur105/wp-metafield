@@ -1,0 +1,11 @@
+.color-picker-wrapper{
+	.wp-picker-container{
+		position: relative;
+		display: inline-block;
+		.wp-picker-holder {
+			position: absolute;
+			z-index: 99;
+			top: 35px;
+		}
+	}
+}

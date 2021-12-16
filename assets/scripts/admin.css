@@ -605,6 +605,16 @@ input::-moz-focus-outer {
   color: #333;
 }
 
+.color-picker-wrapper .wp-picker-container {
+  position: relative;
+  display: inline-block;
+}
+.color-picker-wrapper .wp-picker-container .wp-picker-holder {
+  position: absolute;
+  z-index: 99;
+  top: 35px;
+}
+
 /*
 This file is used to contain all layout imports.
 Files inside this folder should contain all styles relating
