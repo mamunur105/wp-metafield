@@ -621,10 +621,4 @@ exports.ConditionalFields = (forms, options = {}) => {
 		return false;
 	}
 }
-// ConditionalFields('#post');
-// if (typeof (window) !== 'undefined') {
-// 	// Set megaForms as a browser global
-// 	window.ConditionalFields = mfConditionalFields;
-
-// }
 

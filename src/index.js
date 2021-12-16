@@ -241,6 +241,7 @@ const { Tabs } = require('./scripts/tabs');
 		Tinyfield_Metaboxes.galleryImage(),
 		Tinyfield_Metaboxes.checkBox();
 		Tinyfield_Metaboxes.Tabs();
+		// window.mfConditionalFields('#post');
 		Tinyfield_Metaboxes.Conditional();
 	});
 })(jQuery);

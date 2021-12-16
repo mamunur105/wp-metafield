@@ -109,6 +109,13 @@ class Loaded {
 			TINYFIELD_VERSION,
 			true
 		);
+		// \wp_enqueue_script(
+		// 	'conditional-fields',
+		// 	TINYFIELD_ASSETS . '/vendor/mf-conditional-fields.js',
+		// 	array( 'jquery' ),
+		// 	TINYFIELD_VERSION,
+		// 	true
+		// );
 		\wp_enqueue_script(
 			'tinyfieldgallery',
 			TINYFIELD_ASSETS . '/scripts/admin.js',

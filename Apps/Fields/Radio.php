@@ -62,10 +62,12 @@ class Radio extends GetFields {
 					if ( ! empty( $options ) ) {
 						foreach ( $options as $key => $option ) {
 							$checked = $key === $value ? 'checked' : '';
+							$field_id = $id . '_' . $key;
+
 							?>
 							<div class="checkbox-wraper">
-								<input name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $key ); ?>" type="<?php echo esc_attr( $type ); ?>" class="field" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
-								<label for="<?php echo esc_attr( $key ); ?>"> <?php echo esc_attr( $option ); ?></label>
+								<input name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $field_id ); ?>" type="<?php echo esc_attr( $type ); ?>" class="field" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
+								<label for="<?php echo esc_attr( $field_id ); ?>"> <?php echo esc_attr( $option ); ?></label>
 							</div>
 							<?php
 						}

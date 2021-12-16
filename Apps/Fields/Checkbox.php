@@ -29,9 +29,10 @@ class Checkbox extends GetFields {
 			$title     = sanitize_text_field( $this->field['title'] );
 			$desc      = sanitize_text_field( $this->field['desc'] );
 			$subtitle  = sanitize_text_field( $this->field['subtitle'] );
-			$condition = $this->get_conditional_rules( $this->field['condition'] );
 			$options   = array_map( 'esc_attr', $this->field['options'] );
 			$value     = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
+
+			$condition = $this->get_conditional_rules( $this->field['condition'] );
 			$attr      = '';
 			if ( $condition ) {
 				$attr .= ' data-conditional-rules="' . htmlspecialchars( $condition ) . '"';
@@ -49,11 +50,12 @@ class Checkbox extends GetFields {
 				<?php
 				if ( ! empty( $options ) ) {
 					foreach ( $options as $key => $option ) {
+						$field_id = $id . '_' . $key;
 						$checked = is_array( $value ) && in_array( $key, $value, true ) ? 'checked' : '';
 						?>
 							<div class="checkbox-wraper">
-								<input name="<?php echo esc_attr( $id ); ?>[]" id="<?php echo esc_attr( $key ); ?>" type="<?php echo esc_attr( $type ); ?>" class="field" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
-								<label for="<?php echo esc_attr( $key ); ?>"> <?php echo esc_attr( $option ); ?></label>
+								<input name="<?php echo esc_attr( $id ); ?>[]" id="<?php echo esc_attr( $field_id ); ?>" type="<?php echo esc_attr( $type ); ?>" class="field" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
+								<label for="<?php echo esc_attr( $field_id ); ?>"> <?php echo esc_attr( $option ); ?></label>
 							</div>
 							<?php
 					}

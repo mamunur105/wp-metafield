@@ -66,10 +66,11 @@ class RadioImage extends GetFields {
 								$width = 100 / $column;
 								foreach ( $options as $key => $btn ) {
 									$checked = $key === $value ? 'checked' : '';
+									$field_id = $id . '_' . $key;
 									?>
 									<div class="switchbtn-wraper" style="max-width:<?php echo esc_attr( $width ); ?>%;width:<?php echo esc_attr( $width ); ?>%" >
-										<input name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $key ); ?>" type="radio" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
-										<label for="<?php echo esc_attr( $key ); ?>" class="checkmark" > <img src=" <?php echo isset( $btn['url'] ) ? esc_url( $btn['url'] ) : 'https://via.placeholder.com/200'; ?>" alt="">
+										<input name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $field_id ); ?>" type="radio" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
+										<label for="<?php echo esc_attr( $field_id ); ?>" class="checkmark" > <img src=" <?php echo isset( $btn['url'] ) ? esc_url( $btn['url'] ) : 'https://via.placeholder.com/200'; ?>" alt="">
 										<div class="label-text">
 											<?php echo isset( $btn['label'] ) ? esc_html( $btn['label'] ) : ''; ?>
 										</div>
