@@ -91,7 +91,7 @@ class Options extends AbsController {
 				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
 			<?php } ?>
 			<?php $admin_url = 'admin.php?page=' . $this->settings['id']; ?>
-			<form method="post" action="<?php echo esc_url( admin_url( $admin_url ) ); ?>">
+			<form id="post" method="post" action="<?php echo esc_url( admin_url( $admin_url ) ); ?>">
 				<input type="hidden" name="tiny_option_settings" value="tiny_option_settings" />
 				<?php
 				$option_value = $this->get_value();

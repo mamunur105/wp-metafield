@@ -2,3 +2,7 @@
 *. Plugin hooks should re check ( Done )
 *. All Functionality should check And field property check ( Done )
 *. Term meta should work. ( Upcomming )
+
+Conditional field : https://codepen.io/renvrant/pen/ogeeBY/
+
+https://github.com/bomsn/mf-conditional-fields#plain-html-usage--block-based-rules-

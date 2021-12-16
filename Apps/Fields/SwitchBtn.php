@@ -39,19 +39,22 @@ class SwitchBtn extends GetFields {
 				</div>
 				<div class="field-wrapper col">
 					<div class="d-flex flex-wrap">
+						<!-- <fieldset id="<?php // echo esc_attr( $id ); ?>"> -->
 						<?php
 						if ( ! empty( $options ) ) {
 							foreach ( $options as $key => $option ) {
-								$checked = $key === $value ? 'checked' : '';
+								$checked  = $key === $value ? 'checked' : '';
+								$field_id = $id . '_' . $key;
 								?>
 								<div class="switchbtn-wraper">
-									<input name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $key ); ?>" type="radio" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
-									<label for="<?php echo esc_attr( $key ); ?>" class="checkmark" > <?php echo esc_attr( $option ); ?></label>
+									<input name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $field_id ); ?>" type="radio" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >
+									<label for="<?php echo esc_attr( $id ) . '_' . esc_attr( $key ); ?>" class="checkmark" > <?php echo esc_attr( $option ); ?></label>
 								</div>
 								<?php
 							}
 						}
 						?>
+						<!-- </fieldset> -->
 					</div>
 					<?php if ( ! empty( $desc ) ) { ?>
 						<p> <?php echo esc_html( $desc ); ?></p>

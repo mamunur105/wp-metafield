@@ -1,5 +1,7 @@
 require('./index.scss');
+const { ConditionalFields } = require('./scripts/conditional-fields');
 const { Tabs } = require('./scripts/tabs');
+
 
 (function($) {
 	'use strict';
@@ -230,7 +232,8 @@ const { Tabs } = require('./scripts/tabs');
         05 - colorpicker
     *************************************************************/
 	Tinyfield_Metaboxes.Tabs = () => Tabs() ;
-
+	Tinyfield_Metaboxes.Conditional = () => ConditionalFields('#post');
+	// window.mfConditionalFields
 	$document.on('ready', () => {
 		Tinyfield_Metaboxes.wpColorPicker(),
 		Tinyfield_Metaboxes.select2(),
@@ -238,5 +241,6 @@ const { Tabs } = require('./scripts/tabs');
 		Tinyfield_Metaboxes.galleryImage(),
 		Tinyfield_Metaboxes.checkBox();
 		Tinyfield_Metaboxes.Tabs();
+		Tinyfield_Metaboxes.Conditional();
 	});
 })(jQuery);

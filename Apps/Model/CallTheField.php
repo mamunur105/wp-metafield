@@ -71,9 +71,10 @@ class CallTheField {
 			'class'     => 'd-flex',
 			'desc'      => '',
 			'condition' => array(
-				'field'   => '',
-				'value'   => '',
-				'compare' => '',
+				'parent' => '.fields-wrapper',
+				'action' => 'show',
+				'logic'  => 'or',
+				'rules'  => array(),
 			),
 		);
 		$field    = wp_parse_args( $field, $defaults );

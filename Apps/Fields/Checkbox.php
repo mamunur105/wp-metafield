@@ -23,16 +23,22 @@ class Checkbox extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			$id       = sanitize_text_field( $this->field['id'] );
-			$type     = sanitize_text_field( $this->field['type'] );
-			$class    = sanitize_text_field( $this->field['class'] );
-			$title    = sanitize_text_field( $this->field['title'] );
-			$desc     = sanitize_text_field( $this->field['desc'] );
-			$subtitle = sanitize_text_field( $this->field['subtitle'] );
-			$options  = array_map( 'esc_attr', $this->field['options'] );
-			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
+			$id        = sanitize_text_field( $this->field['id'] );
+			$type      = sanitize_text_field( $this->field['type'] );
+			$class     = sanitize_text_field( $this->field['class'] );
+			$title     = sanitize_text_field( $this->field['title'] );
+			$desc      = sanitize_text_field( $this->field['desc'] );
+			$subtitle  = sanitize_text_field( $this->field['subtitle'] );
+			$condition = $this->get_conditional_rules( $this->field['condition'] );
+			$options   = array_map( 'esc_attr', $this->field['options'] );
+			$value     = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
+			$attr      = '';
+			if ( $condition ) {
+				$attr .= ' data-conditional-rules="' . htmlspecialchars( $condition ) . '"';
+			}
+
 			?>
-			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>">
+			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>" <?php echo esc_attr( $attr ); ?> >
 				<div class="label col">
 					<label><?php echo esc_html( $title ); ?> </label>
 				<?php if ( ! empty( $subtitle ) ) { ?>

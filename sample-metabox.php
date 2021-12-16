@@ -58,19 +58,98 @@ function testing_metadata_( $meta_boxes ) {
 			),
 
 			array(
-				'id'      => 'checkbox-field-1',
-				'title'   => esc_html__( 'Checkbox', 'tinyfield' ),
-				'type'    => 'checkbox',
+				'id'      => 'toggleswitch_field_2',
+				'title'   => esc_html__( 'Toggle Switch 2', 'tinyfield' ),
+				'type'    => 'toggleswitch',
 				'class'   => 'testname',
+				'true'    => 'TRUE',
+				'false'   => 'FALSE',
 				'tab'     => 'tabs_one',
-				'default' => array( 'iPhone', 'iPad' ),
+				'default' => 'yes', // yes or ''.
+				'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
+			),
+
+			array(
+				'id'      => 'switchbtn_field_14',
+				'title'   => esc_html__( 'Switch?', 'tinyfield' ),
+				'type'    => 'switchbtn',
+				'tab'     => 'tabs_one',
+				'class'   => 'testname',
+				'default' => 'RadioSwitch-6',
 				'options' => array(
+					'RadioSwitch-1'  => 'RadioSwitch-1',
+					'RadioSwitch-2'  => 'RadioSwitch-2',
+					'RadioSwitch-3'  => 'RadioSwitch-3',
+					'RadioSwitch-4'  => 'RadioSwitch-4',
+					'RadioSwitch-5'  => 'RadioSwitch-5',
+					'RadioSwitch-6'  => 'RadioSwitch-6',
+					'RadioSwitch-7'  => 'RadioSwitch-7',
+					'RadioSwitch-8'  => 'RadioSwitch-8',
+					'RadioSwitch-9'  => 'RadioSwitch-9',
+					'RadioSwitch-10' => 'RadioSwitch-10',
+					'RadioSwitch-11' => 'RadioSwitch-11',
+					'RadioSwitch-12' => 'RadioSwitch-12',
+					'RadioSwitch-13' => 'RadioSwitch-13',
+					'RadioSwitch-14' => 'RadioSwitch-14',
+				),
+				'desc'    => esc_html__( 'Checking switchbtn field', 'tinyfield' ),
+			),
+			array(
+				'id'      => 'switchbtn_field_13',
+				'title'   => esc_html__( 'Switch?', 'tinyfield' ),
+				'type'    => 'switchbtn',
+				'tab'     => 'tabs_one',
+				'class'   => 'testname',
+				'default' => 'RadioSwitch-6',
+				'options' => array(
+					'RadioSwitch-1'  => 'RadioSwitch-1',
+					'RadioSwitch-2'  => 'RadioSwitch-2',
+					'RadioSwitch-3'  => 'RadioSwitch-3',
+					'RadioSwitch-4'  => 'RadioSwitch-4',
+					'RadioSwitch-5'  => 'RadioSwitch-5',
+					'RadioSwitch-6'  => 'RadioSwitch-6',
+					'RadioSwitch-7'  => 'RadioSwitch-7',
+					'RadioSwitch-8'  => 'RadioSwitch-8',
+					'RadioSwitch-9'  => 'RadioSwitch-9',
+					'RadioSwitch-10' => 'RadioSwitch-10',
+					'RadioSwitch-11' => 'RadioSwitch-11',
+					'RadioSwitch-12' => 'RadioSwitch-12',
+					'RadioSwitch-13' => 'RadioSwitch-13',
+					'RadioSwitch-14' => 'RadioSwitch-14',
+				),
+				'desc'    => esc_html__( 'Checking switchbtn field', 'tinyfield' ),
+			),
+			array(
+				'id'        => 'checkbox-field-1',
+				'title'     => esc_html__( 'Checkbox', 'tinyfield' ),
+				'type'      => 'checkbox',
+				'class'     => 'testname',
+				'tab'       => 'tabs_one',
+				'default'   => array( 'iPhone', 'iPad' ),
+				'options'   => array(
 					'iPhone'  => 'iPhone label text',
 					'iPad'    => 'iPad label text',
 					'Macbook' => 'Macbook label text',
 					'iWatch'  => 'iWatch label text',
 				),
-				'desc'    => esc_html__( 'Checking checkbox Field', 'tinyfield' ),
+				'condition' => array(
+					'parent' => '.fields-wrapper',
+					'action' => 'show',
+					'logic'  => 'or',
+					'rules'  => array(
+						array(
+							'name'     => 'switchbtn_field_14',
+							'operator' => 'is',
+							'value'    => 'RadioSwitch-14',
+						),
+						array(
+							'name'     => 'switchbtn_field_13',
+							'operator' => 'is',
+							'value'    => 'RadioSwitch-12',
+						),
+					),
+				),
+				'desc'      => esc_html__( 'Checking checkbox Field', 'tinyfield' ),
 			),
 
 			array(
@@ -207,7 +286,7 @@ function testing_metadata_( $meta_boxes ) {
 				'default'     => array( '1' ),
 				'desc'        => esc_html__( 'Checking postsselect field', 'tinyfield' ),
 			),
-			
+
 			array(
 				'id'      => 'radio_field_122',
 				'title'   => esc_html__( 'Radio', 'tinyfield' ),
@@ -223,7 +302,7 @@ function testing_metadata_( $meta_boxes ) {
 				),
 				'desc'    => esc_html__( 'Checking radio field', 'tinyfield' ),
 			),
-			
+
 			array(
 				'id'      => 'radioimage_field_25',
 				'title'   => esc_html__( 'Radio Image', 'tinyfield' ),
@@ -256,7 +335,7 @@ function testing_metadata_( $meta_boxes ) {
 				),
 				'desc'    => esc_html__( 'Checking radioimage field', 'tinyfield' ),
 			),
-			
+
 			array(
 				'id'      => 'rangeslider_field_2',
 				'title'   => esc_html__( 'Range Slider', 'tinyfield' ),
@@ -268,43 +347,17 @@ function testing_metadata_( $meta_boxes ) {
 				'default' => 500,
 				'desc'    => esc_html__( 'Checking rangeslider Field', 'tinyfield' ),
 			),
-			
+
 			array(
-				'id'    => 'sidebar_field_1',
-				'title' => esc_html__( 'Sidebar', 'tinyfield' ),
-				'type'  => 'sidebar',
-				'tab'   => 'tabs_one',
-				'class' => 'testname',
-				'default' => array( 'sidebar-1' ),
-				'desc'  => esc_html__( 'Checking sidebar field', 'tinyfield' ),
-			),
-			
-			array(
-				'id'      => 'switchbtn_field_1111',
-				'title'   => esc_html__( 'Switch?', 'tinyfield' ),
-				'type'    => 'switchbtn',
+				'id'      => 'sidebar_field_1',
+				'title'   => esc_html__( 'Sidebar', 'tinyfield' ),
+				'type'    => 'sidebar',
 				'tab'     => 'tabs_one',
 				'class'   => 'testname',
-				'default' => 'RadioSwitch-6',
-				'options' => array(
-					'RadioSwitch-1'  => 'RadioSwitch-1',
-					'RadioSwitch-2'  => 'RadioSwitch-2',
-					'RadioSwitch-3'  => 'RadioSwitch-3',
-					'RadioSwitch-4'  => 'RadioSwitch-4',
-					'RadioSwitch-5'  => 'RadioSwitch-5',
-					'RadioSwitch-6'  => 'RadioSwitch-6',
-					'RadioSwitch-7'  => 'RadioSwitch-7',
-					'RadioSwitch-8'  => 'RadioSwitch-8',
-					'RadioSwitch-9'  => 'RadioSwitch-9',
-					'RadioSwitch-10' => 'RadioSwitch-10',
-					'RadioSwitch-11' => 'RadioSwitch-11',
-					'RadioSwitch-12' => 'RadioSwitch-12',
-					'RadioSwitch-13' => 'RadioSwitch-13',
-					'RadioSwitch-14' => 'RadioSwitch-14',
-				),
-				'desc'    => esc_html__( 'Checking switchbtn field', 'tinyfield' ),
+				'default' => array( 'sidebar-1' ),
+				'desc'    => esc_html__( 'Checking sidebar field', 'tinyfield' ),
 			),
-			
+
 			array(
 				'id'      => 'textarea_field_1000',
 				'title'   => esc_html__( 'Textarea field', 'tinyfield' ),
@@ -314,7 +367,7 @@ function testing_metadata_( $meta_boxes ) {
 				'default' => 'Default value Default value',
 				'desc'    => esc_html__( 'Checking textarea field', 'tinyfield' ),
 			),
-			
+
 		), // End fields.
 	); // End tinyfield_page_header_footer.
 	return $meta_boxes;
