@@ -50,8 +50,14 @@ class RangeSlider extends GetFields {
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : null;
 			wp_enqueue_script( 'range-slider' );
+			$condition = $this->get_conditional_rules( $this->field['condition'] );
+			$attr      = '';
+			if ( $condition ) {
+				$attr .= htmlspecialchars( $condition );
+			}
+
 			?>
-			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>">
+			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>" data-conditional-rules="<?php echo esc_attr( $attr ); ?>" >
 				<div class="label col">
 					<label for="<?php echo esc_attr( $id ); ?>"> <?php echo esc_html( $title ); ?> </label>
 					<?php if ( ! empty( $subtitle ) ) { ?>

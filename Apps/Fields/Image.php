@@ -27,12 +27,18 @@ class Image extends GetFields {
 			$title      = sanitize_text_field( $this->field['title'] );
 			$desc       = sanitize_text_field( $this->field['desc'] );
 			$subtitle   = sanitize_text_field( $this->field['subtitle'] );
-			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : null;
+			$value      = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : null;
 			$image_id   = intval( $value );
 			$image_url  = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : 'https://via.placeholder.com/700x200';
 			$edit_image = admin_url( 'post.php?post=' . $image_id . '&action=edit' );
+			$condition  = $this->get_conditional_rules( $this->field['condition'] );
+			$attr       = '';
+			if ( $condition ) {
+				$attr .= htmlspecialchars( $condition );
+			}
+
 			?>
-			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper image-upload <?php echo esc_attr( $class ); ?>">
+			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper image-upload <?php echo esc_attr( $class ); ?>" data-conditional-rules="<?php echo esc_attr( $attr ); ?>">
 				<div class="label col">
 					<label for="<?php echo esc_attr( $id ); ?>"> <?php echo esc_html( $title ); ?> </label>
 					<?php if ( ! empty( $subtitle ) ) { ?>

@@ -27,23 +27,15 @@ class Editor  extends GetFields {
 			$title     = sanitize_text_field( $this->field['title'] );
 			$desc      = sanitize_text_field( $this->field['desc'] );
 			$subtitle  = sanitize_text_field( $this->field['subtitle'] );
-			$require   = $this->field['condition'];
-			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : '';
-			$data_attr = '';
-
-			if ( ! empty( $require['field'] ) && ! empty( $require['value'] ) && ! empty( $require['compare'] ) ) {
-				$require_id      = $require['field'];
-				$require_value   = $require['value'];
-				$require_compare = $require['compare'];
-				$data_attr      .= ' data-required-field=field-' . $require_id;
-				$data_attr      .= ' data-required-value=' . $require_value;
-				$data_attr      .= ' data-required-compare=' . $require_compare;
-				$class          .= ' conditional-field';
-
+			$value     = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : '';
+			$condition = $this->get_conditional_rules( $this->field['condition'] );
+			$attr      = '';
+			if ( $condition ) {
+				$attr .= htmlspecialchars( $condition );
 			}
 
 			?>
-			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>" <?php echo $data_attr; ?>>
+			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>"  data-conditional-rules="<?php echo esc_attr( $attr ); ?>"  >
 				<div class="label col">
 					<label for="<?php echo esc_attr( $id ); ?>"> <?php echo esc_html( $title ); ?> </label>
 					<?php if ( ! empty( $subtitle ) ) { ?>
@@ -56,7 +48,7 @@ class Editor  extends GetFields {
 							'wpautop'       => true, // use wpautop?
 							'media_buttons' => true, // show insert/upload button(s)
 							'textarea_name' => $id, // set the textarea name to something different, square brackets [] can be used here
-							'textarea_rows' => 10,//get_option( 'default_post_edit_rows', 10 ), // rows="..." Reduce Query in this line by removing get_option function.
+							'textarea_rows' => 10, // get_option( 'default_post_edit_rows', 10 ), // rows="..." Reduce Query in this line by removing get_option function.
 							'tabindex'      => '',
 							'editor_css'    => '', // extra styles for both visual and HTML editors buttons,.
 							'editor_class'  => '', // add extra class(es) to the editor textarea.

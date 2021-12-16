@@ -23,23 +23,23 @@ class Checkbox extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			$id        = sanitize_text_field( $this->field['id'] );
-			$type      = sanitize_text_field( $this->field['type'] );
-			$class     = sanitize_text_field( $this->field['class'] );
-			$title     = sanitize_text_field( $this->field['title'] );
-			$desc      = sanitize_text_field( $this->field['desc'] );
-			$subtitle  = sanitize_text_field( $this->field['subtitle'] );
-			$options   = array_map( 'esc_attr', $this->field['options'] );
-			$value     = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
+			$id       = sanitize_text_field( $this->field['id'] );
+			$type     = sanitize_text_field( $this->field['type'] );
+			$class    = sanitize_text_field( $this->field['class'] );
+			$title    = sanitize_text_field( $this->field['title'] );
+			$desc     = sanitize_text_field( $this->field['desc'] );
+			$subtitle = sanitize_text_field( $this->field['subtitle'] );
+			$options  = array_map( 'esc_attr', $this->field['options'] );
+			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
 
 			$condition = $this->get_conditional_rules( $this->field['condition'] );
 			$attr      = '';
 			if ( $condition ) {
-				$attr .= ' data-conditional-rules="' . htmlspecialchars( $condition ) . '"';
+				$attr .= htmlspecialchars( $condition );
 			}
 
 			?>
-			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>" <?php echo esc_attr( $attr ); ?> >
+			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>" data-conditional-rules="<?php echo esc_attr( $attr ); ?>" >
 				<div class="label col">
 					<label><?php echo esc_html( $title ); ?> </label>
 				<?php if ( ! empty( $subtitle ) ) { ?>
@@ -51,7 +51,7 @@ class Checkbox extends GetFields {
 				if ( ! empty( $options ) ) {
 					foreach ( $options as $key => $option ) {
 						$field_id = $id . '_' . $key;
-						$checked = is_array( $value ) && in_array( $key, $value, true ) ? 'checked' : '';
+						$checked  = is_array( $value ) && in_array( $key, $value, true ) ? 'checked' : '';
 						?>
 							<div class="checkbox-wraper">
 								<input name="<?php echo esc_attr( $id ); ?>[]" id="<?php echo esc_attr( $field_id ); ?>" type="<?php echo esc_attr( $type ); ?>" class="field" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $checked ); ?> >

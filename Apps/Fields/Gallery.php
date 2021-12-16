@@ -27,24 +27,18 @@ class Gallery extends GetFields {
 			$title     = sanitize_text_field( $this->field['title'] );
 			$desc      = sanitize_text_field( $this->field['desc'] );
 			$subtitle  = sanitize_text_field( $this->field['subtitle'] );
-			$require   = $this->field['condition'];
-			$image_ids    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : '';
+			$image_ids = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : '';
 			$image_ids = explode( ',', $image_ids );
 			$valid_ids = '';
 			$data_attr = '';
-
-			if ( ! empty( $require['field'] ) && ! empty( $require['value'] ) && ! empty( $require['compare'] ) ) {
-				$require_id      = $require['field'];
-				$require_value   = $require['value'];
-				$require_compare = $require['compare'];
-				$data_attr      .= ' data-required-field=field-' . $require_id;
-				$data_attr      .= ' data-required-value=' . $require_value;
-				$data_attr      .= ' data-required-compare=' . $require_compare;
-				$class          .= ' conditional-field';
-
+			$condition = $this->get_conditional_rules( $this->field['condition'] );
+			$attr      = '';
+			if ( $condition ) {
+				$attr .= htmlspecialchars( $condition );
 			}
+
 			?>
-			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper flex-wrap image-gallery <?php echo esc_attr( $class ); ?>" <?php echo $data_attr; ?>>
+			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper flex-wrap image-gallery <?php echo esc_attr( $class ); ?>" data-conditional-rules="<?php echo esc_attr( $attr ); ?>">
 				<div class="label col">
 					<label for="<?php echo esc_attr( $id ); ?>"> <?php echo esc_html( $title ); ?> </label>
 					<?php if ( ! empty( $subtitle ) ) { ?>

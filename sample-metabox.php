@@ -44,16 +44,15 @@ function testing_metadata_( $meta_boxes ) {
 		'tabs_type'  => 'vertical-tab',
 		'fields'     => array(
 			// Gallery field is under construction.
-
 			array(
 				'id'      => 'toggleswitch_field_3',
-				'title'   => esc_html__( 'Toggle Switch', 'tinyfield' ),
+				'title'   => esc_html__( 'Toggle Switch 3', 'tinyfield' ),
 				'type'    => 'toggleswitch',
 				'class'   => 'testname',
 				'true'    => 'TRUE',
 				'false'   => 'FALSE',
 				'tab'     => 'tabs_one',
-				'default' => 'yes', // yes or ''.
+				'default' => '', // yes or ''.
 				'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
 			),
 
@@ -67,6 +66,18 @@ function testing_metadata_( $meta_boxes ) {
 				'tab'     => 'tabs_one',
 				'default' => 'yes', // yes or ''.
 				'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
+				'condition' => array(
+					'parent' => '.fields-wrapper',
+					'action' => 'show',
+					'logic'  => 'and',
+					'rules'  => array(
+						array(
+							'name'     => 'toggleswitch_field_3',
+							'operator' => 'is',
+							'value'    => 'yes',
+						)
+					),
+				),
 			),
 
 			array(
@@ -93,6 +104,23 @@ function testing_metadata_( $meta_boxes ) {
 					'RadioSwitch-14' => 'RadioSwitch-14',
 				),
 				'desc'    => esc_html__( 'Checking switchbtn field', 'tinyfield' ),
+				'condition' => array(
+					'parent' => '.fields-wrapper',
+					'action' => 'show',
+					'logic'  => 'and',
+					'rules'  => array(
+						array(
+							'name'     => 'toggleswitch_field_3',
+							'operator' => 'is',
+							'value'    => 'yes',
+						),
+						array(
+							'name'     => 'toggleswitch_field_2',
+							'operator' => 'isnot',
+							'value'    => 'yes',
+						)
+					),
+				),
 			),
 
 			array(
@@ -162,6 +190,23 @@ function testing_metadata_( $meta_boxes ) {
 					'iWatch'  => 'iWatch label text',
 				),
 				'desc'      => esc_html__( 'Checking checkbox Field', 'tinyfield' ),
+				'condition' => array(
+					'parent' => '.fields-wrapper',
+					'action' => 'show',
+					'logic'  => 'and',
+					'rules'  => array(
+						array(
+							'name'     => 'switchbtn_field_14',
+							'operator' => 'is',
+							'value'    => 'RadioSwitch-14',
+						),
+						array(
+							'name'     => 'toggleswitch_field_3',
+							'operator' => 'is',
+							'value'    => 'yes',
+						)
+					),
+				),
 			),
 			array(
 				'id'        => 'checkbox-field-2',
@@ -1251,32 +1296,32 @@ function texonomy_metadata_( $meta_boxes ) {
 		'classes'        => 'tinyfield-metabox-wrapper',
 		'fields'         => array(
 			// Gallery field is under construction.
-			array(
-				'id'      => 'toggleswitch_1',
-				'title'   => esc_html__( 'Toggle Switch', 'tinyfield' ),
-				'type'    => 'toggleswitch',
-				'class'   => 'testname',
-				'true'    => 'TRUE',
-				'false'   => 'FALSE',
-				'tab'     => 'tabs_one',
-				'default' => 'false', // true or false.
-				'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
-			),
-			array(
-				'id'      => 'checkbox_1',
-				'title'   => esc_html__( 'Checkbox', 'tinyfield' ),
-				'type'    => 'checkbox',
-				'class'   => 'testname',
-				'tab'     => 'tabs_one',
-				'default' => 'iPhone',
-				'options' => array(
-					'iPhone'  => 'iPhone label text',
-					'iPad'    => 'iPad label text',
-					'Macbook' => 'Macbook label text',
-					'iWatch'  => 'iWatch label text',
-				),
-				'desc'    => esc_html__( 'Checking checkbox Field', 'tinyfield' ),
-			),
+			// array(
+			// 	'id'      => 'toggleswitch_1',
+			// 	'title'   => esc_html__( 'Toggle Switch', 'tinyfield' ),
+			// 	'type'    => 'toggleswitch',
+			// 	'class'   => 'testname',
+			// 	'true'    => 'TRUE',
+			// 	'false'   => 'FALSE',
+			// 	'tab'     => 'tabs_one',
+			// 	'default' => 'false', // true or false.
+			// 	'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
+			// ),
+			// array(
+			// 	'id'      => 'checkbox_1',
+			// 	'title'   => esc_html__( 'Checkbox', 'tinyfield' ),
+			// 	'type'    => 'checkbox',
+			// 	'class'   => 'testname',
+			// 	'tab'     => 'tabs_one',
+			// 	'default' => 'iPhone',
+			// 	'options' => array(
+			// 		'iPhone'  => 'iPhone label text',
+			// 		'iPad'    => 'iPad label text',
+			// 		'Macbook' => 'Macbook label text',
+			// 		'iWatch'  => 'iWatch label text',
+			// 	),
+			// 	'desc'    => esc_html__( 'Checking checkbox Field', 'tinyfield' ),
+			// ),
 			// array(
 			// 'id'      => 'colorpicker_1',
 			// 'title'   => esc_html__( 'Color Picker', 'tinyfield' ),
