@@ -3,7 +3,8 @@
 *. Color Picker Issue ( Done )
 *. Checkbox, Radio, Radioimage, Switch select ( Done )
 *. Term meta should work. ( Upcomming )
-*. Conditional field functionality add.
+*. Conditional field functionality add and need check.
+*. Hide field metabox should remove.
 Conditional field : https://codepen.io/renvrant/pen/ogeeBY/
 
 https://github.com/bomsn/mf-conditional-fields#plain-html-usage--block-based-rules-
