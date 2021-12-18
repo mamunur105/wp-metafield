@@ -2,30 +2,35 @@
 	Global Frontend CSS
    ========================================================================== */
 
+// .display-none.on{
+//     display: block;
+//     -webkit-animation: fadeOut 1s;
+//     animation: fadeOut 1s;
+//     animation-fill-mode: forwards;
+// }
 
-.d-flex{
+
+
+.d-flex {
 	display: flex;
 }
 
-.flex-wrap{
+.flex-wrap {
 	flex-wrap: wrap;
 }
-.justify-content-center{
+.justify-content-center {
 	justify-content: center;
 }
-.justify-content-left{
+.justify-content-left {
 	justify-content: start;
 }
-.justify-content-end{
+.justify-content-end {
 	justify-content: flex-end;
 }
-.no-lightbox{
+.no-lightbox {
 	cursor: default;
 	pointer-events: none;
 }
-.pssig-lightbox{
+.pssig-lightbox {
 	cursor: pointer;
 }
-
-
-

@@ -86,7 +86,7 @@ class Options extends AbsController {
 	public function from_field() {
 		// Set class property.
 		?>
-		<div class="wrap ps-option" style="background-color: #fff;">
+		<div class="wrap tiny-option" style="background-color: #fff;">
 			<?php if ( $this->settings['page_title'] ) { ?>
 				<?php printf( '<h1>%s</h1>', esc_html( $this->settings['page_title'] ) ); ?>
 			<?php } ?>
