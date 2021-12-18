@@ -45,6 +45,14 @@ function testing_metadata_( $meta_boxes ) {
 		'fields'     => array(
 			// Gallery field is under construction.
 			array(
+				'id'      => 'repater_field',
+				'title'   => esc_html__( 'Toggle Switch 3', 'tinyfield' ),
+				'type'    => 'repater',
+				'class'   => 'testname',
+				'desc'    => esc_html__( 'Checking Repater Field', 'tinyfield' ),
+			),
+
+			array(
 				'id'      => 'toggleswitch_field_3',
 				'title'   => esc_html__( 'Toggle Switch 3', 'tinyfield' ),
 				'type'    => 'toggleswitch',
@@ -55,6 +63,7 @@ function testing_metadata_( $meta_boxes ) {
 				'default' => '', // yes or ''.
 				'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
 			),
+
 
 			array(
 				'id'        => 'toggleswitch_field_2',
