@@ -243,5 +243,30 @@ const { Tabs } = require('./scripts/tabs');
 		Tinyfield_Metaboxes.Tabs();
 		// window.mfConditionalFields('#post');
 		Tinyfield_Metaboxes.Conditional();
+		jQuery(function() {
+			let rpobj = {
+					wrapper: '.wrapper',
+					container: '.container',
+					row: '.row.repeater-inner',
+					add: '.add',
+					remove: '.remove',
+					move: '.move',
+					move_up: '.move-up',
+					move_down: '.move-down',
+					move_steps: '.move-steps',
+					template: '.template',
+					is_sortable: true,
+					before_add: null,
+					after_add: self.after_add,
+					before_remove: null,
+					after_remove: null,
+					sortable_options: null,
+					row_count_placeholder: '{{row-count-placeholder}}',
+			}
+			jQuery('.repeater').each(function() {
+				jQuery(this).repeatable_fields( rpobj );
+			});
+		});
+
 	});
 })(jQuery);

@@ -1,0 +1,31 @@
+.repeater-wrapper {
+	.repeater-inner{
+		max-width: 100%;
+		background: linear-gradient( 180deg , #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient( 180deg , #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+		-webkit-box-shadow: 4px 4px 30px rgb(0 84 146 / 10%);
+		box-shadow: 4px 4px 30px rgb(0 84 146 / 10%);
+		border-radius: 10px;
+		padding: 20px;
+		margin-bottom: 20px;
+		.col.label{
+			max-width: 20%;
+		}
+		.field-wrapper{
+			max-width: 80%;
+		}
+	}
+	.repeater {
+		width: 100%;
+		max-width: 100%;
+	}
+	.fields-wrapper{
+		padding: 10px 0;
+		border: 0;
+		// &:not(.type-checkbox),
+		&.type-image,
+		&.type-editor {
+			flex-wrap: wrap;
+		}
+	}
+}
+

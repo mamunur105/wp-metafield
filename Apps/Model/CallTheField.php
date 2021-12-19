@@ -24,6 +24,8 @@ use Tiny\Init\Fields\Sidebar;
 use Tiny\Init\Fields\Image;
 use Tiny\Init\Fields\Gallery;
 use Tiny\Init\Fields\Editor;
+use Tiny\Init\Fields\Repeater;
+
 
 /**
  * Display Field.
@@ -63,7 +65,7 @@ class CallTheField {
 	 * @return object
 	 */
 	public static function init( $field ) {
-		$defaults = array(
+		$defaults       = array(
 			'id'        => '',
 			'title'     => '',
 			'subtitle'  => '',
@@ -77,7 +79,8 @@ class CallTheField {
 				'rules'  => array(),
 			),
 		);
-		$field    = wp_parse_args( $field, $defaults );
+		$field          = wp_parse_args( $field, $defaults );
+		$field['class'] = $field['class'] . ' type-' . $field['type'];
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
@@ -152,6 +155,9 @@ class CallTheField {
 					break;
 				case 'editor':
 					$input = Editor::init( $this->field );
+					break;
+				case 'repeater':
+					$input = Repeater::init( $this->field );
 					break;
 				default:
 					break;

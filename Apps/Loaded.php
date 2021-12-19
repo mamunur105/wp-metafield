@@ -109,17 +109,17 @@ class Loaded {
 			TINYFIELD_VERSION,
 			true
 		);
-		// \wp_enqueue_script(
-		// 	'conditional-fields',
-		// 	TINYFIELD_ASSETS . '/vendor/mf-conditional-fields.js',
-		// 	array( 'jquery' ),
-		// 	TINYFIELD_VERSION,
-		// 	true
-		// );
+		\wp_enqueue_script(
+			'repeatable-fields',
+			TINYFIELD_ASSETS . '/vendor/repeatable-fields.js',
+			array( 'jquery', 'jquery-ui-sortable' ),
+			TINYFIELD_VERSION,
+			true
+		);
 		\wp_enqueue_script(
 			'tinyfieldgallery',
 			TINYFIELD_ASSETS . '/scripts/admin.js',
-			array( 'jquery' ),
+			array( 'jquery', 'jquery-ui-sortable' ),
 			TINYFIELD_VERSION,
 			true
 		);

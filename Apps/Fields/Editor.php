@@ -44,6 +44,7 @@ class Editor  extends GetFields {
 				</div>
 				<div class="field-wrapper col">
 					<?php
+						// $id
 						$settings = array(
 							'wpautop'       => true, // use wpautop?
 							'media_buttons' => true, // show insert/upload button(s)

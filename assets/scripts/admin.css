@@ -696,6 +696,33 @@ input::-moz-focus-outer {
   top: 35px;
 }
 
+.repeater-wrapper .repeater-inner {
+  max-width: 100%;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+  -webkit-box-shadow: 4px 4px 30px rgba(0, 84, 146, 0.1);
+  box-shadow: 4px 4px 30px rgba(0, 84, 146, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.repeater-wrapper .repeater-inner .col.label {
+  max-width: 20%;
+}
+.repeater-wrapper .repeater-inner .field-wrapper {
+  max-width: 80%;
+}
+.repeater-wrapper .repeater {
+  width: 100%;
+  max-width: 100%;
+}
+.repeater-wrapper .fields-wrapper {
+  padding: 10px 0;
+  border: 0;
+}
+.repeater-wrapper .fields-wrapper.type-image, .repeater-wrapper .fields-wrapper.type-editor {
+  flex-wrap: wrap;
+}
+
 /*
 This file is used to contain all layout imports.
 Files inside this folder should contain all styles relating
