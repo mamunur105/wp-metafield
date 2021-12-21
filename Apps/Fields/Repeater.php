@@ -17,23 +17,6 @@ use Tiny\Init\Traits\Singleton;
  */
 class Repeater extends GetFields {
 	use Singleton;
-	/**
-	 * Create instance
-	 *
-	 * @param array $field is an array value.
-	 * @return object
-	 */
-	public static function init( $field ) {
-		if ( ! self::$instance ) {
-			self::$instance = new self();
-		}
-		$defaults              = array(
-			'options' => array(),
-		);
-		$field                 = wp_parse_args( $field, $defaults );
-		self::$instance->field = $field;
-		return self::$instance;
-	}
 
 	/**
 	 * Return input field.
@@ -42,7 +25,8 @@ class Repeater extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			wp_enqueue_script( 'repeatable-fields' );
+			// TODO: Need Custom Repatable field.
+			// wp_enqueue_script( 'repeatable-fields' );
 			$id          = sanitize_text_field( $this->field['id'] );
 			$type        = sanitize_text_field( $this->field['type'] );
 			$class       = sanitize_text_field( $this->field['class'] );
@@ -50,8 +34,8 @@ class Repeater extends GetFields {
 			$desc        = sanitize_text_field( $this->field['desc'] );
 			$subtitle    = sanitize_text_field( $this->field['subtitle'] );
 			$innerfields = is_array( $this->field['fields'] ) ? $this->field['fields'] : '';
-			$options     = array_map( 'esc_attr', $this->field['options'] );
-			$value       = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
+			// $options     = array_map( 'esc_attr', $this->field['options'] );
+			$value = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
 
 			$condition = $this->get_conditional_rules( $this->field['condition'] );
 			$attr      = '';
@@ -73,48 +57,15 @@ class Repeater extends GetFields {
 					<div class="repeater">
 						<div class="wrapper" width="100%">
 							<div class="container">
-								<div class="template row repeater-inner">
-									<div width="80%">
-										<div class="repeater-inner--">
-											<?php
-											foreach ( $innerfields as $field ) {
-												// $field['prev_value'] = $meta_value;
-												$field['id']   = $id . '_' . $field['id'];
-												$get_the_field = CallTheField::init( $field );
-												$get_the_field->get_fields();
-											}
-											?>
-										</div>
-									</div>
-									<div width="10%">
-										<span class="move">Move Row</span>
-										<span class="move-up">Move Up</span>
-										<input type="text" class="move-steps" value="1" />
-										<span class="move-down">Move Down</span>
-									</div>
-									<div width="10%"><span class="remove">Remove</span></div>
-								</div>
+								
 								<div class="row repeater-inner">
-									<div class="field-inner" width="80%">
-										<?php
-										foreach ( $innerfields as $field ) {
-											// $field['prev_value'] = $meta_value;
-											$field['id']   = $id . '_' . $field['id'];
-											$get_the_field = CallTheField::init( $field );
-											$get_the_field->get_fields();
-										}
-										?>
-									</div>
-									<div width="10%">
-										<span class="move">Move Row</span>
-										<span class="move-up">Move Up</span>
-										<input type="text" class="move-steps" value="1" />
-										<span class="move-down">Move Down</span>
-										<span class="remove">Remove</span>
-									</div>
+									<?php
+										$this->repater_field( $id, $innerfields, true );
+										$this->repater_control();
+									?>
 								</div>
 							</div>
-							<div width="10%" colspan="4"><span class="add">Add</span></div>
+							<div width="10%" colspan="4"><span class="add tiny-button"><?php esc_html_e( 'Add New', 'tinyfield' ); ?></span></div>
 						</div>
 						<?php if ( ! empty( $desc ) ) { ?>
 							<p> <?php echo esc_html( $desc ); ?></p>
@@ -125,5 +76,51 @@ class Repeater extends GetFields {
 			<?php
 		}
 	}
+
+	/**
+	 * Return input field.
+	 *
+	 * @return mixed
+	 */
+	private function repater_control() {
+		?>
+		<div width="10%">
+			<span class="move tiny-button"><?php esc_html_e( 'Move Row', 'tinyfield' ); ?></span>
+			<span class="move-up tiny-button"><?php esc_html_e( 'Move Up', 'tinyfield' ); ?></span>
+			<input type="text" class="move-steps" value="1" />
+			<span class="move-down tiny-button"><?php esc_html_e( 'Move Down', 'tinyfield' ); ?></span>
+			<span class="remove tiny-button"><?php esc_html_e( 'Remove', 'tinyfield' ); ?></span>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param [type] $id id.
+	 * @param [type] $innerfields fields.
+	 * @param [type] $prev_value previous value.
+	 * @return void
+	 */
+	private function repater_field( $id, $innerfields, $prev_value = null ) {
+		?>
+		<div class="field-inner" width="80%">
+			<?php
+			foreach ( $innerfields as $field ) {
+				$field['id'] = $id . '[' . $field['id'] . ']' . '[{{row-count-placeholder}}]';
+				if ( $prev_value ) {
+					$field['prev_value'] = $prev_value;
+					$field['id']         = $id;
+				}
+				$get_the_field = CallTheField::init( $field );
+				$get_the_field->get_fields();
+			}
+			?>
+		</div>
+
+		<?php
+	}
+
+
 
 }

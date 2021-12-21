@@ -138,6 +138,10 @@ abstract class AbsController {
 						case 'editor':
 								$update_value = apply_filters( 'the_content', wp_unslash( $_POST[ $field['id'] ] ) );
 							break;
+						case 'repeater':
+							// error_log( print_r( $_POST[ $field['id'] ], true ), 3, __DIR__ . '/log.txt' );
+							// $update_value = $this->repatable_field_data_prepare( $this->field );
+							break;
 						default:
 					}
 				} else {
@@ -156,6 +160,15 @@ abstract class AbsController {
 			}
 			do_action( 'tinyfield_update_settings', $settings, $post_id, $post, $update_value );
 		}
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @return array
+	 */
+	public function repatable_field_data_prepare( $data ){
+		return array();
 	}
 
 }

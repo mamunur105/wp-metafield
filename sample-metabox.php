@@ -65,28 +65,49 @@ function testing_metadata_( $meta_boxes ) {
 						'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
 					),
 					array(
-						'id'        => 'toggleswitch_field_2',
-						'title'     => esc_html__( 'Toggle Switch 2', 'tinyfield' ),
-						'type'      => 'toggleswitch',
-						'class'     => 'testname',
-						'true'      => 'TRUE',
-						'false'     => 'FALSE',
-						'tab'       => 'tabs_one',
-						'default'   => 'yes', // yes or ''.
-						'desc'      => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
-						'condition' => array(
-							'parent' => '.fields-wrapper',
-							'action' => 'show',
-							'logic'  => 'and',
-							'rules'  => array(
-								array(
-									'name'     => 'toggleswitch_field_3',
-									'operator' => 'is',
-									'value'    => 'yes',
-								),
-							),
-						),
+						'id'      => 'colorpicker_field_3',
+						'title'   => esc_html__( 'Color Picker', 'tinyfield' ),
+						'type'    => 'colorpicker',
+						'tab'     => 'tabs_one',
+						'class'   => 'testname',
+						'default' => '#ff0000',
+						'desc'    => esc_html__( 'Checking colorpicker field', 'tinyfield' ),
 					),
+
+					array(
+						'id'       => 'gallery_field_12',
+						'title'    => esc_html__( 'Gallery Image', 'tinyfield' ),
+						'subtitle' => esc_html__( 'Subtitle Gallery', 'tinyfield' ),
+						'type'     => 'gallery',
+						'tab'      => 'tabs_one',
+						'class'    => 'testname',
+						'default'  => '82', // Image id '10, 15, 20'.
+						'desc'     => esc_html__( 'Checking gallery field', 'tinyfield' ),
+					),
+
+					// array(
+					// 	'id'        => 'toggleswitch_field_2',
+					// 	'title'     => esc_html__( 'Toggle Switch 2', 'tinyfield' ),
+					// 	'type'      => 'toggleswitch',
+					// 	'class'     => 'testname',
+					// 	'true'      => 'TRUE',
+					// 	'false'     => 'FALSE',
+					// 	'tab'       => 'tabs_one',
+					// 	'default'   => 'yes', // yes or ''.
+					// 	'desc'      => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
+					// 	'condition' => array(
+					// 		'parent' => '.fields-wrapper',
+					// 		'action' => 'show',
+					// 		'logic'  => 'and',
+					// 		'rules'  => array(
+					// 			array(
+					// 				'name'     => 'toggleswitch_field_3',
+					// 				'operator' => 'is',
+					// 				'value'    => 'yes',
+					// 			),
+					// 		),
+					// 	),
+					// ),
 
 					// array(
 					// 	'id'        => 'switchbtn_field_14',

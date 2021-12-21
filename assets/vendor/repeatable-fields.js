@@ -24,6 +24,7 @@
 			});
 
 			$(container).attr('data-rf-row-count', row_count);
+			
 		};
 		
 		self.default_settings = {
@@ -120,10 +121,8 @@
 						}
 
 						var steps = 1;
-						
 						if($(event.target).siblings(self.settings.move_steps).length === 1) {
 							var custom_steps = parseInt($(event.target).siblings(self.settings.move_steps).val(), 10);
-							
 							if(isNaN(custom_steps) === false && (custom_steps > 0 || custom_steps === -1)) {
 								steps = custom_steps;
 							}
@@ -135,7 +134,6 @@
 
 						if($(event.target).is(self.settings.move_up) === true) {
 							var previous_row;
-							
 							for(i = 0; steps === -1 ? true : i < steps; i++) {
 								if(previous_row === undefined) {
 									if(current_row.prev().not(self.settings.template).length === 1) {
@@ -154,7 +152,6 @@
 									}
 								}
 							}
-							
 							if(previous_row !== undefined) {
 								previous_row.before(current_row);
 							}
@@ -194,7 +191,6 @@
 
 		// Initialize all repeatable field wrappers
 		self.initialize(self);
-		
 		return self;
 	};
 })(jQuery);

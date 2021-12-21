@@ -3,39 +3,21 @@ const { ConditionalFields } = require('./scripts/conditional-fields');
 const { Tabs } = require('./scripts/tabs');
 
 
-(function($) {
+(function($, window) {
 	'use strict';
 
-	/**
-	 * All of the code for your Dashboard-specific JavaScript source
-	 * should reside in this file.
-	 * ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * Or when the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 */
-	var Tinyfield_Metaboxes = {};
-	var $window = $(window),
-		$document = $(document),
-		$select2 = $('.selectbox-wraper select'),
-		$image_upload = $('.fields-wrapper.image-upload'),
-		$galleryimage = $('.image-gallery'),
-		$colorpicker = $('.field-colorpicker'),
-		$conditional = $('.conditional-field');
+	var $body = $('body'),
+		$select2 = $body.find('.selectbox-wraper select'),
+		$image_upload = $body.find('.fields-wrapper.image-upload'),
+		$galleryimage = $body.find('.image-gallery'),
+		$colorpicker = $body.find('.field-colorpicker');
 	// Check if element exists
 	let psExists = (el) => el.length > 0;
 
 	/************************************************************
         01 - colorpicker
     *************************************************************/
-	Tinyfield_Metaboxes.wpColorPicker = () => {
+	function TinywpColorPicker() {
 		if (psExists($colorpicker)) {
 			$colorpicker.wpColorPicker();
 		}
@@ -43,7 +25,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         02 - Select2 activation
     *************************************************************/
-	Tinyfield_Metaboxes.select2 = () => {
+	function Tinyselect2(){
 		if (psExists($select2)) {
 			$select2.each(function() {
 				let parent = $(this).parent('.selectbox-wraper');
@@ -75,7 +57,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         03 - imageUpload activation
     *************************************************************/
-	Tinyfield_Metaboxes.imageUpload = () => {
+	function TinyimageUpload() {
 		if (psExists($image_upload)) {
 			// on upload button click
 			$image_upload.on('click', '.upload-btn', (e) => {
@@ -128,7 +110,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         03 - imageUpload activation
     *************************************************************/
-	Tinyfield_Metaboxes.galleryImage = () => {
+	function TinygalleryImage() {
 		if (psExists($galleryimage)) {
 			// on upload button click
 			$galleryimage.on('click', '.upload-btn', (e) => {
@@ -210,7 +192,7 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         04 - Checkbox
     *************************************************************/
-	Tinyfield_Metaboxes.checkBox = () => {
+	function TinycheckBox() {
 		let selector = $('.fields-wrapper').find( "[type=checkbox]" );
 		if (psExists(selector)) {
 			selector.each(function(index, item){
@@ -231,42 +213,28 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
         05 - colorpicker
     *************************************************************/
-	Tinyfield_Metaboxes.Tabs = () => Tabs() ;
-	Tinyfield_Metaboxes.Conditional = () => ConditionalFields('#post');
+	function TinyTabs(){ Tabs() };
+	function TinyConditional(){ ConditionalFields('#post') };
 	// window.mfConditionalFields
-	$document.on('ready', () => {
-		Tinyfield_Metaboxes.wpColorPicker(),
-		Tinyfield_Metaboxes.select2(),
-		Tinyfield_Metaboxes.imageUpload(),
-		Tinyfield_Metaboxes.galleryImage(),
-		Tinyfield_Metaboxes.checkBox();
-		Tinyfield_Metaboxes.Tabs();
-		// window.mfConditionalFields('#post');
-		Tinyfield_Metaboxes.Conditional();
-		jQuery(function() {
-			let rpobj = {
-					wrapper: '.wrapper',
-					container: '.container',
-					row: '.row.repeater-inner',
-					add: '.add',
-					remove: '.remove',
-					move: '.move',
-					move_up: '.move-up',
-					move_down: '.move-down',
-					move_steps: '.move-steps',
-					template: '.template',
-					is_sortable: true,
-					before_add: null,
-					after_add: self.after_add,
-					before_remove: null,
-					after_remove: null,
-					sortable_options: null,
-					row_count_placeholder: '{{row-count-placeholder}}',
-			}
-			jQuery('.repeater').each(function() {
-				jQuery(this).repeatable_fields( rpobj );
-			});
-		});
 
+	function Tinyreinitialize(){
+		TinywpColorPicker(),
+		Tinyselect2(),
+		TinyimageUpload(),
+		TinygalleryImage(),
+		TinycheckBox();
+		TinyTabs();
+		// window.mfConditionalFields('#post');
+		TinyConditional();
+
+	}
+
+
+	$(document).on('ready', function() {
+		Tinyreinitialize();
+		$('.tiny-button').on('click', function(){
+			Tinyreinitialize();
+		});
 	});
-})(jQuery);
+
+})(jQuery, window);
