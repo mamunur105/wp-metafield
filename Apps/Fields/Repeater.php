@@ -33,8 +33,10 @@ class Repeater extends GetFields {
 			$desc        = sanitize_text_field( $this->field['desc'] );
 			$subtitle    = sanitize_text_field( $this->field['subtitle'] );
 			$innerfields = is_array( $this->field['fields'] ) ? $this->field['fields'] : '';
-			// $options     = array_map( 'esc_attr', $this->field['options'] );
+
 			$value = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : array();
+
+			$prepare_value = $this->prepare_data( $value );
 
 			$condition = $this->get_conditional_rules( $this->field['condition'] );
 			$attr      = '';
@@ -56,7 +58,7 @@ class Repeater extends GetFields {
 					<div class="repeater">
 						<div class="wrapper" width="100%">
 							<div class="repater-container">
-								
+
 							</div>
 							<div width="10%" colspan="4"><span class="add tiny-button"><?php esc_html_e( 'Add New', 'tinyfield' ); ?></span></div>
 						</div>
@@ -69,7 +71,8 @@ class Repeater extends GetFields {
 					let <?php echo esc_attr( $make_id_to_var ); ?> = `
 						<div class="row repeater-inner">
 							<?php
-								$this->repater_field( $id, $innerfields );
+								// $default = $this->prepare_default_data( $innerfields );
+								$this->repater_field( $id, $innerfields, false );
 								$this->repater_control();
 							?>
 						</div>
@@ -110,10 +113,12 @@ class Repeater extends GetFields {
 		<div class="field-inner" width="80%">
 			<?php
 			foreach ( $innerfields as $field ) {
-				$field['id'] = $id . '[' . $field['id'] . ']';
+				$field_inner_id = $field['id'];
+				$field['id']    = $id . '[' . $field_inner_id . ']';
 				if ( $prev_value ) {
 					$field['prev_value'] = $prev_value;
-					$field['id']         = $id;
+				} else {
+					$field['prev_value'][ $field['id'] ] = isset( $field['default'] ) ? $field['default'] : '';
 				}
 				$get_the_field = CallTheField::init( $field );
 				$get_the_field->get_fields();
@@ -124,6 +129,29 @@ class Repeater extends GetFields {
 		<?php
 	}
 
+	/**
+	 * Undocumented function
+	 *
+	 * @param [type] $value prev value.
+	 * @return array
+	 */
+	private function prepare_data( $value ) {
+		$new_formate = array();
 
+		return $new_formate;
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param [type] $value prev value.
+	 * @return array
+	 */
+	// private function prepare_default_data( $innerfields ) {
+	// $new_formate = array();
+
+
+	// return $new_formate;
+	// }
 
 }

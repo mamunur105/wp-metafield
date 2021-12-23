@@ -35,7 +35,6 @@ class ColorPicker extends GetFields {
 			if ( $condition ) {
 				$attr .= htmlspecialchars( $condition );
 			}
-
 			?>
 			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>" data-conditional-rules="<?php echo esc_attr( $attr ); ?>" >
 				<div class="label col">
