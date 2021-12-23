@@ -74,7 +74,7 @@ class ToggleSwitch extends GetFields {
 				<div class="field-wrapper col d-flex flex-wrap">
 					<div class="toggle-button">
 						<label class="switch" style="--true:'<?php echo esc_attr( $this->field['true'] ); ?>'; --false:'<?php echo esc_attr( $this->field['false'] ); ?>';">
-							<input  data-conditional-rules="<?php echo esc_attr( $attr ); ?>" name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $id ); ?>" type="checkbox"  <?php echo $value ? esc_attr( 'checked' ) : ''; ?> value="yes" >
+							<input  data-conditional-rules="<?php echo esc_attr( $attr ); ?>" name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $id ); ?>" type="checkbox"  <?php echo $value ? esc_attr( 'checked="checked"' ) : ''; ?> value="yes" >
 							<span class="slider round" ></span>
 						</label>
 						<?php if ( ! empty( $desc ) ) { ?>

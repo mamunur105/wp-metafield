@@ -25,8 +25,7 @@ class Repeater extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			// TODO: Need Custom Repatable field.
-			// wp_enqueue_script( 'repeatable-fields' );
+			wp_enqueue_script( 'repeatable-fields' );
 			$id          = sanitize_text_field( $this->field['id'] );
 			$type        = sanitize_text_field( $this->field['type'] );
 			$class       = sanitize_text_field( $this->field['class'] );
@@ -43,10 +42,10 @@ class Repeater extends GetFields {
 				$attr .= htmlspecialchars( $condition );
 			}
 			// $meta_value = $this->get_value();
-
+			$make_id_to_var = str_replace( '-', '_', $id );
 			?>
 
-			<div id="field-<?php echo esc_attr( $id ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>" data-conditional-rules="<?php echo esc_attr( $attr ); ?>" >
+			<div id="field-<?php echo esc_attr( $id ); ?>" data-fields-id = "<?php echo esc_attr( $make_id_to_var ); ?>" class="fields-wrapper <?php echo esc_attr( $class ); ?>" data-conditional-rules="<?php echo esc_attr( $attr ); ?>" >
 				<div class="label col">
 					<label><?php echo esc_html( $title ); ?> </label>
 					<?php if ( ! empty( $subtitle ) ) { ?>
@@ -56,22 +55,26 @@ class Repeater extends GetFields {
 				<div class="repeater-wrapper col d-flex flex-wrap">
 					<div class="repeater">
 						<div class="wrapper" width="100%">
-							<div class="container">
+							<div class="repater-container">
 								
-								<div class="row repeater-inner">
-									<?php
-										$this->repater_field( $id, $innerfields, true );
-										$this->repater_control();
-									?>
-								</div>
 							</div>
 							<div width="10%" colspan="4"><span class="add tiny-button"><?php esc_html_e( 'Add New', 'tinyfield' ); ?></span></div>
 						</div>
 						<?php if ( ! empty( $desc ) ) { ?>
-							<p> <?php echo esc_html( $desc ); ?></p>
+							<p class="description"> <?php echo esc_html( $desc ); ?></p>
 						<?php } ?>
 					</div>
 				</div>
+				<script>
+					let <?php echo esc_attr( $make_id_to_var ); ?> = `
+						<div class="row repeater-inner">
+							<?php
+								$this->repater_field( $id, $innerfields );
+								$this->repater_control();
+							?>
+						</div>
+					`;
+				</script>
 			</div>
 			<?php
 		}
@@ -107,7 +110,7 @@ class Repeater extends GetFields {
 		<div class="field-inner" width="80%">
 			<?php
 			foreach ( $innerfields as $field ) {
-				$field['id'] = $id . '[' . $field['id'] . ']' . '[{{row-count-placeholder}}]';
+				$field['id'] = $id . '[' . $field['id'] . ']';
 				if ( $prev_value ) {
 					$field['prev_value'] = $prev_value;
 					$field['id']         = $id;

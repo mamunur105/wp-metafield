@@ -6,11 +6,7 @@ const { Tabs } = require('./scripts/tabs');
 (function($, window) {
 	'use strict';
 
-	var $body = $('body'),
-		$select2 = $body.find('.selectbox-wraper select'),
-		$image_upload = $body.find('.fields-wrapper.image-upload'),
-		$galleryimage = $body.find('.image-gallery'),
-		$colorpicker = $body.find('.field-colorpicker');
+	var $body = $('body');
 	// Check if element exists
 	let psExists = (el) => el.length > 0;
 
@@ -18,14 +14,18 @@ const { Tabs } = require('./scripts/tabs');
         01 - colorpicker
     *************************************************************/
 	function TinywpColorPicker() {
+		let $colorpicker = $body.find('.field-colorpicker');
 		if (psExists($colorpicker)) {
-			$colorpicker.wpColorPicker();
+			$colorpicker.each( function(){
+				$( this ).wpColorPicker();
+			});
 		}
 	};
 	/************************************************************
         02 - Select2 activation
     *************************************************************/
 	function Tinyselect2(){
+		let $select2 = $body.find('.selectbox-wraper select');
 		if (psExists($select2)) {
 			$select2.each(function() {
 				let parent = $(this).parent('.selectbox-wraper');
@@ -58,52 +58,55 @@ const { Tabs } = require('./scripts/tabs');
         03 - imageUpload activation
     *************************************************************/
 	function TinyimageUpload() {
-		if (psExists($image_upload)) {
-			// on upload button click
-			$image_upload.on('click', '.upload-btn', (e) => {
-				e.preventDefault();
-				var button_parent = e.target.closest('.field-wrapper'),
-					preview = button_parent.querySelector('.preview-image'),
-					input_field = button_parent.querySelector('.image_input_field'),
-					custom_uploader = wp.media({
-						title: 'Insert image',
-						library: {
-							type: 'image'
-						},
-						button: {
-							text: 'Use this image' // button label text
-						},
-						multiple: false
+		let $image_upload = $body.find('.fields-wrapper.image-upload');
+		if ( psExists( $image_upload ) ) {
+			$image_upload.each( function(){
+				// on upload button click
+				$( this ).on('click', '.upload-btn', (e) => {
+					e.preventDefault();
+					var button_parent = e.target.closest('.field-wrapper'),
+						preview = button_parent.querySelector('.preview-image'),
+						input_field = button_parent.querySelector('.image_input_field'),
+						custom_uploader = wp.media({
+							title: 'Insert image',
+							library: {
+								type: 'image'
+							},
+							button: {
+								text: 'Use this image' // button label text
+							},
+							multiple: false
+						});
+					custom_uploader.on('open', function() {
+						// var lib = custom_uploader.state().get('library');
+						var ids_value = input_field.value.split(',');
+						var selection = custom_uploader.state().get('selection');
+						ids_value.forEach(function(id) {
+							var attachment = wp.media.attachment(id);
+							attachment.fetch();
+							// lib.add( attachment ? [ attachment ] : [] );
+							selection.add(attachment ? [ attachment ] : []);
+						});
 					});
-				custom_uploader.on('open', function() {
-					// var lib = custom_uploader.state().get('library');
-					var ids_value = input_field.value.split(',');
-					var selection = custom_uploader.state().get('selection');
-					ids_value.forEach(function(id) {
-						var attachment = wp.media.attachment(id);
-						attachment.fetch();
-						// lib.add( attachment ? [ attachment ] : [] );
-						selection.add(attachment ? [ attachment ] : []);
+					custom_uploader.on('select', function() {
+						// it also has "open" and "close" events
+						var attachment = custom_uploader.state().get('selection').first().toJSON();
+						preview.style.backgroundImage = 'url(' + attachment.url + ')';
+						input_field.value = attachment.id;
+						button_parent.querySelector('.metabox-image-edit').href = admin_script.adminurl + '/post.php?post=' + attachment.id + '&action=edit';
+						button_parent.querySelector('.preview-wrap').classList.remove('button-hide');
 					});
+					custom_uploader.open();
 				});
-				custom_uploader.on('select', function() {
-					// it also has "open" and "close" events
-					var attachment = custom_uploader.state().get('selection').first().toJSON();
-					preview.style.backgroundImage = 'url(' + attachment.url + ')';
-					input_field.value = attachment.id;
-					button_parent.querySelector('.metabox-image-edit').href = admin_script.adminurl + '/post.php?post=' + attachment.id + '&action=edit';
-					button_parent.querySelector('.preview-wrap').classList.remove('button-hide');
+				$( this ).on('click', '.metabox-image-remove', (e) => {
+					e.preventDefault();
+					var button_parent = e.target.closest('.field-wrapper'),
+						preview = button_parent.querySelector('.preview-image'),
+						input_field = button_parent.querySelector('.image_input_field');
+					input_field.value = '';
+					preview.style.backgroundImage = 'url(https://via.placeholder.com/700x200)';
+					button_parent.querySelector('.preview-wrap').classList.add('button-hide');
 				});
-				custom_uploader.open();
-			});
-			$image_upload.on('click', '.metabox-image-remove', (e) => {
-				e.preventDefault();
-				var button_parent = e.target.closest('.field-wrapper'),
-					preview = button_parent.querySelector('.preview-image'),
-					input_field = button_parent.querySelector('.image_input_field');
-				input_field.value = '';
-				preview.style.backgroundImage = 'url(https://via.placeholder.com/700x200)';
-				button_parent.querySelector('.preview-wrap').classList.add('button-hide');
 			});
 		}
 	};
@@ -111,82 +114,86 @@ const { Tabs } = require('./scripts/tabs');
         03 - imageUpload activation
     *************************************************************/
 	function TinygalleryImage() {
+		let $galleryimage = $body.find('.image-gallery');
 		if (psExists($galleryimage)) {
-			// on upload button click
-			$galleryimage.on('click', '.upload-btn', (e) => {
-				e.preventDefault();
-				var button_parent = e.target.closest('.field-wrapper'),
-					preview = button_parent.querySelector('.preview-list'),
-					input_field = button_parent.querySelector('.image_input_field'),
-					custom_uploader = wp.media({
-						title: 'Insert image',
-						library: {
-							type: 'image'
-						},
-						button: {
-							text: 'Use this image' // button label text
-						},
-						multiple: 'add'
+			$galleryimage.each( function(){
+				// on upload button click
+				$( this ).on('click', '.upload-btn', (e) => {
+					e.preventDefault();
+					var button_parent = e.target.closest('.field-wrapper'),
+						preview = button_parent.querySelector('.preview-list'),
+						input_field = button_parent.querySelector('.image_input_field'),
+						custom_uploader = wp.media({
+							title: 'Insert image',
+							library: {
+								type: 'image'
+							},
+							button: {
+								text: 'Use this image' // button label text
+							},
+							multiple: 'add'
+						});
+					custom_uploader.on('open', function() {
+						// var lib = custom_uploader.state().get('library');
+						var ids_value = input_field.value.split(',');
+						var selection = custom_uploader.state().get('selection');
+						ids_value.forEach(function(id) {
+							var attachment = wp.media.attachment(id);
+							attachment.fetch();
+							// lib.add( attachment ? [ attachment ] : [] );
+							selection.add(attachment ? [ attachment ] : []);
+						});
 					});
-				custom_uploader.on('open', function() {
-					// var lib = custom_uploader.state().get('library');
-					var ids_value = input_field.value.split(',');
-					var selection = custom_uploader.state().get('selection');
-					ids_value.forEach(function(id) {
-						var attachment = wp.media.attachment(id);
-						attachment.fetch();
-						// lib.add( attachment ? [ attachment ] : [] );
-						selection.add(attachment ? [ attachment ] : []);
+					custom_uploader.on('select', function() {
+						// it also has "open" and "close" events
+						var attachment = custom_uploader.state().get('selection').toJSON();
+						var image = '';
+						var ids = [];
+						attachment.forEach((item) => {
+							if (item.id) {
+								image += '<li class="preview-wrap" data-id=' + item.id + '><div class="preview-image" style="background-image:url(' + item.url + ')"></div> <button class="metabox-image-remove"><span class="dashicons dashicons-no-alt"></span></button><a href="' + admin_script.adminurl + '/post.php?post=' + item.id + '&action=edit" class="metabox-image-edit" target="_blank"> <span class="dashicons dashicons-edit-large"></span> </a> </li>';
+								ids.push(item.id);
+							}
+						});
+						preview.innerHTML = image;
+						var filtered = ids.filter(function(el) {
+							return el != false;
+						});
+						input_field.value = filtered;
 					});
+					custom_uploader.open();
 				});
-				custom_uploader.on('select', function() {
-					// it also has "open" and "close" events
-					var attachment = custom_uploader.state().get('selection').toJSON();
-					var image = '';
-					var ids = [];
-					attachment.forEach((item) => {
-						if (item.id) {
-							image += '<li class="preview-wrap" data-id=' + item.id + '><div class="preview-image" style="background-image:url(' + item.url + ')"></div> <button class="metabox-image-remove"><span class="dashicons dashicons-no-alt"></span></button><a href="' + admin_script.adminurl + '/post.php?post=' + item.id + '&action=edit" class="metabox-image-edit" target="_blank"> <span class="dashicons dashicons-edit-large"></span> </a> </li>';
-							ids.push(item.id);
-						}
-					});
-					preview.innerHTML = image;
-					var filtered = ids.filter(function(el) {
-						return el != false;
-					});
-					input_field.value = filtered;
+				$( this ).on('click', '.metabox-image-remove', (e) => {
+					e.preventDefault();
+					var preview = e.target.closest('.preview-wrap'),
+						input_field = e.target.closest('.field-wrapper').querySelector('.image_input_field'),
+						preview_id = preview.getAttribute('data-id'),
+						input_value = input_field.value.split(','),
+						input_value = input_value.filter(function(item) {
+							return item !== preview_id;
+						});
+					preview.remove();
+					input_field.value = String(input_value);
 				});
-				custom_uploader.open();
-			});
-			$galleryimage.on('click', '.metabox-image-remove', (e) => {
-				e.preventDefault();
-				var preview = e.target.closest('.preview-wrap'),
-					input_field = e.target.closest('.field-wrapper').querySelector('.image_input_field'),
-					preview_id = preview.getAttribute('data-id'),
-					input_value = input_field.value.split(','),
-					input_value = input_value.filter(function(item) {
-						return item !== preview_id;
-					});
-				preview.remove();
-				input_field.value = String(input_value);
+
+				$( this ).find('ul.preview-list').sortable({
+					opacity: 0.8,
+					stop: function(event) {
+						// console.log( event.target.children );
+						var input_field = event.target.closest('.field-wrapper').querySelector('.image_input_field'),
+						ids = [];
+						Array.from(event.target.children).forEach(function(item) {
+							ids.push( item.getAttribute('data-id') );
+						});
+						var filtered = ids.filter(function(el) {
+							return el != false;
+						});
+						console.log(filtered);
+						input_field.value = String(filtered);
+					}
+				});
 			});
 
-			$galleryimage.find('ul.preview-list').sortable({
-				opacity: 0.8,
-				stop: function(event) {
-					// console.log( event.target.children );
-					var input_field = event.target.closest('.field-wrapper').querySelector('.image_input_field'),
-					ids = [];
-					Array.from(event.target.children).forEach(function(item) {
-						ids.push( item.getAttribute('data-id') );
-					});
-					var filtered = ids.filter(function(el) {
-						return el != false;
-					});
-					console.log(filtered);
-					input_field.value = String(filtered);
-				}
-			});
 		}
 	};
 	/************************************************************
@@ -211,11 +218,32 @@ const { Tabs } = require('./scripts/tabs');
 	}
 
 	/************************************************************
+    05 - Range Slider
+    *************************************************************/
+	// const sliders = document.querySelectorAll('.range-slider');
+
+	function TinyRangeSlider(){
+		let $rangeslider = document.querySelectorAll('.range-slider'); // '.range-slider'
+		range_slider( $rangeslider );
+	};
+
+	/************************************************************
         05 - colorpicker
     *************************************************************/
 	function TinyTabs(){ Tabs() };
 	function TinyConditional(){ ConditionalFields('#post') };
 	// window.mfConditionalFields
+
+	function Tinyclone( $this ){
+		let parent_class = $this.closest('.fields-wrapper');
+		let parent_id = parent_class.getAttribute('data-fields-id');
+		let rpc  = parent_class.querySelector('.repater-container');
+		rpc.innerHTML += eval( parent_id );
+		setTimeout( function(){
+			Tinyreinitialize();
+			console.log( "Hello" );
+		}, 50);
+	}
 
 	function Tinyreinitialize(){
 		TinywpColorPicker(),
@@ -224,17 +252,16 @@ const { Tabs } = require('./scripts/tabs');
 		TinygalleryImage(),
 		TinycheckBox();
 		TinyTabs();
-		// window.mfConditionalFields('#post');
 		TinyConditional();
-
+		TinyRangeSlider();
 	}
 
 
 	$(document).on('ready', function() {
 		Tinyreinitialize();
-		$('.tiny-button').on('click', function(){
-			Tinyreinitialize();
-		});
+	});
+	$('.tiny-button').on('click', function(){
+		Tinyclone( this );
 	});
 
 })(jQuery, window);

@@ -7,29 +7,30 @@ const settings={
 }
 
 // First find all our sliders
-const sliders = document.querySelectorAll('.range-slider');
+// const sliders = document.querySelectorAll('.range-slider');
 
 // Iterate through that list of sliders
 // ... this call goes through our array of sliders [slider1,slider2,slider3] and inserts them one-by-one into the code block below with the variable name (slider). We can then access each of wthem by calling slider
-Array.prototype.forEach.call(sliders,(slider)=>{
-  	// Look inside our slider for our input add an event listener
-	//   ... the input inside addEventListener() is looking for the input action, we could change it to something like change
-	slider.querySelector('input.range-slider__range').addEventListener('input', (event)=>{
-		slider.querySelector('input.range-slider__value').value = event.target.value;
-		applyFill(event.target);
+function range_slider( sliders ){
+	Array.prototype.forEach.call(sliders,(slider)=>{
+		// Look inside our slider for our input add an event listener
+		//   ... the input inside addEventListener() is looking for the input action, we could change it to something like change
+		slider.querySelector('input.range-slider__range').addEventListener('input', (event)=>{
+			slider.querySelector('input.range-slider__value').value = event.target.value;
+			applyFill(event.target);
+		});
+		slider.querySelector('input.range-slider__value').addEventListener('input', (event)=>{
+			let range_selector = slider.querySelector('input.range-slider__range') ;
+			slider.querySelector('input.range-slider__range').value = event.target.value;
+			if( Number( range_selector.max ) < Number( event.target.value ) ){
+				slider.querySelector('input.range-slider__value').value = range_selector.max;
+			}
+			applyFill( range_selector );
+		});
+		// Don't wait for the listener, apply it now!
+		applyFill(slider.querySelector('input.range-slider__range'));
 	});
-	slider.querySelector('input.range-slider__value').addEventListener('input', (event)=>{
-		let range_selector = slider.querySelector('input.range-slider__range') ;
-		slider.querySelector('input.range-slider__range').value = event.target.value;
-		if( Number( range_selector.max ) < Number( event.target.value ) ){
-			slider.querySelector('input.range-slider__value').value = range_selector.max;
-		}
-		applyFill( range_selector );
-	});
-	// Don't wait for the listener, apply it now!
-	applyFill(slider.querySelector('input.range-slider__range'));
-});
-
+}
 // This function applies the fill to our sliders by using a linear gradient background
 function applyFill(slider) {
 	// Let's turn our value into a percentage to figure out how far it is in between the min and max of our input
