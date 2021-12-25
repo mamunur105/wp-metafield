@@ -57,9 +57,14 @@ class Repeater extends GetFields {
 					<div class="repeater">
 						<div class="wrapper" width="100%">
 							<div class="repater-container">
-
+								<div class="row repeater-inner">
+									<?php
+										$count_number = 1 ;
+										$this->repater_field( $id, $innerfields, false, $count_number );
+									?>
+								</div>
 							</div>
-							<div width="10%" colspan="4"><span class="add tiny-button"><?php esc_html_e( 'Add New', 'tinyfield' ); ?></span></div>
+							<div width="10%" colspan="4"><span class="add tiny-button" data-count='<?php echo absint( $count_number ); ?>'><?php esc_html_e( 'Add New', 'tinyfield' ); ?></span></div>
 						</div>
 						<?php if ( ! empty( $desc ) ) { ?>
 							<p class="description"> <?php echo esc_html( $desc ); ?></p>
@@ -70,9 +75,7 @@ class Repeater extends GetFields {
 					let <?php echo esc_attr( $make_id_to_var ); ?> = `
 						<div class="row repeater-inner">
 							<?php
-								// $default = $this->prepare_default_data( $innerfields );
 								$this->repater_field( $id, $innerfields, false );
-								$this->repater_control();
 							?>
 						</div>
 					`;
@@ -107,13 +110,13 @@ class Repeater extends GetFields {
 	 * @param [type] $prev_value previous value.
 	 * @return void
 	 */
-	private function repater_field( $id, $innerfields, $prev_value = null ) {
+	private function repater_field( $id, $innerfields, $prev_value = null, $count = '{count}' ) {
 		?>
 		<div class="field-inner" width="80%">
 			<?php
 			foreach ( $innerfields as $field ) {
 				$field_inner_id = $field['id'];
-				$field['id']    = $id . '[' . $field_inner_id . ']';
+				$field['id']    = $id . '[' . $field_inner_id . '][' . $count . ']';
 				if ( $prev_value ) {
 					$field['prev_value'] = $prev_value;
 				} else {
@@ -124,8 +127,8 @@ class Repeater extends GetFields {
 			}
 			?>
 		</div>
-
 		<?php
+		$this->repater_control();
 	}
 
 	/**

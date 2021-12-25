@@ -70,7 +70,7 @@ class MultiSelect extends GetFields {
 					if ( ! empty( $options ) ) {
 						?>
 						<div class="selectbox-wraper" data-multiselect="<?php echo esc_attr( $multiselect ); ?>">
-							<select name="<?php echo esc_attr( $id ); ?>[]" id="<?php echo esc_attr( $id ); ?>" multiple>
+							<select name="<?php echo esc_attr( $id ); ?>[]" id="<?php echo esc_attr( $id ); ?>" multiple aria-hidden="true">
 							<?php
 							if ( ! $multiselect ) {
 								?>

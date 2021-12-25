@@ -21,40 +21,7 @@ const { Tabs } = require('./scripts/tabs');
 			});
 		}
 	};
-	/************************************************************
-        02 - Select2 activation
-    *************************************************************/
-	function Tinyselect2(){
-		let $select2 = $body.find('.selectbox-wraper select');
-		if (psExists($select2)) {
-			$select2.each(function() {
-				let parent = $(this).parent('.selectbox-wraper');
-				let multiselect = parent.data('multiselect');
-				let selectobj = {
-					multiple: false
-				};
-				if (Boolean(multiselect)) {
-					selectobj.multiple = true;
-				}
-				var selectEl = $(this).select2({ ...selectobj });
-				if (Boolean(multiselect)) {
-					selectEl.next().children().children().children().sortable({
-						containment: 'parent',
-						stop: (event, ui) => {
-							ui.item.parent().children('[title]').each(function() {
-								var title = $(this).attr('title');
-								var original = $('option:contains(' + title + ')', selectEl).first();
-								original.detach();
-								selectEl.append(original);
-							});
-							selectEl.change();
-						}
-					});
-				}
-				console.log( 'Hello' );
-			});
-		}
-	};
+
 	/************************************************************
         03 - imageUpload activation
     *************************************************************/
@@ -221,11 +188,10 @@ const { Tabs } = require('./scripts/tabs');
 	/************************************************************
     05 - Range Slider
     *************************************************************/
-	// const sliders = document.querySelectorAll('.range-slider');
 
 	function TinyRangeSlider(){
 		if( document.querySelectorAll('.range-slider').length ){
-			let $rangeslider = document.querySelectorAll('.range-slider'); // '.range-slider'
+			let $rangeslider = document.querySelectorAll('.range-slider');
 			range_slider( $rangeslider );
 		}
 	};
@@ -234,31 +200,67 @@ const { Tabs } = require('./scripts/tabs');
         05 - colorpicker
     *************************************************************/
 	function TinyTabs(){ Tabs() };
-	function TinyConditional(){ ConditionalFields('#post') };
 	// window.mfConditionalFields
-
-	function Tinyclone( $this ){
-		let parent_class = $this.closest('.fields-wrapper');
-		let parent_id = parent_class.getAttribute('data-fields-id');
-		let rpc  = parent_class.querySelector('.repater-container');
-		rpc.innerHTML += eval( parent_id );
-		setTimeout( function(){
-			Tinyreinitialize();
-			// console.log( "Hello" );
-		}, 5);
-	}
-
+	function TinyConditional(){ ConditionalFields('#post') };
+	/************************************************************
+        02 - Select2 activation
+    *************************************************************/
+	function Tinyselect2( $select2 ){
+		if (psExists($select2)) {
+			// destroy each select2
+			$select2.each(function(){
+				console.log( this );
+				let parent = $( this ).parent('.selectbox-wraper');
+				let multiselect = parent.attr('data-multiselect');
+				let selectobj = {
+					multiple: false
+				};
+				if (Boolean(multiselect)) {
+					selectobj.multiple = true;
+				}
+				var selectEl = $( this ).select2( selectobj );
+				if (Boolean(multiselect)) {
+					selectEl.next().children().children().children().sortable({
+						containment: 'parent',
+						stop: (event, ui) => {
+							ui.item.parent().children('[title]').each(function() {
+								let title = $(this).attr('title');
+								let original = $('option:contains(' + title + ')', selectEl).first();
+								original.detach();
+								selectEl.append(original);
+							});
+							selectEl.change();
+						}
+					});
+				}
+			});
+		}
+	};
 	function Tinyreinitialize(){
+		let $select2 = $body.find('.selectbox-wraper select');
 		TinywpColorPicker(),
-		Tinyselect2(),
 		TinyimageUpload(),
 		TinygalleryImage(),
 		TinycheckBox();
 		TinyTabs();
 		TinyConditional();
 		TinyRangeSlider();
+		Tinyselect2( $select2 );
 	}
 
+	function Tinyclone( $this ){
+		let parent_class = $( $this ).parents('.fields-wrapper');
+		let parent_id = parent_class.attr('data-fields-id');
+		let rpc  = parent_class.find('.repater-container');
+		let number = $( $this ).attr('data-count');
+		let nextCount = parseInt( number ) + 1 ;
+		let parent_string = eval( parent_id ) ;
+		parent_string = parent_string.replaceAll( '{count}', nextCount );
+		let CloneHtml = $.parseHTML( parent_string );
+		rpc.append( CloneHtml );
+		$( $this ).attr('data-count', nextCount );
+		Tinyreinitialize();
+	}
 
 	$(document).on('ready', function() {
 		Tinyreinitialize();
