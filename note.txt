@@ -9,4 +9,3 @@ Conditional field : https://codepen.io/renvrant/pen/ogeeBY/
 
 https://github.com/bomsn/mf-conditional-fields#plain-html-usage--block-based-rules-
 
-https://github.com/Rhyzz/repeatable-fields

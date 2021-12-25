@@ -41,6 +41,7 @@ class RangeSlider extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
+			wp_enqueue_script( 'range-slider' );
 			$id       = sanitize_text_field( $this->field['id'] );
 			$class    = sanitize_text_field( $this->field['class'] );
 			$title    = sanitize_text_field( $this->field['title'] );
@@ -49,7 +50,6 @@ class RangeSlider extends GetFields {
 			$desc     = sanitize_text_field( $this->field['desc'] );
 			$subtitle = sanitize_text_field( $this->field['subtitle'] );
 			$value    = isset( $this->field['prev_value'][ $id ] ) ? $this->field['prev_value'][ $id ] : null;
-			wp_enqueue_script( 'range-slider' );
 			$condition = $this->get_conditional_rules( $this->field['condition'] );
 			$attr      = '';
 			if ( $condition ) {

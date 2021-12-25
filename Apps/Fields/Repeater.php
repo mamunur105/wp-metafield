@@ -25,7 +25,6 @@ class Repeater extends GetFields {
 	 */
 	public function get_field() {
 		if ( $this->field && is_array( $this->field ) ) {
-			wp_enqueue_script( 'repeatable-fields' );
 			$id          = sanitize_text_field( $this->field['id'] );
 			$type        = sanitize_text_field( $this->field['type'] );
 			$class       = sanitize_text_field( $this->field['class'] );

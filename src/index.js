@@ -51,6 +51,7 @@ const { Tabs } = require('./scripts/tabs');
 						}
 					});
 				}
+				console.log( 'Hello' );
 			});
 		}
 	};
@@ -223,8 +224,10 @@ const { Tabs } = require('./scripts/tabs');
 	// const sliders = document.querySelectorAll('.range-slider');
 
 	function TinyRangeSlider(){
-		let $rangeslider = document.querySelectorAll('.range-slider'); // '.range-slider'
-		range_slider( $rangeslider );
+		if( document.querySelectorAll('.range-slider').length ){
+			let $rangeslider = document.querySelectorAll('.range-slider'); // '.range-slider'
+			range_slider( $rangeslider );
+		}
 	};
 
 	/************************************************************
@@ -241,8 +244,8 @@ const { Tabs } = require('./scripts/tabs');
 		rpc.innerHTML += eval( parent_id );
 		setTimeout( function(){
 			Tinyreinitialize();
-			console.log( "Hello" );
-		}, 50);
+			// console.log( "Hello" );
+		}, 5);
 	}
 
 	function Tinyreinitialize(){

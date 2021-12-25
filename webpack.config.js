@@ -32,9 +32,22 @@ module.exports = (env, argv) => {
 					use: [
 						MiniCssExtractPlugin.loader,
 						// Translates CSS into CommonJS
-						"css-loader",
+						// "css-loader",
+						//TODO: Source map Is not working.
+						{
+							loader: "css-loader",
+							options: {
+								sourceMap: true,
+							},
+						},
 						// Compiles Sass to CSS
-						"sass-loader",
+						// "sass-loader",
+						{
+							loader: "sass-loader",
+							options: {
+								sourceMap: true,
+							},
+						},
 					],
 				},
 			],

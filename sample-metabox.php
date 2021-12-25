@@ -43,17 +43,19 @@ function testing_metadata_( $meta_boxes ) {
 		),
 		'tabs_type'  => 'vertical-tab',
 		'fields'     => array(
-			array(
-				'id'      => 'toggleswitch_field_3',
-				'title'   => esc_html__( 'Toggle Switch 3', 'tinyfield' ),
-				'type'    => 'toggleswitch',
-				'class'   => 'testname',
-				'true'    => 'TRUE',
-				'false'   => 'FALSE',
-				'tab'     => 'tabs_one',
-				'default' => 'yes', // yes or ''.
-				'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
-			),
+			// array(
+			// 	'id'      => 'toggleswitch_field_3',
+			// 	'title'   => esc_html__( 'Toggle Switch 3', 'tinyfield' ),
+			// 	'type'    => 'toggleswitch',
+			// 	'class'   => 'testname',
+			// 	'true'    => 'TRUE',
+			// 	'false'   => 'FALSE',
+			// 	'tab'     => 'tabs_one',
+			// 	'default' => 'yes', // yes or ''.
+			// 	'desc'    => esc_html__( 'Checking toggleswitch Field', 'tinyfield' ),
+			// ),
+
+			
 			// Gallery field is under construction.
 			array(
 				'id'     => 'repeater_field',
@@ -63,7 +65,19 @@ function testing_metadata_( $meta_boxes ) {
 				'class'  => 'testname',
 				'desc'   => esc_html__( 'Checking Repeater Field', 'tinyfield' ),
 				'fields' => array(
+					// array(
+					// 	'id'      => 'rangeslider_field_2',
+					// 	'title'   => esc_html__( 'Range Slider', 'tinyfield' ),
+					// 	'type'    => 'rangeslider',
+					// 	'tab'     => 'tabs_one',
+					// 	'class'   => 'testname',
+					// 	'min'     => 5,
+					// 	'max'     => 1000,
+					// 	'default' => 500,
+					// 	'desc'    => esc_html__( 'Checking rangeslider Field', 'tinyfield' ),
+					// ),
 
+					/*
 					array(
 						'id'      => 'toggleswitch_field_3',
 						'title'   => esc_html__( 'Toggle Switch 3', 'tinyfield' ),
@@ -313,7 +327,7 @@ function testing_metadata_( $meta_boxes ) {
 						'default' => '#ff0000',
 						'desc'    => esc_html__( 'Checking colorpicker field', 'tinyfield' ),
 					),
-
+					*/
 					// array(
 					// 	'id'       => 'editor_field_12',
 					// 	'title'    => esc_html__( 'Editor field', 'tinyfield' ),
@@ -335,7 +349,7 @@ function testing_metadata_( $meta_boxes ) {
 					// 	'desc'     => esc_html__( 'Checking textarea field', 'tinyfield' ),
 					// ),
 					// // Make MUltiple QUery.
-
+					/*
 					array(
 						'id'       => 'gallery_field_12',
 						'title'    => esc_html__( 'Gallery Image', 'tinyfield' ),
@@ -476,7 +490,7 @@ function testing_metadata_( $meta_boxes ) {
 						'default' => 'testname testname',
 						'desc'    => esc_html__( 'Checking text field', 'tinyfield' ),
 					),
-
+					*/
 					array(
 						'id'          => 'multiselect_field_15',
 						'title'       => esc_html__( 'Multiselect Box', 'tinyfield' ),
@@ -543,7 +557,7 @@ function testing_metadata_( $meta_boxes ) {
 						),
 						'desc'        => esc_html__( 'Checking multiselect field', 'tinyfield' ),
 					),
-
+					/*
 					// // Make MUltiple QUery.
 					array(
 						'id'          => 'postsselect_2255',
@@ -729,7 +743,7 @@ function testing_metadata_( $meta_boxes ) {
 						'tab'     => 'tabs_one',
 						'default' => 'Default value Default value',
 						'desc'    => esc_html__( 'Checking textarea field', 'tinyfield' ),
-					),
+					),*/
 
 				),
 			),
