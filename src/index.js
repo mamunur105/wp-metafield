@@ -260,6 +260,7 @@ const { Tabs } = require('./scripts/tabs');
 		rpc.append( CloneHtml );
 		$( $this ).attr('data-count', nextCount );
 		Tinyreinitialize();
+		TinyConditional();
 	}
 
 	$(document).on('ready', function() {

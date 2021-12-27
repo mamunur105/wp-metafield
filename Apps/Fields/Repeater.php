@@ -57,9 +57,13 @@ class Repeater extends GetFields {
 					<div class="repeater">
 						<div class="wrapper" width="100%">
 							<div class="repater-container">
-								<div class="row repeater-inner">
+								<?php $count_number = 1 ; ?>
+								<div class="row repeater-inner collapse-out">
+									<div class="repater-header" data-accordion="<?php echo absint( $count_number ); ?>">
+										<h2 style="font-size: 15px;font-weight: 600;">Repater 1</h2>
+										<span class="dashicons dashicons-arrow-down-alt2"></span>
+									</div>
 									<?php
-										$count_number = 1 ;
 										$this->repater_field( $id, $innerfields, false, $count_number );
 									?>
 								</div>
@@ -73,7 +77,10 @@ class Repeater extends GetFields {
 				</div>
 				<script>
 					let <?php echo esc_attr( $make_id_to_var ); ?> = `
-						<div class="row repeater-inner">
+						<div class="row repeater-inner collapse-in">
+							<div class="repater-header">
+								<span class="dashicons dashicons-arrow-down-alt2"></span>
+							</div>
 							<?php
 								$this->repater_field( $id, $innerfields, false );
 							?>
@@ -92,7 +99,7 @@ class Repeater extends GetFields {
 	 */
 	private function repater_control() {
 		?>
-		<div width="10%">
+		<div class="field-control" width="10%">
 			<span class="move tiny-button"><?php esc_html_e( 'Move Row', 'tinyfield' ); ?></span>
 			<span class="move-up tiny-button"><?php esc_html_e( 'Move Up', 'tinyfield' ); ?></span>
 			<input type="text" class="move-steps" value="1" />
@@ -113,6 +120,7 @@ class Repeater extends GetFields {
 	private function repater_field( $id, $innerfields, $prev_value = null, $count = '{count}' ) {
 		?>
 		<div class="field-inner" width="80%">
+			
 			<?php
 			foreach ( $innerfields as $field ) {
 				$field_inner_id = $field['id'];

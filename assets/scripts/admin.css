@@ -704,6 +704,8 @@ input::-moz-focus-outer {
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
+  position: relative;
+  padding-top: 40px;
 }
 .repeater-wrapper .repeater-inner .col.label {
   max-width: 20%;
@@ -715,6 +717,49 @@ input::-moz-focus-outer {
   max-width: 80px;
   padding: 3px 12px;
   height: 34px;
+}
+.repeater-wrapper .repeater-inner .repater-header {
+  position: absolute;
+  align-items: center;
+  padding-right: 50px;
+  min-height: 40px;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.repeater-wrapper .repeater-inner .field-inner {
+  transition: 0.3s all;
+}
+.repeater-wrapper .repeater-inner .dashicons {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  border: 1px solid #dcdcde;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.repeater-wrapper .repeater-inner.collapse-out {
+  padding-bottom: 0;
+}
+.repeater-wrapper .repeater-inner.collapse-out .field-inner {
+  overflow: hidden;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+.repeater-wrapper .repeater-inner.collapse-out .field-control {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
+.repeater-wrapper .repeater-inner.collapse-in .dashicons:before {
+  transform: rotate(180deg);
 }
 .repeater-wrapper .repeater {
   width: 100%;
